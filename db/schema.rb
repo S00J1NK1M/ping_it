@@ -10,9 +10,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_13_124904) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_16_135211) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "matches", force: :cascade do |t|
+    t.string "name"
+    t.string "equipment"
+    t.integer "match_status"
+    t.bigint "organiser_id", null: false
+    t.bigint "buddy_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "winner_id", null: false
+    t.datetime "match_time"
+    t.string "location"
+    t.index ["buddy_id"], name: "index_matches_on_buddy_id"
+    t.index ["organiser_id"], name: "index_matches_on_organiser_id"
+    t.index ["winner_id"], name: "index_matches_on_winner_id"
+  end
+
+  create_table "pingpong_tables", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.text "description"
+    t.string "category"
+    t.boolean "availability"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.bigint "pingpong_table_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "reservation_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pingpong_table_id"], name: "index_reservations_on_pingpong_table_id"
+    t.index ["user_id"], name: "index_reservations_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -22,8 +58,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_13_124904) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "nickname"
+    t.string "city"
+    t.integer "score"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "matches", "users", column: "buddy_id"
+  add_foreign_key "matches", "users", column: "organiser_id"
+  add_foreign_key "matches", "users", column: "winner_id"
+  add_foreign_key "reservations", "pingpong_tables"
+  add_foreign_key "reservations", "users"
 end
