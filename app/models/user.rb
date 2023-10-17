@@ -6,5 +6,5 @@ class User < ApplicationRecord
          has_many :matches_as_organiser, class_name: "Match", foreign_key: "organiser_id"
          has_many :matches_as_buddy, class_name: "Match", foreign_key: "buddy_id"
          has_many :matches_as_winner, class_name: "Match", foreign_key: "winner_id"
-         has_many :pingpong_tables, through: :reservation
+         has_many :pingpong_tables, through: :reservations
         end
