@@ -10,13 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_16_135211) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_17_073122) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "matches", force: :cascade do |t|
     t.string "name"
-    t.string "equipment"
     t.integer "match_status"
     t.bigint "organiser_id", null: false
     t.bigint "buddy_id", null: false
@@ -25,6 +24,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_16_135211) do
     t.bigint "winner_id", null: false
     t.datetime "match_time"
     t.string "location"
+    t.boolean "equipment"
     t.index ["buddy_id"], name: "index_matches_on_buddy_id"
     t.index ["organiser_id"], name: "index_matches_on_organiser_id"
     t.index ["winner_id"], name: "index_matches_on_winner_id"
