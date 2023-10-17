@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_17_083139) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_17_084728) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -61,7 +61,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_17_083139) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "nickname"
-    t.string "city"
+    t.string "address"
     t.integer "score"
     t.float "latitude"
     t.float "longitude"

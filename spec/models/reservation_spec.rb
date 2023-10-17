@@ -10,3 +10,10 @@ RSpec.describe Reservation, type: :model do
     end
   end
 end
+
+RSpec.describe Reservation, type: :model do
+  context 'associations' do
+    it { should belong_to(:pingpong_table) }
+    it { should belong_to(:user) }
+  end
+end
