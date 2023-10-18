@@ -20,7 +20,7 @@ class ReservationsController < ApplicationController
     # Save
     @reservation.save
 
-    # Go to reservations/index
+    # Go to reservations/index? or reservations/:id
     redirect_to reservations_path
   end
 
