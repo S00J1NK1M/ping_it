@@ -10,3 +10,37 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+
+.mapboxgl-popup{
+  transform:none !important;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  // top: 50% !important;
+}
+
+.mapboxgl-popup-content{
+  background-color: #396BEE !important;
+  color: white;
+  border-radius: 15%;
+
+}
+
+h2 {
+  font-weight: bold;
+  font-size:20;
+}
+.mapboxgl-popup-anchor-top .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-center .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-left .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-right .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-bottom-right .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-bottom-left .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-top-right .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-top-left .mapboxgl-popup-tip{
+  display:none !important;
+}
