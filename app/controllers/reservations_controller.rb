@@ -9,7 +9,7 @@ class ReservationsController < ApplicationController
   end
 
   def create
-    @pingpong_table = Pingpong_table.find(params[:course_id])
+    @pingpong_table = PingpongTable.find(params[:pingpong_table_id])
     @reservation = Reservation.new
 
     @reservation.pingpong_table = @pingpong_table
@@ -20,8 +20,8 @@ class ReservationsController < ApplicationController
     # Save
     @reservation.save
 
-    # Go to reservations/index? or reservations/:id
-    redirect_to reservations_path
+    # Go to reservations#show
+    redirect_to pingpong_table_reservation_path(@pingpong_table, @reservation)
   end
 
   def update
