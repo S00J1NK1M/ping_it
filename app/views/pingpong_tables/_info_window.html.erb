@@ -1,8 +1,4 @@
 <h5><%= pingpong_table.category.capitalize %> <%= pingpong_table.availability %></h5>
-
 <h2><%= pingpong_table.name %></h2>
 <p><%= pingpong_table.address %></p>
-
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  <%=link_to "See more", pingpong_table_path(pingpong_table.id) %>
-</button>
+<%= link_to "See more", pingpong_table_path(pingpong_table), class: "btn btn-primary", data: { toggle: "modal", target: "#exampleModal" } %>
