@@ -1,5 +1,4 @@
 class PingpongTablesController < ApplicationController
-
   def index
     @pingpong_tables = PingpongTable.all
 
@@ -14,6 +13,7 @@ class PingpongTablesController < ApplicationController
       }
     end
   end
+
   def show
     @pingpong_table = PingpongTable.find(params[:id])
   end
