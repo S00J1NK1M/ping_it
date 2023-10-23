@@ -13,6 +13,7 @@ PingpongTable.create([{
   description: "Challenge a LeWagon student to see if they are good enough :D",
   category: "outdoor",
   availability: true
+  
 },
 
 {
