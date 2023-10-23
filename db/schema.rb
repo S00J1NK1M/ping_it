@@ -68,6 +68,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_18_140258) do
     t.datetime "updated_at", null: false
     t.float "latitude"
     t.float "longitude"
+    t.string "qr_code"
   end
 
   create_table "reservations", force: :cascade do |t|
