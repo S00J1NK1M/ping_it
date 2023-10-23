@@ -2,9 +2,12 @@
   background-color: $pink;
   color: $white;
   height: 30px;
-  width:60px;
-  align-content: center;
-  border-style: none;
+  width: 80px;
+  border-style: none !important;
+  align-content: center !important;
+  text-decoration: none;
+  border-radius: 10%;
+  vertical-align: middle;
 }
 
 .button--back {
@@ -12,6 +15,15 @@
   color:$white;
   height: 30px;
   width:60px;
+  align-content: center;
+  border-style: none;
+}
+
+.button--qrcode {
+  background-color: $pink;
+  color: $white;
+  height: 30px;
+  width: 150px;
   align-content: center;
   border-style: none;
 }
