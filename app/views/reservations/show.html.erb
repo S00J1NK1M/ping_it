@@ -1,10 +1,26 @@
 <h1>This is reservations#show page</h1>
+<h1>Availability: <%= @pingpong_table.availability %></h1>
 
-<div class="card container">
+<% if @pingpong_table.availability %>
+
+<ul>
+  <li>10 mins countdown - <strong>working on it 👩🏻‍💻</strong></li>
+  <li>Navigation map w map_controller.js</li>
+  <li>Read QR code button w camera app</li>
+</ul>
+
+<div class="container card">
   <div class="card-reservation">
     <div class="mt-4 mb-4">
       <h2>Reach to the reserved table!</h2>
     </div>
+
+  
+  <%= @svg.html_safe %>
+
+
+    <h1>Test</h1>
+    <%= link_to "Confirm that you are here", taken_pingpong_table_path(params[:pingpong_table_id], res:params[:id]), data: {turbo_method: :patch} %>
 
     <!-- countdown timer -->
     <h4>Remaining time</h4>
@@ -49,9 +65,16 @@
     <div class="d-flex justify-content-between mt-3 mb-3">
       <%= link_to "Cancel", root_path, class: "button--back center" %>
       <%= link_to "Read QR Code", root_path, class: "button--qrcode center" %>
+      <%= link_to "Read QR Code", read_pingpong_table_path(params[:pingpong_table_id], res:params[:id]), class: "button--qrcode center"%>
     </div>
 
     <!-- Open mobile camera app -->
 
   </div>
 </div>
+<% else %>
+
+<h1>Game has started</h1>
+  
+<% end %>
+
