@@ -1,6 +1,10 @@
 <h1>This is reservations#show page</h1>
 <h2>To do list</h2>
 
+<h1>Availability: <%= @pingpong_table.availability %></h1>
+
+<% if @pingpong_table.availability %>
+
 <ul>
   <li>10 mins countdown - <strong>working on it 👩🏻‍💻</strong></li>
   <li>Navigation map w map_controller.js</li>
@@ -12,6 +16,13 @@
     <h2>Reach to the reserved table!</h2>
     <h4>Remaining time</h4>
 
+  
+  <%= @svg.html_safe %>
+
+
+    <h1>Test</h1>
+    <%= link_to "Confirm that you are here", taken_pingpong_table_path(params[:pingpong_table_id], res:params[:id]), data: {turbo_method: :patch} %>
+
     <!-- countdown timer -->
     <div data-controller="timer" data-timer-target="timer">
       10:00
@@ -22,9 +33,15 @@
     <!-- 2 buttons -->
     <%= link_to "Cancel", root_path, style: "color: white"%>
     <br>
-    <%= link_to "Read QR Code", root_path, style: "color: white"%>
+    <%= link_to "Read QR Code", read_pingpong_table_path(params[:pingpong_table_id], res:params[:id])%>
 
     <!-- Open mobile camera app -->
 
   </div>
 </div>
+<% else %>
+
+<h1>Game has started</h1>
+  
+<% end %>
+

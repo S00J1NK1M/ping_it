@@ -6,8 +6,13 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   resources :pingpong_tables, only: %i[index show create] do
+    member do
+      patch "taken"
+      get "read"
+    end
     resources :reservations, only: %i[show new create]
   end
 
   resources :reservations, only: %i[index update]
 end
+
