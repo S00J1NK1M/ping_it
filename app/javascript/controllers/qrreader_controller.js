@@ -5,19 +5,37 @@ import QrScanner from 'qr-scanner';
 
 // Connects to data-controller="qrreader"
 export default class extends Controller {
-  static targets = ["reader"]
+  static targets = ["reader", "result"]
   connect() {
+
+    this.scanned = false
+
     console.log(this.element)
     this.qrScanner = new QrScanner(
-      this.element,
-      result => console.log('decoded qr code:', result),
-      { /* your options or returnDetailedScanResult: true if you're not specifying any other options */ },
+      this.readerTarget,
+      result =>
+        this.createTag(result), {
+
+      highlightCodeOutline: true
+      }
+
+
   )
 
   this.qrScanner.start();
 
   }
 
+
+  createTag(url){
+
+    console.log(url,"I am working")
+      const atag = `<a href=${url.data}> Confirm </a>`
+      this.resultTarget.insertAdjacentHTML("beforeend", atag)
+
+
+      this.qrScanner.stop();
+  }
 
 
 
