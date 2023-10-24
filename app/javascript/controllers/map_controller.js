@@ -2,8 +2,6 @@ import { Controller } from "@hotwired/stimulus"
 import mapboxgl from 'mapbox-gl'
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
 
-
-
 // Connects to data-controller="map"
 export default class extends Controller {
   static values = {
@@ -20,7 +18,7 @@ export default class extends Controller {
 
     this.map = new mapboxgl.Map({
       container: this.element,
-      style: "mapbox://styles/matteo16/clnmy3xj2001501pa131kf6yx"
+      style: "mapbox://styles/matteo16/clo2ypxbd00ht01qmah4agpon"
     })
 
     this.markersValue.forEach((marker) => {

@@ -1,12 +1,13 @@
-import { Controller } from '@hotwired/stimulus';
+import { Controller } from "@hotwired/stimulus"
 
+// Connects to data-controller="gametime"
 export default class extends Controller {
-  static targets = ['timer'];
+  static targets = ["timer"]
   connect() {
     this.startCountdown();
   }
   startCountdown() {
-    const startTime = 600; // 10 minutes in seconds
+    const startTime = 3600; // 10 minutes in seconds
     let timeLeft = startTime;
     this.updateTimerDisplay(timeLeft);
     this.timerInterval = setInterval(() => {

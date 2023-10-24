@@ -6,6 +6,11 @@
   align-content: center;
   border-style: none;
   border-radius: 5px;
+  border-style: none !important;
+  align-content: center !important;
+  text-decoration: none;
+  vertical-align: middle;
+  font-weight: bolder;
 }
 
 .button--back {
@@ -13,6 +18,15 @@
   color:$white;
   height: 30px;
   width:60px;
+  align-content: center;
+  border-style: none;
+}
+
+.button--qrcode {
+  background-color: $pink;
+  color: $white;
+  height: 30px;
+  width: 150px;
   align-content: center;
   border-style: none;
 }

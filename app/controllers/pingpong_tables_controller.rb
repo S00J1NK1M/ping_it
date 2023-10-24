@@ -1,3 +1,5 @@
+require "rqrcode"
+
 class PingpongTablesController < ApplicationController
   def index
     @pingpong_tables = PingpongTable.all
@@ -16,7 +18,30 @@ class PingpongTablesController < ApplicationController
 
   def show
     @pingpong_table = PingpongTable.find(params[:id])
+
+
   end
+
+  def taken
+
+
+    @pingpong_table = PingpongTable.find(params[:id])
+    @pingpong_table.update(availability: false)
+
+    redirect_to pingpong_table_reservation_path(@pingpong_table, params[:res])
+  end
+
+  def read_qr
+
+
+  end
+
+
+  def play
+    @ping_pong_table = PingpongTable.find(params[:id])
+    @reservation = Reservation.find(params[:res])
+  end
+  
 
   def create
   end

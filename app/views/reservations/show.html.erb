@@ -1,30 +1,49 @@
 <h1>This is reservations#show page</h1>
-<h2>To do list</h2>
+<h1>Availability: <%= @pingpong_table.availability %></h1>
 
-<ul>
-  <li>10 mins countdown - <strong>working on it 👩🏻‍💻</strong></li>
-  <li>Navigation map w map_controller.js</li>
-  <li>Read QR code button w camera app</li>
-</ul>
+<% if @pingpong_table.availability %>
+  <%= @svg.html_safe %>
+  <h1>Test</h1>
+  <%= link_to "Confirm that you are here", taken_pingpong_table_path(params[:pingpong_table_id], res:params[:id]), data: {turbo_method: :patch} %>
+
+<% else %>
+  <h3>Game has started (this text is for 60mins countdown page) </h3>
+<% end %>
 
 <div class="container card">
   <div class="card-reservation">
-    <h2>Reach to the reserved table!</h2>
-    <h4>Remaining time</h4>
+    <div class="mt-4 mb-4">
+      <h2>Reach to the reserved table!</h2>
+    </div>
 
     <!-- countdown timer -->
-    <div data-controller="timer" data-timer-target="timer">
+    <h4>Remaining time</h4>
+    <div class="timer" data-controller="timer" data-timer-target="timer">
       10:00
     </div>
-    <!-- navigation map -->
 
+    <!-- countdown progress bar -->
+    
+
+    <!-- navigation map -->
+    <div id="map" data-controller="showmap" style="width: 100%; height: 230px; position: relative"></div>
 
     <!-- 2 buttons -->
-    <%= link_to "Cancel", root_path, style: "color: white"%>
-    <br>
-    <%= link_to "Read QR Code", root_path, style: "color: white"%>
+    <div class="d-flex justify-content-between mt-3 mb-3">
+      <%= link_to "Cancel", root_path, class: "button--back center" %>
+      <%= link_to "Read QR Code", read_pingpong_table_path(params[:pingpong_table_id], res:params[:id]), class: "button--qrcode center"%>
+    </div>
 
     <!-- Open mobile camera app -->
 
   </div>
+
+<div  data-controller="accordionqr">
+  <button data-accordionqr-target="accordion" class="accordion">QR</button>
+  <div class="panel">
+   <%= @svg.html_safe %>
+  </div>
+</div>
+
+
 </div>
