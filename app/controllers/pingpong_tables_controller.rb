@@ -1,4 +1,4 @@
-require "rqrcode"
+# require "rqrcode"
 
 class PingpongTablesController < ApplicationController
   def index
@@ -41,7 +41,7 @@ class PingpongTablesController < ApplicationController
     @ping_pong_table = PingpongTable.find(params[:id])
     @reservation = Reservation.find(params[:res])
   end
-  
+
 
   def create
   end
