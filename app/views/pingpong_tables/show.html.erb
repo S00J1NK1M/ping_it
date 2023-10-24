@@ -1,15 +1,67 @@
-<h1>show page</h1>
-
-<button class="button--select" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Book
-</button>
+<div>
+  Let's Ping it, <%= current_user.nickname %>!
+</div>
 
 
 
+<div class="card m-4 card-pingpongtable-detail container ">
+  <div class="details1 mt-3">
+
+    <div class="details1_1">
+      <div class="category center">
+        <%= @pingpong_table.category %>
+      </div>
+
+      <div class="availability mx-4">
+        <% if @pingpong_table.availability = true%>
+        <p>    🟢 available 😀 </p>
+        <% else %>
+        <p>   🔴  unavailable 😭  </p>
+          <% end %>
+      </div>
+    </div>
+
+
+      <div class="x--btn">
+        <%= link_to pingpong_tables_path do %>
+        <p class="center" style="position:relative;top: -2px;">X</p>
+        <% end %>
+      </div>
+  </div>
 
 
 
+  <div class="photo-table center">
+    <%= cl_image_tag @pingpong_table.photo.key, height: 150, width: 300, crop: :fill %>
+  </div
+  >
+  <div class="name--table mt-2">
+    <h2> <%= @pingpong_table.name %> </h2>
+  </div>
 
+  <div class="address--table">
+    <p> <%= @pingpong_table.address %> </p>
+  </div>
+
+  <div class="description">
+    <p> <%= @pingpong_table.description %> </p>
+  </div>
+
+  <div class="details--last">
+    <div class="heart">
+        <%# <% if @pingpong_table.liked_by current_user %>
+          <i class="fas fa-heart fa-2x"></i>
+        <%# else %>
+          <%# <i class="far fa-heart"></i> %>
+        <%# end %>
+      <%# end %>
+    </div>
+
+    <button class="button--select" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Select
+    </button>
+  </div>
+</div>
 
 
 <!-- Modal -->

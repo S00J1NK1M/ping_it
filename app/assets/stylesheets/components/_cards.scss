@@ -4,7 +4,68 @@
 }
 
 .card-pingpongtable-detail {
+  width: 330px;
+  height: 100%;
 
+}
+
+.center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.details1{
+  display: flex;
+  justify-content: space-between;
+}
+
+.details1_1{
+  display: flex;
+  width: 250px;
+}
+
+.category {
+  color: black;
+  background-color: #D9D9D9;
+  border-radius: 30px;
+  width: 80px;
+  height: 20px;
+
+}
+
+.x--btn {
+ color:  $blue;
+ background-color: $pink;
+border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+}
+.availability {
+  color: white;
+}
+
+.name--table {
+  color: white;
+}
+
+.address--table {
+  color: white;
+}
+
+.description{
+  color: white;
+}
+
+.heart{
+  color: red;
+}
+
+.details--last{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
 }
 
 .card-reservation {

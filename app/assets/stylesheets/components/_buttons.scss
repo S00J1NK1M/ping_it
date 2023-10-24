@@ -1,12 +1,14 @@
 .button--select {
   background-color: $pink;
   color: $white;
-  height: 20px;
-  width: 80px;
+  height: 30px;
+  width:60px;
+  align-content: center;
+  border-style: none;
+  border-radius: 5px;
   border-style: none !important;
   align-content: center !important;
   text-decoration: none;
-  border-radius: 10%;
   vertical-align: middle;
   font-weight: bolder;
 }
