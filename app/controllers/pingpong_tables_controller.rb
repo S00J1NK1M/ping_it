@@ -32,10 +32,15 @@ class PingpongTablesController < ApplicationController
   end
 
   def read_qr
-    
+
 
   end
 
+
+  def play
+    @ping_pong_table = PingpongTable.find(params[:id])
+    @reservation = Reservation.find(params[:res])
+  end
   
 
   def create

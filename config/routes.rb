@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :pingpong_tables, only: %i[index show create] do
     member do
-      patch "taken"
+      get "play"
       get "read"
     end
     resources :reservations, only: %i[show new create]
