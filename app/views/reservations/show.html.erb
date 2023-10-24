@@ -23,7 +23,7 @@
     </div>
 
     <!-- countdown progress bar -->
-    
+
 
     <!-- navigation map -->
     <div id="map" data-controller="showmap" style="width: 100%; height: 230px; position: relative"></div>
@@ -39,8 +39,11 @@
   </div>
 
 <div  data-controller="accordionqr">
+
   <button data-accordionqr-target="accordion" class="accordion">QR</button>
+
   <div class="panel">
+  <%= link_to "Start Game", play_pingpong_table_path(params[:pingpong_table_id], res:params[:id]), style: "color:black" %>
    <%= @svg.html_safe %>
   </div>
 </div>
