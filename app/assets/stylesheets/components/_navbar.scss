@@ -1,12 +1,100 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
-}
-
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.navbar-lewagon .navbar-brand {
+  color: $white;
+  font-weight: bold;
+}
+
+.navbar {
+  background-color: $blue;
+  color: $white;
+  align-content: center;
+}
+
+.navbar-nav {
+  background-color: $pink;
+}
+
+button.navbar-toggler {
+  background-color: $pink;
+}
+
+.nav-link {
+  color: $white;
+  font-weight: bold;
+}
+
+.nav-link:hover {
+  color: $grey;
+}
+
+.dropdown-item {
+  color: $white;
+  font-weight: bold;
+}
+
+.dropdown-item:hover {
+  color: $grey;
+}
+
+.me-2 {
+  font-weight: bold;
+}
+
+.hr {
+  background-color: $pink;
+  height: 5px;
+  line-height: 100%;
+}
+
+.border-bottom {
+  color:$pink;
+}
+
+
+
+.fa-qrcode {
+  color: $grey;
+}
+
+.fa-qrcode:hover {
+  color: $white;
+}
+
+
+.fa-ranking-star {
+  color: $white;
+}
+
+.fa-ranking-star:hover {
+  color: $grey;
+}
+
+
+.fa-table-tennis-paddle-ball {
+  color: $white;
+}
+
+.fa-table-tennis-paddle-ball:hover {
+  color: $grey;
+}
+
+
+.fa-user {
+  color: $white;
+}
+
+.fa-user:hover {
+  color: $grey;
+}
+
+
+.fa-house {
+  color: $white;
+}
+
+.fa-house:hover {
+  color: $grey;
 }

@@ -1,4 +1,4 @@
- require "rqrcode"
+require "rqrcode"
 
 class PingpongTablesController < ApplicationController
   def index
@@ -18,13 +18,11 @@ class PingpongTablesController < ApplicationController
 
   def show
     @pingpong_table = PingpongTable.find(params[:id])
-
-
+    @my_favorite = Favorite.find_by(pingpong_table: @pingpong_table )
+    
   end
 
   def taken
-
-
     @pingpong_table = PingpongTable.find(params[:id])
     @pingpong_table.update(availability: false)
 
@@ -32,16 +30,12 @@ class PingpongTablesController < ApplicationController
   end
 
   def read_qr
-
-
   end
-
 
   def play
     @ping_pong_table = PingpongTable.find(params[:id])
     @reservation = Reservation.find(params[:res])
   end
-
 
   def create
   end

@@ -3,4 +3,10 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def profile
+    @my_favorite_tables = current_user.favorites
+
+  end
+
 end

@@ -1,26 +1,37 @@
-<h1>This is reservations#show page</h1>
-<h1>Availability: <%= @pingpong_table.availability %></h1>
 
-<% if @pingpong_table.availability %>
-  <%= @svg.html_safe %>
-  <h1>Test</h1>
-  <%= link_to "Confirm that you are here", taken_pingpong_table_path(params[:pingpong_table_id], res:params[:id]), data: {turbo_method: :patch} %>
-
-<% else %>
-  <h3>Game has started (this text is for 60mins countdown page) </h3>
-<% end %>
+<div class="avatars m-4 ">
+  <div class="user--photo img">
+  <%= image_tag "profile.png" , style: 'height:90px;width:90px;border-radius:50%;'%>
+  </div>
+  <div class="picture_icon">
+    <img src="https://res.cloudinary.com/dowrfwu4l/image/upload/v1698238230/qzupocz5xxvdhj8kixos.png" alt="Ping_it_icon" class="picture_icon" >
+  </div>
+  <div class="table--photo img">
+    <%= cl_image_tag @pingpong_table.photo.key, height: 90, width: 90, crop: :fill, :radius => 50 %>
+  </div>
+</div>
 
 <div class="container card">
+
+<%# <h1>Availability: <%= @pingpong_table.availability %></h1>
+
+<%# if @pingpong_table.availability %>
+  <%#= @svg.html_safe %>
+  <%# <h1>Test</h1> %>
+  <%#= link_to "Confirm that you are here", taken_pingpong_table_path(params[:pingpong_table_id], res:params[:id]), data: {turbo_method: :patch} %>
+
+<%# else %>
+
   <div class="card-reservation">
-    <div class="mt-4 mb-4">
-      <h2>Reach to the reserved table!</h2>
+    <div class="mt-4 ">
+      <p>TICK TOCK - Reach to your table!</p>
     </div>
 
     <!-- countdown timer -->
-    <h4>Remaining time</h4>
     <div class="timer" data-controller="timer" data-timer-target="timer">
       10:00
     </div>
+    <h4>here_should_be_animation</h4>
 
     <!-- countdown progress bar -->
 
@@ -30,23 +41,45 @@
 
     <!-- 2 buttons -->
     <div class="d-flex justify-content-between mt-3 mb-3">
-      <%= link_to "Cancel", root_path, class: "button--back center" %>
-      <%= link_to "Read QR Code", read_pingpong_table_path(params[:pingpong_table_id], res:params[:id]), class: "button--qrcode center"%>
+      <%#= link_to "Cancel Reservation", cancel_reservation_path(params[:id]), class: "cancel--btn center", data: {turbo_method: :patch}  %>
+          <button class="cancel--btn" style="width:80px;font-size:10px;height:35px;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Cancel reservation
+    </button>
+      <%= link_to "Read QR Code", read_pingpong_table_path(params[:pingpong_table_id], res:params[:id]), class: "pink--btn read--qrcode--btn center"%>
     </div>
 
     <!-- Open mobile camera app -->
 
   </div>
 
-<div  data-controller="accordionqr">
+<%# <div  data-controller="accordionqr">
 
   <button data-accordionqr-target="accordion" class="accordion">QR</button>
 
   <div class="panel">
   <%= link_to "Start Game", play_pingpong_table_path(params[:pingpong_table_id], res:params[:id]), style: "color:black" %>
-   <%= @svg.html_safe %>
-  </div>
+   <%#= @svg.html_safe %>
+  <%# </div>
+</div> %>
+
+
 </div>
 
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <%# <h1 class="modal-title fs-5" id="exampleModalLabel">Confermation</h1> %>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Back"></button>
+      </div>
+      <div class="modal-body" >
+        Do you want to cancel this table?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="cancel--btn front--size" data-bs-dismiss="modal">Back</button>
+        <%= link_to "Cancel", cancel_reservation_path(params[:id]), class: "pink--btn center width", data: {turbo_method: :patch}  %>
 
+      </div>
+    </div>
+  </div>
 </div>
