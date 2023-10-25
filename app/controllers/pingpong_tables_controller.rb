@@ -1,4 +1,6 @@
-require "rqrcode"
+
+ require "rqrcode"
+
 
 class PingpongTablesController < ApplicationController
   def index
