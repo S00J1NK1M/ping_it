@@ -1,4 +1,4 @@
-<div>
+<div class="wellcome">
   Let's Ping it, <%= current_user.nickname %>!
 </div>
 
@@ -8,7 +8,7 @@
   <div class="details1 mt-3">
 
     <div class="details1_1">
-      <div class="category center">
+      <div class="gray--btn center">
         <%= @pingpong_table.category %>
       </div>
 
@@ -48,16 +48,29 @@
   </div>
 
   <div class="details--last">
-    <div class="heart">
+
         <%# <% if @pingpong_table.liked_by current_user %>
-          <i class="fas fa-heart fa-2x"></i>
+        <% if  @my_favorite.nil? %>
+            <%= link_to pingpong_table_favorites_path(@pingpong_table), data: {turbo_method: :post}  do %>
+                  <i class="fa-regular fa-heart" style="color:red"></i>
+            <% end %>
+          <% else %>
+
+          <%= link_to favorite_path(@my_favorite), data: {turbo_method: :delete}  do %>
+                      <i class="fa-solid fa-heart" style="color:red"></i>
+            <% end %>
+
+
+        <% end %>
+
+
         <%# else %>
           <%# <i class="far fa-heart"></i> %>
         <%# end %>
       <%# end %>
-    </div>
 
-    <button class="button--select" data-bs-toggle="modal" data-bs-target="#exampleModal">
+
+    <button class="pink--btn" style="width:60px" data-bs-toggle="modal" data-bs-target="#exampleModal">
       Select
     </button>
   </div>

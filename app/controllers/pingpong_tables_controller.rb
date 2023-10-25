@@ -1,6 +1,4 @@
-
- require "rqrcode"
-
+require "rqrcode"
 
 class PingpongTablesController < ApplicationController
   def index
@@ -20,6 +18,8 @@ class PingpongTablesController < ApplicationController
 
   def show
     @pingpong_table = PingpongTable.find(params[:id])
+
+    @my_favorite = Favorite.find_by(pingpong_table: @pingpong_table )
   end
 
   def taken
