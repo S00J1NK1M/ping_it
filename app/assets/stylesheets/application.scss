@@ -26,19 +26,16 @@
 
 .mapboxgl-popup-content{
   background-color: $blue !important;
-  color: white;
+  color: $white;
+  font-weight: bolder;
   border-bottom-left-radius: 15% !important;
   border-bottom-right-radius: 15% !important;
   border-top-left-radius: 15% !important;
+  border-top-right-radius: 15% !important;
   text-align: center;
-  font-family: "Open Sans", sans-serif;
+  font-family: Helvetica Neue,Arial,Helvetica,sans-serif;
   width: fit-content;
   height: fit-content;
-}
-
-h2 {
-  font-weight: bold;
-  font-size:20;
 }
 
 .mapboxgl-ctrl-geocoder {
@@ -54,6 +51,16 @@ h2 {
 
 .mapboxgl-popup-close-button {
   background-color: $pink !important;
+  color: $white;
+  font-weight: bold;
+  border-top-right-radius: 25% !important;
+  border-bottom-left-radius: 25% !important;
+  border-bottom-right-radius: 25% !important;
+  border-top-left-radius: 25% !important;
+}
+
+h2 {
+  font-weight: bolder;
 }
 
 .mapboxgl-popup-anchor-top .mapboxgl-popup-tip,

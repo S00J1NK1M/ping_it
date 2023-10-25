@@ -1,1 +1,9 @@
+.rounded-pill {
+  background-color: $pink;
+  width: 50px;
+}
 
+.rounded-pill:hover {
+  background-color: $blue;
+  width: 55px;
+}
