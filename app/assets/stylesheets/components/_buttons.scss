@@ -1,4 +1,20 @@
-.pink--btn {
+.button--seemore {
+  background-color: $pink;
+  color: $white;
+  height: 30px;
+  width:80px;
+  text-decoration: none;
+  border-style: none;
+  border-radius: 5px;
+  border-style: none !important;
+  align-content: center !important;
+  font-weight: bolder;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button--select {
   background-color: $pink;
   color: $white;
   height: 30px;
