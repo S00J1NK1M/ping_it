@@ -1,25 +1,10 @@
-<nav class="navbar sticky-bottom fixed-bottom border-top border-5">
-
-  <ul class="navbar-nav d-flex flex-row ms-2">
-      <li class="nav-item me-3 ms-2">
-          <%= link_to "", pingpong_tables_path, class: "fa-solid fa-house" %>
-      </li>
-      <li class="nav-item me-3 ms-3">
-        <%= link_to "", pingpong_tables_path, class: "fa-solid fa-user" %>
-      </li>
-      <li class="nav-item me-3 ms-3">
-          <%= link_to "", pingpong_tables_path, class: "fa-sharp fa-solid fa-qrcode"%>
-      </li>
-      <li class="nav-item me-3 ms-3">
-          <%= link_to "", new_match_path, class: "fa-solid fa-table-tennis-paddle-ball" %>
-      </li>
-      <li class="nav-item me-2 ms-3">
-          <%= link_to "", pingpong_tables_path, class: "fa-solid fa-ranking-star" %>
-      </li>
-  </ul>
-
-  <div class="me-2">
-    <%="Ping it!"%><%=image_tag "logo.png", width: 18, alt: "Logo" %>
+<div class="menu sticky-bottom fixed-bottom">
+  <div class="menu-details">
+    <%= link_to "", pingpong_tables_path, class: "fa-solid fa-house fa-lg" %>
+    <%= link_to "", pingpong_tables_path, class: "fa-regular fa-calendar-check fa-lg" %>
+    <%= link_to "", pingpong_tables_path, class: "fa-sharp fa-solid fa-qrcode fa-lg"%>
+    <%= link_to "", matches_path, class: "fa-solid fa-table-tennis-paddle-ball fa-lg" %>
+    <%= link_to "", pingpong_tables_path, class: "fa-solid fa-user fa-lg" %>
+    <!-- for ranking :) <%= link_to "", pingpong_tables_path, class: "fa-solid fa-ranking-star" %> -->
   </div>
-
-</nav>
+</div>
