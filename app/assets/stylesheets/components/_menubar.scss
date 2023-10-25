@@ -1,0 +1,70 @@
+.menu {
+  background-color: $white;
+  border-color: grey;
+  padding: 10px;
+  position: fixed;
+  width: 100%;
+  height: 50px;
+  bottom: 0;
+  left: 0;
+  display: flex;
+}
+
+.menu-details{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex: 1;
+}
+
+// icon styling
+
+.fa-house {
+  color: $black;
+  &:hover {
+    color: $blue;
+  }
+}
+
+
+.fa-calendar-check {
+  color: $black;
+
+  &:hover {
+    color: $blue;
+  }
+}
+
+
+.fa-qrcode {
+  color: $black;
+
+  &:hover {
+    color: $neongreen;
+  }
+}
+
+.fa-table-tennis-paddle-ball {
+  color: $black;
+
+  &:hover {
+    color: $blue;
+  }
+}
+
+.fa-user {
+  color: $black;
+
+  &:hover {
+    color: $blue;
+  }
+}
+
+// ranking icon styling (pending)
+.fa-ranking-star {
+  color: $black;
+
+  &:hover {
+    color: $blue;
+  }
+}

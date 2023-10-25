@@ -7,7 +7,7 @@ export default class extends Controller {
     this.startCountdown();
   }
   startCountdown() {
-    const startTime = 3600; // 10 minutes in seconds
+    const startTime = 3600; // 60 minutes in seconds
     let timeLeft = startTime;
     this.updateTimerDisplay(timeLeft);
     this.timerInterval = setInterval(() => {

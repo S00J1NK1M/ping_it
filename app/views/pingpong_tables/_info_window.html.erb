@@ -1,10 +1,14 @@
-<h2><%= pingpong_table.name %></h2>
-<% if pingpong_table.availability == true %>
-AVAILABLE <%= image_tag "icons8-green-dot-48.png", {height: 20} %>
-<% else %>
-NOT AVAILABLE <%= image_tag "icons8-red-dot-48.png", {height: 20} %>
-<% end %>
-<br>
-<br>
-<%= link_to "See more", pingpong_table_path(pingpong_table), type: "button", class: "button--select"%>
+<div>
+  <h2><%= pingpong_table.name %></h2>
+
+  <% if pingpong_table.availability == true %>
+    AVAILABLE <%= image_tag "icons8-green-dot-48.png", {height: 20} %>
+  <% else %>
+    NOT AVAILABLE <%= image_tag "icons8-red-dot-48.png", {height: 20} %>
+  <% end %>
+  <br>
+  <br>
+  <div class="container d-flex justify-content-center">
+  <%= link_to "See more", pingpong_table_path(pingpong_table), type: "button", class: "button--seemore" %>
+  </div>
 </div>
