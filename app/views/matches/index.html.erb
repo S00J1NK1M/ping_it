@@ -1,1 +1,21 @@
 <h1>hello, this is matches page</h1>
+<DOCTYPE html>
+<html>
+<head>
+  <title>Match Cards</title>
+</head>
+<body>
+  <h1>Match Cards</h1>
+
+  <div class="match-cards">
+    <% @matches.each do |match| %>
+      <div class="match-card">
+        <h2>Match <%= match[:id] %></h2>
+        <p>Teams: <%= match[:team1] %> vs <%= match[:team2] %></p>
+        <p>Date: <%= match[:date] %></p>
+        <p>Score: <%= match[:score] %></p>
+      </div>
+    <% end %>
+  </div>
+</body>
+</html>
