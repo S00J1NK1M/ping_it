@@ -1,23 +1,25 @@
+
 <div class="avatars m-4">
   <div class="user--photo img">
-  <%= image_tag "profile.png" , style: 'height:90px;width:90px;border-radius:50%;'%>
+  <%= image_tag "profile.png" , style: 'height:70px;width:70px;border-radius:50%;'%>
   </div>
   <div class="picture_icon">
     <img src="https://res.cloudinary.com/dowrfwu4l/image/upload/v1698238230/qzupocz5xxvdhj8kixos.png" alt="Ping_it_icon" class="picture_icon" >
   </div>
   <div class="table--photo img">
-    <%= image_tag "table.png" , style: 'height:90px;width:90px;border-radius:50%;'%>
+    <%= image_tag "table.png" , style: 'height:70px;width:70px;border-radius:50%;'%>
   </div>
 </div>
 
 <div class="container card">
   <div class="card-reservation">
-    <div class="mt-4 ">
-      <h2>Reach to the reserved table!</h2>
+    <div class="mt-2">
+      <p class="mb-0"> Reach to the reserved table!
+      <br>
+      Remaining time</p>
     </div>
 
     <!-- countdown game_timer -->
-    <h4>Remaining time</h4>
     <div class="timer" data-controller="timer" data-timer-target="timer">
     10:00
     </div>
@@ -30,7 +32,7 @@
     <!-- 2 buttons -->
     <div class="d-flex justify-content-between mt-3 mb-3">
       <button class="button--cancel" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Cancel 
+        Cancel
       </button>
       <%= link_to "Read QR Code", read_pingpong_table_path(params[:pingpong_table_id], res:params[:id]), class: "button--qrcode center"%>
     </div>
