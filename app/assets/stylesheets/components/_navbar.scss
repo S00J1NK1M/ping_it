@@ -10,10 +10,11 @@
 .navbar {
   color: black;
   align-content: center;
+  background-color: white;
 }
 
 .navbar-nav {
-  background-color: $pink;
+  // background-color: $pink;
 }
 
 button.navbar-toggler {
@@ -21,7 +22,7 @@ button.navbar-toggler {
 }
 
 .nav-link {
-  color: $white;
+  color: black;
 }
 
 .nav-link:hover {

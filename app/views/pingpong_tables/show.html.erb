@@ -1,12 +1,5 @@
-<div class="wellcome">
-  Let's Ping it, <%= current_user.nickname %>!
-</div>
-
-
-
-<div class="card m-4 card-pingpongtable-detail container ">
+<div class="card m-4 card-pingpongtable-detail container">
   <div class="details1 mt-3">
-
     <div class="details1_1">
       <div class="gray--btn center">
         <%= @pingpong_table.category %>
@@ -70,7 +63,7 @@
       <%# end %>
 
 
-    <button class="pink--btn" style="width:60px" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <button class="button--select" data-bs-toggle="modal" data-bs-target="#exampleModal">
       Select
     </button>
   </div>
@@ -82,16 +75,15 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header" style="background-color:#FF00F5">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Confermation</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmation</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body" style="color:#396BEE">
-        Confirm your Ping it table!
+      <div class="modal-body">
+        <h3>Do you want to reserve the table now?</h3>
       </div>
       <div class="modal-footer">
-        <button type="button" class="button--back" data-bs-dismiss="modal">Close</button>
-        <%=link_to "Reserve the table", pingpong_table_reservations_path(@pingpong_table), data: { turbo_method: "post"} %>
-
+        <button type="button" data-bs-dismiss="modal">Close</button>
+        <%=link_to "Reserve", pingpong_table_reservations_path(@pingpong_table), data: { turbo_method: "post"}, class: "button--seemore" %>
       </div>
     </div>
   </div>
