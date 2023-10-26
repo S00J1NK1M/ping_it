@@ -26,6 +26,16 @@ class ReservationsController < ApplicationController
     redirect_to pingpong_table_reservation_path(@pingpong_table, @reservation)
   end
 
+  def cancel
+    @reservation = Reservation.find(params[:id])
+    @pingpong_table = @reservation.pingpong_table
+    @pingpong_table.update(availability: true)
+
+    @reservation.destroy
+
+    redirect_to root_path
+  end
+
   def update
   end
 

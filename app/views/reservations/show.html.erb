@@ -1,52 +1,64 @@
-<h1>This is reservations#show page</h1>
-<h1>Availability: <%= @pingpong_table.availability %></h1>
-
-<% if @pingpong_table.availability %>
-  <%= @svg.html_safe %>
-  <h1>Test</h1>
-  <%= link_to "Confirm that you are here", taken_pingpong_table_path(params[:pingpong_table_id], res:params[:id]), data: {turbo_method: :patch} %>
-
-<% else %>
-  <h3>Game has started (this text is for 60mins countdown page) </h3>
-<% end %>
+<div class="avatars m-4">
+  <div class="user--photo img">
+  <%= image_tag "profile.png" , style: 'height:90px;width:90px;border-radius:50%;'%>
+  </div>
+  <div class="picture_icon">
+    <img src="https://res.cloudinary.com/dowrfwu4l/image/upload/v1698238230/qzupocz5xxvdhj8kixos.png" alt="Ping_it_icon" class="picture_icon" >
+  </div>
+  <div class="table--photo img">
+    <%= image_tag "table.png" , style: 'height:90px;width:90px;border-radius:50%;'%>
+  </div>
+</div>
 
 <div class="container card">
   <div class="card-reservation">
-    <div class="mt-4 mb-4">
+    <div class="mt-4 ">
       <h2>Reach to the reserved table!</h2>
     </div>
 
     <!-- countdown game_timer -->
     <h4>Remaining time</h4>
     <div class="timer" data-controller="timer" data-timer-target="timer">
-      10:00
+    10:00
     </div>
 
     <!-- countdown progress bar -->
-
 
     <!-- navigation map -->
     <div id="map" data-controller="showmap" style="width: 100%; height: 230px; position: relative"></div>
 
     <!-- 2 buttons -->
     <div class="d-flex justify-content-between mt-3 mb-3">
-      <%= link_to "Cancel", root_path, class: "button--back center" %>
+      <button class="button--cancel" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Cancel 
+      </button>
       <%= link_to "Read QR Code", read_pingpong_table_path(params[:pingpong_table_id], res:params[:id]), class: "button--qrcode center"%>
     </div>
-
-    <!-- Open mobile camera app -->
-
   </div>
 
-<div  data-controller="accordionqr">
-
-  <button data-accordionqr-target="accordion" class="accordion">QR</button>
-
+<div data-controller="accordionqr">
+  <button data-accordionqr-target="accordion" class="accordion" style="color:#396BEE">QR</button>
   <div class="panel">
   <%= link_to "Start Game", play_pingpong_table_path(params[:pingpong_table_id], res:params[:id]), style: "color:black" %>
    <%= @svg.html_safe %>
   </div>
 </div>
+</div>
 
-
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <%# <h1 class="modal-title fs-5" id="exampleModalLabel">Confermation</h1> %>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Back"></button>
+      </div>
+      <div class="modal-body">
+        <h4>Do you want to cancel this table?</h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="button--select front--size" data-bs-dismiss="modal">Back</button>
+        <%= link_to "Cancel", cancel_reservation_path(params[:id]), class: "button--cancel center", data: {turbo_method: :patch}  %>
+      </div>
+    </div>
+  </div>
 </div>

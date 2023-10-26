@@ -3,27 +3,26 @@
 }
 
 .navbar-lewagon .navbar-brand {
-  color: $white;
-  font-weight: bold;
+  color: black;
+  font-weight: 4;
 }
 
 .navbar {
-  background-color: $blue;
-  color: $white;
+  color: black;
   align-content: center;
+  background-color: white;
 }
 
 .navbar-nav {
-  background-color: $pink;
+  // background-color: $pink;
 }
 
 button.navbar-toggler {
-  background-color: $pink;
+
 }
 
 .nav-link {
-  color: $white;
-  font-weight: bold;
+  color: black;
 }
 
 .nav-link:hover {
@@ -32,7 +31,6 @@ button.navbar-toggler {
 
 .dropdown-item {
   color: $white;
-  font-weight: bold;
 }
 
 .dropdown-item:hover {
@@ -51,50 +49,4 @@ button.navbar-toggler {
 
 .border-bottom {
   color:$pink;
-}
-
-
-
-.fa-qrcode {
-  color: $grey;
-}
-
-.fa-qrcode:hover {
-  color: $white;
-}
-
-
-.fa-ranking-star {
-  color: $white;
-}
-
-.fa-ranking-star:hover {
-  color: $grey;
-}
-
-
-.fa-table-tennis-paddle-ball {
-  color: $white;
-}
-
-.fa-table-tennis-paddle-ball:hover {
-  color: $grey;
-}
-
-
-.fa-user {
-  color: $white;
-}
-
-.fa-user:hover {
-  color: $grey;
-}
-
-
-.fa-house {
-  color: $white;
-}
-
-.fa-house:hover {
-  color: $grey;
 }

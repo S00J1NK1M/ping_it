@@ -1,14 +1,7 @@
-<div>
-  Let's Ping it, <%= current_user.nickname %>!
-</div>
-
-
-
-<div class="card m-4 card-pingpongtable-detail container ">
+<div class="card m-4 card-pingpongtable-detail container">
   <div class="details1 mt-3">
-
     <div class="details1_1">
-      <div class="category center">
+      <div class="gray--btn center">
         <%= @pingpong_table.category %>
       </div>
 
@@ -48,14 +41,27 @@
   </div>
 
   <div class="details--last">
-    <div class="heart">
+
         <%# <% if @pingpong_table.liked_by current_user %>
-          <i class="fas fa-heart fa-2x"></i>
+        <% if  @my_favorite.nil? %>
+            <%= link_to pingpong_table_favorites_path(@pingpong_table), data: {turbo_method: :post}  do %>
+                  <i class="fa-regular fa-heart" style="color:red"></i>
+            <% end %>
+          <% else %>
+
+          <%= link_to favorite_path(@my_favorite), data: {turbo_method: :delete}  do %>
+                      <i class="fa-solid fa-heart" style="color:red"></i>
+            <% end %>
+
+
+        <% end %>
+
+
         <%# else %>
           <%# <i class="far fa-heart"></i> %>
         <%# end %>
       <%# end %>
-    </div>
+
 
     <button class="button--select" data-bs-toggle="modal" data-bs-target="#exampleModal">
       Select
@@ -69,16 +75,15 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header" style="background-color:#FF00F5">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Confermation</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmation</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body" style="color:#396BEE">
-        Confirm your Ping it table!
+      <div class="modal-body">
+        <h3>Do you want to reserve the table now?</h3>
       </div>
       <div class="modal-footer">
-        <button type="button" class="button--back" data-bs-dismiss="modal">Close</button>
-        <%=link_to "Reserve the table", pingpong_table_reservations_path(@pingpong_table), data: { turbo_method: "post"} %>
-
+        <button type="button" data-bs-dismiss="modal">Close</button>
+        <%=link_to "Reserve", pingpong_table_reservations_path(@pingpong_table), data: { turbo_method: "post"}, class: "button--seemore" %>
       </div>
     </div>
   </div>
