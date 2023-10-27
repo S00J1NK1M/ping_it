@@ -16,6 +16,10 @@ Rails.application.routes.draw do
     resources :reservations, only: %i[show new create]
   end
 
+  resources :users, only: [:show] do
+    get 'favorite_tables', on: :member
+  end
+
   resources :favorites, only: %i[destroy]
 
   resources :reservations, only: %i[index update] do
