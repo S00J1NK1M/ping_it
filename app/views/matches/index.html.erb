@@ -1,21 +1,11 @@
-<h1>hello, this is matches page</h1>
-<DOCTYPE html>
-<html>
-<head>
-  <title>Match Cards</title>
-</head>
-<body>
-  <h1>Match Cards</h1>
+<h1>add a match :))</h1>  <%=link_to "Create", new_match_path(@match), data: { turbo_method: "get"}, class: "button--seemore" %>
+<h1>Match Cards</h1>
 
-  <div class="match-cards">
-    <% @matches.each do |match| %>
-      <div class="match-card">
-        <h2>Match <%= match[:id] %></h2>
-        <p>Teams: <%= match[:team1] %> vs <%= match[:team2] %></p>
-        <p>Date: <%= match[:date] %></p>
-        <p>Score: <%= match[:score] %></p>
-      </div>
-    <% end %>
-  </div>
-</body>
-</html>
+<ul>
+  <% @matches.each do |match| %>
+    <li><%= match.name %></li>
+    <li><%= match.location %></li>
+    <li><%= match.match_time %></li>
+    <li><%= match.equipment %></li>
+  <% end %>
+</ul>
