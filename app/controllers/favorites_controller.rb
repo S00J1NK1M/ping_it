@@ -9,6 +9,15 @@ class FavoritesController < ApplicationController
     redirect_to pingpong_table_path(@pingpong_table)
   end
 
+  def show
+    @user = User.find(params[:id])
+  end
+
+  def favorite_tables
+    @user = User.find(params[:id])
+    @favorite_tables = @user.pingpong_tables
+  end
+
   def destroy
     @favorite = Favorite.find(params[:id])
     @pingpong_table = @favorite.pingpong_table
@@ -16,6 +25,5 @@ class FavoritesController < ApplicationController
     @favorite.destroy
 
     redirect_to pingpong_table_path(@pingpong_table)
-
   end
 end
