@@ -9,7 +9,14 @@ class MatchesController < ApplicationController
   end
 
   def create
+    @match = Match.new(match_params)
+    @match.save
+    redirect_to matches_path
   end
 
-  
+  private
+
+  def match_params
+    params.require(:match).permit(:name, :location)
+  end
 end
