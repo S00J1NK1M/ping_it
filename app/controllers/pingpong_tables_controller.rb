@@ -27,7 +27,7 @@ class PingpongTablesController < ApplicationController
     # the line below makes the pingpong table unavaliable & QR code is not working
     # Please leave the line below as commented
     # @pingpong_table.update(availability: false)
-    
+
     redirect_to pingpong_table_reservation_path(@pingpong_table, params[:res])
   end
 
