@@ -1,11 +1,20 @@
-<h1>add a match :))</h1>  <%=link_to "Create", new_match_path(@match), data: { turbo_method: "get"}, class: "button--seemore" %>
-<h1>Match Cards</h1>
+<div class="container d-flex">
+  <div>
+    <h2>Ping it Match List</h2>
+  </div>
 
-<ul>
-  <% @matches.each do |match| %>
-    <li><%= match.name %></li>
-    <li><%= match.location %></li>
-    <li><%= match.match_time %></li>
-    <li><%= match.equipment %></li>
-  <% end %>
-</ul>
+  <div>
+    <%=link_to "Create", new_match_path(@match), data: { turbo_method: "get"}, class: "button--seemore" %>
+  </div>
+</div>
+
+<div>
+  <ul>
+    <% @matches.each do |match| %>
+      <li><%= match.name %></li>
+      <li><%= match.location %></li>
+      <li><%= match.match_time %></li>
+      <li><%= match.equipment %></li>
+    <% end %>
+  </ul>
+</div>
