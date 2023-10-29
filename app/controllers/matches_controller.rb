@@ -10,13 +10,16 @@ class MatchesController < ApplicationController
 
   def create
     @match = Match.new(match_params)
-    @match.save
-    redirect_to matches_path
+    if @match.save
+      redirect_to matches_path(@match)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   private
 
   def match_params
-    params.require(:match).permit(:name, :location)
+    params.require(:match).permit(:name, :match_time, :location, :equipment)
   end
 end
