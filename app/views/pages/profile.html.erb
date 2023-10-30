@@ -1,24 +1,60 @@
-<div class="matches flex ">
-  <h1 class="fs18">My Matches</h1>
+
+<div data-controller="match">
+  <div class="matches flex ">
+    <h1 class="fs18">My Matches</h1>
     <div class="pink">
-    <p>More </p>
+      <a href="#"class="pink">More</a>
+
+    </div>
   </div>
-</div>
+
+
+
 
   <div class="match--card card">
-    <h1 class="match--card--title">No matches yet!</h1>
+    <h1 class="match--card--title">
+            <%# if @my_favorite_tables.empty? %>
+  <h1>No live matches</h1>
+<%# else %>
+    <div class="flex">
+    <div class="user--photo img">
+  <%= image_tag "profile.png" , style: 'height:70px;width:70px;border-radius:50%;'%>
   </div>
-<div class="match--card">
+  <div class="title">
+    <p>The fast&furious match- when Matteo add, we will change</p>
+    <p>Date Matteo will add</p>
 
-<div class="flex">
-  <div class="avatar">
+    <div class="address--table">
+    <p> <%= @my_favorite_tables.first.pingpong_table.address %> </p>
+  </div>
 
   </div>
-  <div class="info--match">
-    <%=  %>
   </div>
-</div>
+  <div class="flex">
+    <div class="user--name">
 
+    </div>
+
+    
+
+  </div>
+      
+      
+ <%end%>
+
+    </div>
+  <div class="match--card">
+
+  <div class="flex">
+    <div class="avatar">
+
+    </div>
+    <div class="info--match">
+      <%=  %>
+    </div>
+  </div>
+
+  </div>
 </div>
 
 <div class="favorites flex ">
