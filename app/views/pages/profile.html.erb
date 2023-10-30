@@ -59,7 +59,7 @@
 
 <!-- My Profile: My Favorite Tables -->
 
-<div data-controller="favorite" >
+<div data-controller="favorites" >
   <div class="favorites flex mt-3">
     <h1 class="fs18">My Favorite Tables</h1>
     <div class="pink">
@@ -73,16 +73,33 @@
         <%= cl_image_tag favorite.pingpong_table.photo.key, height: 90, width: 90, crop: :fill, :radius => 50  %>
         <p class="fs8 d-none center" data-favorites-target="firstText"><%= favorite.pingpong_table.name %> </p>
       </div>
-     <% end %>
+    <% end %>
     </div>
 
 
+
     <div class="grid mb-2 d-none" data-favorites-target="togglableElement">
+    <% if @my_favorite_tables.length > 3 %>
       <% @my_favorite_tables[3..@my_favorite_tables.length].each do |favorite| %>
         <div>
           <%= cl_image_tag favorite.pingpong_table.photo.key, height: 90, width: 90, crop: :fill, :radius => 50  %>
           <p class="fs8 center"><%= favorite.pingpong_table.name %> </p>
         </div>
       <% end %>
+      <% else %>
+       <% @my_favorite_tables.each do |favorite| %>
+        <div>
+          <%= cl_image_tag favorite.pingpong_table.photo.key, height: 90, width: 90, crop: :fill, :radius => 50  %>
+          <p class="fs8 center"><%= favorite.pingpong_table.name %> </p>
+        </div>
+      <% end %>
+
     </div>
+    <% end %>
+
+
+
+
+
+
 </div>
