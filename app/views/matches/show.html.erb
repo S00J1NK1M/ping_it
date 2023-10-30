@@ -1,0 +1,13 @@
+<div class="container card">
+  Your match:<%= @match.name %>
+  <ul>
+    <li> Place: <%= @match.location %> </li>
+    <li> Time: <%= @match.match_time %> </li>
+
+    <%= link_to edit_match_path(@match) do %><i class="fa-regular fa-pen-to-square"></i><% end %>
+    <%= link_to match_path(@match), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
+      <i class="fa-regular fa-trash-can"></i>
+    <% end %>
+  </ul>
+  <%= link_to 'Back', matches_path, type: "button", class: "button--cancel" %>
+</div>

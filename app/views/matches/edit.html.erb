@@ -1,8 +1,7 @@
 <div class="container card">
-  <h1>New match</h1>
+  <h1>Editing match</h1>
 
   <%= render 'form' %>
-
-
+  <%= link_to 'Show', @match, type: "button", class: "button--seemore" %>
   <%= link_to 'Back', matches_path, type: "button", class: "button--cancel" %>
 </div>

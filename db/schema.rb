@@ -55,10 +55,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_25_091317) do
     t.string "name"
     t.integer "match_status"
     t.bigint "organiser_id", null: false
-    t.bigint "buddy_id", null: false
+    t.bigint "buddy_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "winner_id", null: false
+    t.bigint "winner_id"
     t.datetime "match_time"
     t.string "location"
     t.boolean "equipment"
