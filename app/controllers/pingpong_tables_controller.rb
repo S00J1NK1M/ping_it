@@ -11,19 +11,22 @@ class PingpongTablesController < ApplicationController
 
         name: pingpong_table.name,
         info_window_html: render_to_string(partial: "info_window", locals: {pingpong_table: pingpong_table }),
-        marker_html: render_to_string(partial: "marker")
+        marker_html: render_to_string(partial: "marker", locals: {pingpong_table: pingpong_table })
       }
     end
   end
 
   def show
     @pingpong_table = PingpongTable.find(params[:id])
-    @my_favorite = Favorite.find_by(pingpong_table: @pingpong_table )
+    @my_favorite = Favorite.find_by(pingpong_table: @pingpong_table)
   end
 
   def taken
     @pingpong_table = PingpongTable.find(params[:id])
-    @pingpong_table.update(availability: false)
+
+    # the line below makes the pingpong table unavaliable & QR code is not working
+    # Please leave the line below as commented
+    # @pingpong_table.update(availability: false)
 
     redirect_to pingpong_table_reservation_path(@pingpong_table, params[:res])
   end

@@ -2,9 +2,16 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="showmap"
 export default class extends Controller {
+
+  static values = {
+    markers: Array
+  }
+
   connect() {
     mapboxgl.accessToken = 'pk.eyJ1IjoibWF0dGVvMTYiLCJhIjoiY2xranJsYjk5MDJyNTNxcG9pdnRqOTdkaSJ9.2cJ7dSToSSfRIDE_-BJkAg';
-   
+
+    console.log(this.markersValue)
+
     this.map = new mapboxgl.Map({
     container: 'map', // container ID
     // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
@@ -25,5 +32,26 @@ export default class extends Controller {
     showUserHeading: true
     })
     );
+
+    this.markersValue.forEach((marker) => {
+      const popup = new mapboxgl.Popup().setHTML(marker.info_window_html)
+
+      const customMarker = document.createElement("div")
+      customMarker.innerHTML = marker.marker_html
+
+      new mapboxgl.Marker(customMarker)
+        .setLngLat([ marker.longitude, marker.latitude ])
+        .setPopup(popup)
+        .addTo(this.map)
+
+    })
+
+    this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
+      mapboxgl: mapboxgl }))
+
+    const bounds = new mapboxgl.LngLatBounds()
+    this.markersValue.forEach(marker => bounds.extend([ marker.longitude, marker.latitude ]))
+    this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
+
   }
 }

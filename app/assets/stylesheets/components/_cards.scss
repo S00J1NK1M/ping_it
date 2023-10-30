@@ -9,6 +9,20 @@
 
 }
 
+.card-reservation {
+  color: white;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  height: 60vh;
+}
+
+.card-camera {
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+}
+
 .center{
   display: flex;
   align-items: center;
@@ -57,12 +71,7 @@
   margin-bottom: 10px;
 }
 
-.card-reservation {
-  color: white;
-  align-items: center;
-  text-align: center;
-  justify-content: center;
-}
+
 
 
 .wellcome{
@@ -91,7 +100,7 @@
 
 
 .match--card{
-  color: white;
+  color: $blue;
 }
 
 
