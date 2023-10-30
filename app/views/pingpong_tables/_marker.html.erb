@@ -1,3 +1,7 @@
 <div class="badge">
-  <%= image_tag "marker.png", height: 30, width: 30, alt: "Logo" %>
+  <% if pingpong_table.availability %>
+    <%= image_tag "marker_ava.png", height: 30, width: 30, alt: "available" %>
+  <% else %>
+    <%= image_tag "marker_unava.png", height: 30, width: 30, alt: "unavailable" %>
+  <% end %>
 </div>

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pingpong_tables#index"
   get "my_profile", to: "pages#profile"
+  get "my_profile/more", to: "pages#more"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
@@ -16,12 +17,21 @@ Rails.application.routes.draw do
     resources :reservations, only: %i[show new create]
   end
 
-  resources :favorites, only: %i[destroy]
+  resources :users, only: [:show] do
+    get 'favorite_tables', on: :member
+  end
 
-  resources :reservations, only: %i[index update] do
+  resources :favorites, only: %i[show destroy]
+
+  resources :reservations do
     member do
       patch "cancel"
     end
   end
-  resources :matches
+
+  resources :matches do
+    member do
+      patch "join"
+    end
+  end
 end

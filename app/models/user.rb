@@ -6,8 +6,10 @@ class User < ApplicationRecord
   has_many :matches_as_organiser, class_name: "Match", foreign_key: "organiser_id"
   has_many :matches_as_buddy, class_name: "Match", foreign_key: "buddy_id"
   has_many :matches_as_winner, class_name: "Match", foreign_key: "winner_id"
-  has_many :pingpong_tables, through: :reservations
+
   has_many :favorites
+  has_many :pingpong_tables, through: :reservations
+  has_many :favorite_tables, through: :favorites, class_name: "PingpongTable"
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 end
