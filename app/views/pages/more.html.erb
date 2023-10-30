@@ -1,0 +1,11 @@
+<h1>Welcome to more</h1>
+
+<h2>My organized games</h2>
+<% @my_matches.each do |match| %>
+  <h3><%= match.name %></h3>
+<% end %>
+
+<h2>My joined games</h2>
+<% @my_games.each do |match| %>
+  <h3><%= match.name %></h3>
+<% end %>

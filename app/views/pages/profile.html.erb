@@ -1,82 +1,80 @@
+<!-- My Profile: My Matches -->
+
+<div class="container d-flex justify-content-between">
+  <h5>My Matches</h5>
+  <%= link_to "More", my_profile_more_path, class: "pink"  %>
+</div>
+
 <div data-controller="match">
-  <div class="matches flex ">
-    <h1 class="fs18">My Matches</h1>
-    <div class="pink">
-      <a href="#"class="pink">More</a>
-
-    </div>
+  <div class="container d-flex justify-content-between">
+    <p>My organized Games</p>
   </div>
 
-  <div class="match--card card">
-    <h1 class="match--card--title">
-            <%# if @my_favorite_tables.empty? %>
-  <h1>No live matches</h1>
-<%# else %>
-    <div class="flex">
-    <div class="user--photo img">
-  <%= image_tag "profile.png" , style: 'height:70px;width:70px;border-radius:50%;'%>
-  </div>
-  <div class="title" style="color: white">
-    <p>Match Title: The fast&furious match- when Matteo add, we will change</p>
-    <p>Match Time: Date Matteo will add</p>
-
-    <div class="address--table">
-    <p>Match location</p>
-  </div>
-
+  <% if @my_most_recent_match.nil? %>
+    <div class="container">
+      <h5 style="color:gray">No matches yet</h5>
     </div>
-    <div class="info--match">
-      <%=  %>
-    </div>
+  <% else %>
+    <div class="matches-organised">
+      <div class="container d-flex justify-content-space-around">
+        <div class="user--photo img">
+          <%= image_tag "profile.png" , style: 'height:70px;width:70px;border-radius:50%;'%>
+        </div>
+
+        <div class="title" style="color: white">
+          <h4><%= @my_most_recent_match.name %></h4>
+          <div>
+            <p><%= @my_most_recent_match.location %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
 
-  </div>
-  <div class="flex">
-    <div class="user--name">
-
-    </div>
-
-
-
+  <div class="container d-flex justify-content-between mt-2">
+    <p>My joined Games</p>
   </div>
 
-
-
+  <% if @my_most_recent_game.nil? %>
+    <div class="container">
+      <h5 style="color:gray">No joined games yet</h5>
     </div>
-  <div class="match--card">
+  <% else %>
+    <div class="matches-joined">
+      <div class="flex">
+        <div class="user--photo img">
+          <%= image_tag "profile.png" , style: 'height:70px;width:70px;border-radius:50%;'%>
+        </div>
 
-  <div class="flex">
-    <div class="avatar">
-
-    </div>
-    <div class="info--match">
-      <%=  %>
-    </div>
+        <div class="title" style="color: white">
+          <h4><%= @my_most_recent_game.name %></h4>
+          <div>
+            <p><%= @my_most_recent_game.location %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
 
+
+<!-- My Profile: My Favorite Tables -->
+<div data-controller="favorite" >
+  <div class="favorites flex mt-5">
+    <h1 class="fs18">My Favorite Tables</h1>
+    <a href="#"class="pink">More</a>
   </div>
 </div>
 
-<div data-controller="favorite" >
-  <div class="favorites flex ">
-    <h1 class="fs18">My Favorite Tables</h1>
-
-      <a href="#"class="pink">More</a>
-
-  </div>
-
-  <div class="grid mb-3">
-    <div class="m-2">
-  <% if @my_favorite_tables.empty? %>
+<div class="grid mb-3">
+  <div class="m-2">
+    <% if @my_favorite_tables.empty? %>
       <p class="gray--text">No favorites yet!</p>
-      </div>
-  <% else %>
-    <% @my_favorite_tables.each do |favorite| %>
-    <%= cl_image_tag favorite.pingpong_table.photo.key, height: 90, width: 90, crop: :fill, :radius => 50  %>
-    <%# <h2><%= favorite.pingpong_table.name %>
-    <%#= cl_image_tag @pingpong_table.photo.key, height: 150, width: 300, crop: :fill %>
+    <% else %>
+      <% @my_favorite_tables.each do |favorite| %>
+        <%= cl_image_tag favorite.pingpong_table.photo.key, height: 90, width: 90, crop: :fill, :radius => 50  %>
+        <%# <h2><%= favorite.pingpong_table.name %>
+        <%#= cl_image_tag @pingpong_table.photo.key, height: 150, width: 300, crop: :fill %>
+      <% end %>
     <% end %>
   </div>
-<% end %>
-
 </div>
