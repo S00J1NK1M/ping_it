@@ -39,6 +39,12 @@ class MatchesController < ApplicationController
     redirect_to matches_url, status: :see_other
   end
 
+  def join
+    @match = Match.find(params[:id])
+    @match.update(buddy: current_user)
+    redirect_to my_profile_path
+  end
+
   private
 
   def set_match

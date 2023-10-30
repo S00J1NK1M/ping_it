@@ -12,6 +12,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  width: fit-content;
 }
 
 .button--select {
@@ -19,23 +20,27 @@
   color: $white;
   height: 30px;
   width: 80px;
-  align-content: center;
-  border-style: none;
   border-radius: 5px;
   border-style: none !important;
   align-content: center !important;
   text-decoration: none;
   vertical-align: middle;
   font-weight: bolder;
+  width: fit-content;
 }
 
 .button--back {
-  background-color:$grey;
-  color:$white;
+  background-color:$neongreen;
+  color:$black;
   height: 30px;
   width:60px;
-  align-content: center;
+  justify-content: center;
   border-style: none;
+  vertical-align:middle;
+  display: flex;
+  align-content: center;
+  width: fit-content;
+  border-radius: 5px;
 }
 
 .button--cancel {
@@ -46,6 +51,8 @@
   width:90px;
   align-content: center;
   border-style: none;
+  display: flex;
+  width: fit-content;
 }
 
 .button--qrcode {
