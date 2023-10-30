@@ -1,13 +1,36 @@
-<div class="container card">
-  Your match:<%= @match.name %>
-  <ul>
-    <li> Place: <%= @match.location %> </li>
-    <li> Time: <%= @match.match_time %> </li>
+<div class="container card mt-2">
+  <h3><%= @match.name %></h3>
+  <hr>
 
-    <%= link_to edit_match_path(@match) do %><i class="fa-regular fa-pen-to-square"></i><% end %>
-    <%= link_to match_path(@match), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
-      <i class="fa-regular fa-trash-can"></i>
-    <% end %>
-  </ul>
-  <%= link_to 'Back', matches_path, type: "button", class: "button--cancel" %>
+  Place: <%= @match.location %>
+  <br>
+  Time: <%= @match.match_time %>
+
+  <%= link_to "Edit", edit_match_path(@match), class: "button--select center"  %>
+  <% if @match.organiser != current_user %>
+  <%= link_to "Join", join_match_path(@match), class: "button--select center", data: { turbo_method: :patch}%>
+<% end %>
+  <div class="d-flex align-items space-around">
+    <button class="button--cancel center" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Cancel
+      </button>
+    <%= link_to "Back", matches_path, class:"button--back center"  %>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header", style="background-color:#FF00F5">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmation</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Back"></button>
+      </div>
+      <div class="modal-body">
+        <h3>Do you want to cancel this table?</h3>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="button--back center" data-bs-dismiss="modal">Back</button>
+        <%= link_to "Cancel", match_path(@match), class: "button--cancel center", data: {turbo_method: :delete}  %>
+      </div>
+    </div>
+  </div>
 </div>
