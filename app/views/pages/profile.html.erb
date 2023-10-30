@@ -1,37 +1,43 @@
-<div class="matches flex ">
-  <h1 class="fs18">My Matches</h1>
+<div data-controller="favorites">
+
+  <div class="matches flex ">
+    <h1 class="fs18">My Matches</h1>
+      <div class="pink">
+        <p>More</p>
+      </div>
+  </div>
+
+    <div class="match--card card">
+      <h1 class="match--card--title">No matches yet!</h1>
+    </div>
+
+
+  <div class="favorites flex mt-3">
+    <h1 class="fs18">My Favorite Tables</h1>
     <div class="pink">
-    <p>More </p>
+      <p data-action="click->favorites#fire"> More </p>
+    </div>
   </div>
-</div>
-  <div class="match--card card">
-    <h1 class="match--card--title">No matches yet!</h1>
-  </div>
-<div class="match--card">
 
-<div class="flex">
-  <div class="avatar">
+  <div class="grid mb-1">
+    <% @my_favorite_tables[0..2].each do |favorite| %>
+      <div>
+        <%= cl_image_tag favorite.pingpong_table.photo.key, height: 90, width: 90, crop: :fill, :radius => 50  %>
+        <p class="fs8 d-none center" data-favorites-target="firstText"><%= favorite.pingpong_table.name %> </p>
+      </div>
+     <% end %>
+    </div>
 
-  </div>
-  <div class="info--match">
-    <%=  %>
-  </div>
-</div>
 
-</div>
+    <div class="grid mb-2 d-none" data-favorites-target="togglableElement">
+      <% @my_favorite_tables[3..@my_favorite_tables.length].each do |favorite| %>
+        <div>
+          <%= cl_image_tag favorite.pingpong_table.photo.key, height: 90, width: 90, crop: :fill, :radius => 50  %>
+          <p class="fs8 center"><%= favorite.pingpong_table.name %> </p>
+        </div>
+      <% end %>
+    </div>
 
-<div class="favorites flex ">
-  <h1 class="fs18">My Favorite Tables</h1>
-  <div class="pink">
-  <p>More </p>
-  </div>
-</div>
 
-<div class="grid mb-3">
-  <% @my_favorite_tables.each do |favorite| %>
-  <%= cl_image_tag favorite.pingpong_table.photo.key, height: 90, width: 90, crop: :fill, :radius => 50  %>
-  <%# <h2><%= favorite.pingpong_table.name %>
-  <%#= cl_image_tag @pingpong_table.photo.key, height: 150, width: 300, crop: :fill %>
-  <% end %>
 
 </div>
