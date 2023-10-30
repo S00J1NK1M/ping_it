@@ -6,7 +6,6 @@ class PagesController < ApplicationController
 
   def profile
     @my_favorite_tables = current_user.favorites
-
   end
 
 end

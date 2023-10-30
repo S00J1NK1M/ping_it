@@ -1,37 +1,55 @@
-<div class="matches flex ">
-  <h1 class="fs18">My Matches</h1>
+
+  <div class="matches flex ">
+    <h1 class="fs18">My Matches</h1>
     <div class="pink">
-    <p>More </p>
+        <p> More </p>
   </div>
-</div>
-  <div class="match--card card">
-    <h1 class="match--card--title">No matches yet!</h1>
-  </div>
-<div class="match--card">
-
-<div class="flex">
-  <div class="avatar">
 
   </div>
-  <div class="info--match">
-    <%=  %>
+    <div class="match--card card">
+      <h1 class="match--card--title">No matches yet!</h1>
+    </div>
+  <div class="match--card">
+
+  <div class="flex">
+    <div class="avatar">
+
+    </div>
+    <div class="info--match">
+      <%=  %>
+    </div>
   </div>
-</div>
 
-</div>
-
-<div class="favorites flex ">
-  <h1 class="fs18">My Favorite Tables</h1>
-  <div class="pink">
-  <p>More </p>
   </div>
-</div>
 
-<div class="grid mb-3">
-  <% @my_favorite_tables.each do |favorite| %>
-  <%= cl_image_tag favorite.pingpong_table.photo.key, height: 90, width: 90, crop: :fill, :radius => 50  %>
-  <%# <h2><%= favorite.pingpong_table.name %>
-  <%#= cl_image_tag @pingpong_table.photo.key, height: 150, width: 300, crop: :fill %>
-  <% end %>
 
+
+
+
+
+
+
+
+
+<div data-controller="favorite" >
+  <div class="favorites flex ">
+    <h1 class="fs18">My Favorite Tables</h1>
+
+      <a href="#"class="pink">More</a>
+
+  </div>
+
+  <div class="grid mb-3">
+    <div class="m-2">
+  <% if @my_favorite_tables.empty? %>
+      <p class="gray--text">No favorites yet!</p>
+      </div>
+  <% else %>
+    <% @my_favorite_tables.each do |favorite| %>
+    <%= cl_image_tag favorite.pingpong_table.photo.key, height: 90, width: 90, crop: :fill, :radius => 50  %>
+    <%# <h2><%= favorite.pingpong_table.name %>
+    <%#= cl_image_tag @pingpong_table.photo.key, height: 150, width: 300, crop: :fill %>
+    <% end %>
+  </div>
+<% end %>
 </div>
