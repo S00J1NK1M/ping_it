@@ -11,7 +11,7 @@ class PingpongTablesController < ApplicationController
 
         name: pingpong_table.name,
         info_window_html: render_to_string(partial: "info_window", locals: {pingpong_table: pingpong_table }),
-        marker_html: render_to_string(partial: "marker")
+        marker_html: render_to_string(partial: "marker", locals: {pingpong_table: pingpong_table })
       }
     end
   end

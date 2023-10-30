@@ -1,12 +1,7 @@
 <div class="badge">
-  <%= image_tag "marker_ava.png", height: 30, width: 30, alt: "available" %>
+  <% if pingpong_table.availability %>
+    <%= image_tag "marker_ava.png", height: 30, width: 30, alt: "available" %>
+  <% else %>
+    <%= image_tag "marker_unava.png", height: 30, width: 30, alt: "unavailable" %>
+  <% end %>
 </div>
-
-<!-- Do Not Delete Code Below (Soojin) -->
-<!-- Showing different icons depending on availability status -->
-
-<%# if @pingpong_table.availability == true %>
-  <%# image_tag "marker_ava.png", height: 30, width: 30, alt: "available" %>
-<%# else %>
-  <%# image_tag "marker_unava.png", height: 30, width: 30, alt: "unavailable" %>
-<%# end %>

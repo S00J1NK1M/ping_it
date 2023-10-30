@@ -23,10 +23,13 @@
     10:00
     </div>
 
-    <!-- countdown progress bar -->
+    <!-- countdown progress bar TO BE ADDED! -->
 
     <!-- navigation map -->
-    <div id="map" data-controller="showmap" style="width: 100%; height: 230px; position: relative"></div>
+    <div id="map"
+      data-controller="showmap"
+      data-showmap-markers-value="<%= @marker.to_json %>"
+      style="width: 100%; height: 230px; position: relative"></div>
 
     <!-- 2 buttons -->
     <div class="d-flex justify-content-between mt-3 mb-3">
