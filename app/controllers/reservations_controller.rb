@@ -47,6 +47,16 @@ class ReservationsController < ApplicationController
       standalone: true,
       use_path: true
     )
+
+
+
+    @marker = [@pingpong_table].map do |pingpong_table|
+      {
+        latitude: pingpong_table.latitude,
+        longitude: pingpong_table.longitude,
+        marker_html: render_to_string(partial: "marker", locals: {pingpong_table: pingpong_table })
+      }
+    end
   end
 
   def update
