@@ -1,0 +1,18 @@
+h2 {
+  color: $white;
+}
+
+.fa-pen-to-square {
+  color: $pink;
+}
+
+.fa-trash-can {
+  color: $grey;
+}
+
+.matchcard {
+  display: flex;
+  justify-content: space-between;
+  align-items:stretch;
+  flex: 1;
+}

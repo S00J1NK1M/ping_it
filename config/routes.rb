@@ -28,5 +28,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :matches
+  resources :matches do
+    member do
+      patch "join"
+    end
+  end
 end

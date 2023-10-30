@@ -1,20 +1,11 @@
-<div class="container d-flex">
-  <div>
-    <h2>Ping it Match List</h2>
-  </div>
-
-  <div>
-    <%=link_to "Create", new_match_path(@match), data: { turbo_method: "get"}, class: "button--seemore" %>
-  </div>
+<div class="matchcard d-flex align-items-stretch">
+  <h3>My matches </h3>
+  <h5>Create a match<%= link_to new_match_path, type: "button", class: "button--seemore" do %><i class="fa-solid fa-plus"></i> <%end%> </h5>
 </div>
-
-<div>
-  <ul>
-    <% @matches.each do |match| %>
-      <li><%= match.name %></li>
-      <li><%= match.location %></li>
-      <li><%= match.match_time %></li>
-      <li><%= match.equipment %></li>
-    <% end %>
-  </ul>
+<div class="card">
+  <% @matches.each do |match| %>
+    Match: <%= link_to match.name, match, type: "button", class: "button--seemore" %>
+    Place: <%= match.location %>
+    <hr>
+  <% end %>
 </div>
