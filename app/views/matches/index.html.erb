@@ -1,4 +1,4 @@
-<h3>Ping it Matches </h3>
+<h3 style="color: black">Ping it Matches </h3>
 <% @matches.each do |match| %>
   <div class="card m-2">
     <div>
@@ -8,6 +8,6 @@
   </div>
 <% end %>
 
-<div class="d-flex">
+<div class="d-flex" style="color: black">
   Create a match:  <%= link_to new_match_path, type: "button", class: "button--seemore center" do %><i class="fa-solid fa-plus"></i> <%end%>
 </div>
