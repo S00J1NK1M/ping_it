@@ -1,11 +1,12 @@
 <h3>Ping it Matches </h3>
-
-<div class="card">
-  <% @matches.each do |match| %>
-    Match: <%= match.name %> <%= link_to "see more", match, type: "button", class: "button--seemore center" %>
-    <hr>
-  <% end %>
-</div>
+<% @matches.each do |match| %>
+  <div class="card m-2">
+    <div>
+      Match: <%= match.name %>
+      <%= link_to "see more", match, type: "button", class: "button--seemore center" %>
+    </div>
+  </div>
+<% end %>
 
 <div class="d-flex">
   Create a match:  <%= link_to new_match_path, type: "button", class: "button--seemore center" do %><i class="fa-solid fa-plus"></i> <%end%>
