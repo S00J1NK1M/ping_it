@@ -1,26 +1,17 @@
-<!-- My Profile: My Matches -->
+<div class="profile--page">
+  <!-- My Profile: My Matches -->
 
-<div class="container d-flex justify-content-between">
-  <h5>My Matches</h5>
-  <%= link_to "More", my_profile_more_path, class: "pink"  %>
-</div>
-
-<div data-controller="match">
   <div class="container d-flex justify-content-between">
-    <p>My organized Games</p>
+    <h5>My Matches</h5>
+    <%= link_to "More", my_profile_more_path, class: "pink"  %>
   </div>
 
-  <% if @my_most_recent_match.nil? %>
-    <div class="container">
-      <h5 style="color:gray">No matches yet</h5>
+  <div data-controller="match">
+    <div class="container d-flex justify-content-between">
+      <p>My organized Games</p>
     </div>
-  <% else %>
-    <div class="matches-organised">
-      <div class="container d-flex justify-content-space-around">
-        <div class="user--photo img">
-          <%= image_tag "profile.png" , style: 'height:70px;width:70px;border-radius:50%;'%>
-        </div>
-
+    
+    
         <div class="title ms-3">
           <h5><%= @my_most_recent_match.name %></h5>
           <div>
@@ -50,56 +41,80 @@
           <h5><%= @my_most_recent_game.name %></h5>
           <div>
             <p><%= @my_most_recent_game.location %></p>
+
           </div>
         </div>
-      </div>
-    <% end %>
-  </div>
-
-
-<!-- My Profile: My Favorite Tables -->
-
-<div data-controller="favorites" >
-  <div class="favorites flex mt-3">
-    <h1 class="fs18">My Favorite Tables</h1>
-    <div class="pink">
-      <p data-action="click->favorites#fire"> More </p>
-    </div>
-  </div>
-
-  <div class="grid mb-1">
-    <% @my_favorite_tables[0..2].each do |favorite| %>
-      <div>
-        <%= cl_image_tag favorite.pingpong_table.photo.key, height: 90, width: 90, crop: :fill, :radius => 50  %>
-        <p class="fs8 d-none center" data-favorites-target="firstText"><%= favorite.pingpong_table.name %> </p>
-      </div>
-    <% end %>
+      <% end %>
     </div>
 
+    <div class="container d-flex justify-content-between mt-2">
+      <p>My joined Games</p>
+    </div>
 
+    <% if @my_most_recent_game.nil? %>
+      <div class="container">
+        <h5 style="color:gray">No joined games yet</h5>
+      </div>
+    <% else %>
+      <div class="matches-joined">
+        <div class="flex">
+          <div class="user--photo img">
+            <%= image_tag "profile.png" , style: 'height:70px;width:70px;border-radius:50%;'%>
+          </div>
 
-    <div class="grid mb-2 d-none" data-favorites-target="togglableElement">
-    <% if @my_favorite_tables.length > 3 %>
-      <% @my_favorite_tables[3..@my_favorite_tables.length].each do |favorite| %>
-        <div>
-          <%= cl_image_tag favorite.pingpong_table.photo.key, height: 90, width: 90, crop: :fill, :radius => 50  %>
-          <p class="fs8 center"><%= favorite.pingpong_table.name %> </p>
+          <div class="title" style="color: white">
+            <h4><%= @my_most_recent_game.name %></h4>
+            <div>
+              <p><%= @my_most_recent_game.location %></p>
+            </div>
+          </div>
         </div>
       <% end %>
-      <% else %>
-       <% @my_favorite_tables.each do |favorite| %>
-        <div>
-          <%= cl_image_tag favorite.pingpong_table.photo.key, height: 90, width: 90, crop: :fill, :radius => 50  %>
-          <p class="fs8 center"><%= favorite.pingpong_table.name %> </p>
-        </div>
-      <% end %>
-
     </div>
-    <% end %>
 
 
+  <!-- My Profile: My Favorite Tables -->
+  <% if @my_favorite_tables.any? %>
+    <div class="container favorites" data-controller="favorites" >
+      <div class=" flex mt-3">
+        <h1 class="fs18">My Favorite Tables</h1>
+        <% if @my_favorite_tables.length > 3 %>
+        <div class="pink">
+          <p data-action="click->favorites#fire"> More </p>
+        </div>
+        <% end %>
+      </div>
+      <div class="<%= @my_favorite_tables.size < 3 ? 'flex--a' : 'grid' %>">
+        <% @my_favorite_tables[0..2].each do |favorite| %>
+          <div class="centre">
+          <%= link_to pingpong_table_path(favorite.pingpong_table) do %>
+            <%= cl_image_tag favorite.pingpong_table.photo.key, height: 90, width: 90, crop: :fill, :radius => 50  %>
+            <p class="fs8 d-none center" data-favorites-target="firstText"><%= favorite.pingpong_table.name %> </p>
+          <% end %>
+          </div>
+        <% end %>
+        </div>
 
+        <div class="grid mb-2 d-none" data-favorites-target="togglableElement">
+        <% if @my_favorite_tables.length >= 3 %>
+            <% @my_favorite_tables[3..@my_favorite_tables.length].each do |favorite| %>
+            <div>
+              <%= link_to pingpong_table_path(favorite.pingpong_table) do %>
+              <%= cl_image_tag favorite.pingpong_table.photo.key, height: 90, width: 90, 'crop': "fill", :radius=>"max", :className=>"center" %>
+              <p class="fs8 center"><%= favorite.pingpong_table.name %> </p>
+               <% end %>
+            </div>
 
-
-
+            <% end %>
+            <% else %>
+            <% @my_favorite_tables.each do |favorite| %>
+              <div>
+                <%= cl_image_tag favorite.pingpong_table.photo.key, height: 90, width: 90, 'crop': "fill", :radius=>"max", :className=>"center"  %>
+                <p class="fs8 center"><%= favorite.pingpong_table.name %> </p>
+              </div>
+            <% end %>
+        </div>
+        <% end %>
+    </div>
+  <% end %>
 </div>
