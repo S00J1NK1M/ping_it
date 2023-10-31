@@ -11,6 +11,7 @@ class FavoritesController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    #@pingpong_table = PingpongTable.find(params[:id])
   end
 
   def favorite_tables
