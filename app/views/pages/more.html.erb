@@ -8,23 +8,24 @@
       <h5 style="color:gray">No matches yet</h5>
     </div>
   <% else %>
-    <div class="matches-organised">
-      <div class="container d-flex justify-content-space-around">
-        <div class="user--photo img">
-          <%= image_tag "profile.png" , style: 'height:70px;width:70px;border-radius:50%;'%>
-        </div>
+    <% @my_matches.each do |match| %>
+      <div class="matches-organised m-2">
+        <div class="container d-flex justify-content-space-around">
+          <div class="user--photo img">
+            <%= image_tag "profile.png" , style: 'height:70px;width:70px;border-radius:50%;'%>
+          </div>
 
-        <div class="title" style="color: white">
-          <% @my_matches.each do |match| %>
-            <h3><%= match.name %></h3>
+          <div class="title ms-3">
+            <h5><%= match.name %></h5>
             <div>
               <p><%= match.location %></p>
+              <p><%= match.match_time.strftime("at %H:%M, %e-%m-%Y ") %></p>
             </div>
-          <% end %>
+          </div>
         </div>
       </div>
     <% end %>
-  </div>
+  <% end %>
 
   <div class="container d-flex justify-content-between mt-2">
     <p>My joined Games</p>
@@ -35,21 +36,22 @@
       <h5 style="color:gray">No joined games yet</h5>
     </div>
   <% else %>
-    <div class="matches-joined">
-      <div class="container d-flex justify-content-space-around">
-        <div class="user--photo img">
-          <%= image_tag "profile.png" , style: 'height:70px;width:70px;border-radius:50%;'%>
-        </div>
+    <% @my_games.each do |match| %>
+      <div class="matches-joined m-2">
+        <div class="container d-flex justify-content-space-around">
+          <div class="user--photo img">
+            <%= image_tag "profile.png" , style: 'height:70px;width:70px;border-radius:50%;'%>
+          </div>
 
-        <div class="title">
-          <% @my_games.each do |match| %>
-            <h3><%= match.name %></h3>
+          <div class="title ms-3">
+            <h5><%= match.name %></h5>
             <div>
               <p><%= match.location %></p>
+              <p><%= match.match_time.strftime("at %H:%M, %e-%m-%Y ") %></p>
             </div>
-          <% end %>
+          </div>
         </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
 </div>
