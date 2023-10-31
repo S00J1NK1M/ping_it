@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "pingpong_tables#index"
+  root to: "pages#indexx"
   get "my_profile", to: "pages#profile"
   get "my_profile/more", to: "pages#more"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

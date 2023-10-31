@@ -10,23 +10,38 @@
     <div class="container d-flex justify-content-between">
       <p>My organized Games</p>
     </div>
-
-    <% if @my_most_recent_match.nil? %>
-      <div class="container">
-        <h5 style="color:gray">No matches yet</h5>
-      </div>
-    <% else %>
-      <div class="matches-organised">
-        <div class="container d-flex justify-content-space-around">
-          <div class="user--photo img">
-            <%= image_tag "profile.png" , style: 'height:70px;width:70px;border-radius:50%;'%>
+    
+    
+        <div class="title ms-3">
+          <h5><%= @my_most_recent_match.name %></h5>
+          <div>
+            <p><%= @my_most_recent_match.location %></p>
           </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 
-          <div class="title" style="color: white">
-            <h4><%= @my_most_recent_match.name %></h4>
-            <div>
-              <p><%= @my_most_recent_match.location %></p>
-            </div>
+  <div class="container d-flex justify-content-between mt-2">
+    <p>My joined Games</p>
+  </div>
+
+  <% if @my_most_recent_game.nil? %>
+    <div class="container">
+      <h5 style="color:gray">No joined games yet</h5>
+    </div>
+  <% else %>
+    <div class="matches-joined">
+      <div class="container d-flex justify-content-space-around">
+        <div class="user--photo img">
+          <%= image_tag "profile.png" , style: 'height:70px;width:70px;border-radius:50%;'%>
+        </div>
+
+        <div class="title ms-3">
+          <h5><%= @my_most_recent_game.name %></h5>
+          <div>
+            <p><%= @my_most_recent_game.location %></p>
+
           </div>
         </div>
       <% end %>

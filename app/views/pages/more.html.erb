@@ -1,11 +1,57 @@
-<h1>Welcome to more</h1>
+<div data-controller="match">
+  <div class="container d-flex justify-content-between">
+    <p>My organized Games</p>
+  </div>
 
-<h2>My organized games</h2>
-<% @my_matches.each do |match| %>
-  <h3><%= match.name %></h3>
-<% end %>
+  <% if @my_matches.nil? %>
+    <div class="container">
+      <h5 style="color:gray">No matches yet</h5>
+    </div>
+  <% else %>
+    <% @my_matches.each do |match| %>
+      <div class="matches-organised m-2">
+        <div class="container d-flex justify-content-space-around">
+          <div class="user--photo img">
+            <%= image_tag "profile.png" , style: 'height:70px;width:70px;border-radius:50%;'%>
+          </div>
 
-<h2>My joined games</h2>
-<% @my_games.each do |match| %>
-  <h3><%= match.name %></h3>
-<% end %>
+          <div class="title ms-3">
+            <h5><%= match.name %></h5>
+            <div>
+              <p><%= match.location %></p>
+              <p><%= match.match_time.strftime("at %H:%M, %e-%m-%Y ") %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+
+  <div class="container d-flex justify-content-between mt-2">
+    <p>My joined Games</p>
+  </div>
+
+  <% if @my_games.nil? %>
+    <div class="container">
+      <h5 style="color:gray">No joined games yet</h5>
+    </div>
+  <% else %>
+    <% @my_games.each do |match| %>
+      <div class="matches-joined m-2">
+        <div class="container d-flex justify-content-space-around">
+          <div class="user--photo img">
+            <%= image_tag "profile.png" , style: 'height:70px;width:70px;border-radius:50%;'%>
+          </div>
+
+          <div class="title ms-3">
+            <h5><%= match.name %></h5>
+            <div>
+              <p><%= match.location %></p>
+              <p><%= match.match_time.strftime("at %H:%M, %e-%m-%Y ") %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
