@@ -20,7 +20,7 @@ export default class extends Controller {
   }
 
   createTag(url){
-      const atag = `<a href=${url.data}> Confirm </a>`
+      const atag = `<a href=${url.data} class="button--qrconfirm"> Confirm </a>`
       this.resultTarget.insertAdjacentHTML("beforeend", atag)
 
       this.qrScanner.stop();

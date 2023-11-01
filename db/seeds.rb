@@ -1,21 +1,7 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
-# urls = ["https://images.unsplash.com/photo-1519871195344-9d1a2379cea0?auto=format&fit=crop&q=60&w=900&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHBpbmclMjBwb25nJTIwdGFibGV8ZW58MHx8MHx8fDA%3D", "https://images.unsplash.com/photo-1615177981645-51107b202210?auto=format&fit=crop&q=80&w=2827&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"]
-# file = URI.open()
-# LeWagon_Pingpong_Table = PingpongTable.new(name: "LeWagon Pingpong Table", address: "Kochstraße 12, 10969 Berlin", description: "Challenge a LeWagon student to see if they are good enough :D", category: "outdoor", availability: true)
-# LeWagon_Pingpong_Table.photo.attach(io: file, filename: "ping.jpg", content_type: "image/jpg")
-# LeWagon_Pingpong_Table.save
-
 require "open-uri"
 
 # Destroy old DB
 PingpongTable.destroy_all
-
 
 # Create users
 user1 = User.new({
@@ -61,7 +47,7 @@ user3 = User.new({
 user3.save!
 
 user4 = User.new({
-  email: "erica@sunza.com",
+  email: "eric@sunza.com",
   password: "111111",
   password_confirmation: "111111",
   reset_password_token: nil,
@@ -73,6 +59,62 @@ user4 = User.new({
 })
 
 user4.save!
+
+user5 = User.new({
+  email: "ardian@lw.com",
+  password: "111111",
+  password_confirmation: "111111",
+  reset_password_token: nil,
+  reset_password_sent_at: nil,
+  remember_created_at: nil,
+  nickname: "Ardianino",
+  address: "ardianstr. 1",
+  score: nil
+})
+
+user5.save!
+
+user6 = User.new({
+  email: "akane@lw.com",
+  password: "111111",
+  password_confirmation: "111111",
+  reset_password_token: nil,
+  reset_password_sent_at: nil,
+  remember_created_at: nil,
+  nickname: "Akanechen",
+  address: "aknstr. 1",
+  score: nil
+})
+
+user6.save!
+
+user7 = User.new({
+  email: "shakar@lw.com",
+  password: "111111",
+  password_confirmation: "111111",
+  reset_password_token: nil,
+  reset_password_sent_at: nil,
+  remember_created_at: nil,
+  nickname: "Shakira",
+  address: "shakarstr. 1",
+  score: nil
+})
+
+user7.save!
+
+user8 = User.new({
+  email: "cuilu@lw.com",
+  password: "111111",
+  password_confirmation: "111111",
+  reset_password_token: nil,
+  reset_password_sent_at: nil,
+  remember_created_at: nil,
+  nickname: "FanCuilu",
+  address: "fanstr. 1",
+  score: nil
+})
+
+user8.save!
 
 p "Created #{User.count} users"
 
@@ -155,7 +197,7 @@ ping_pong_table_6 = PingpongTable.new({
   availability: true
 })
 
-file = URI.open("https://unsplash.com/ko/%EC%82%AC%EC%A7%84/%ED%8C%8C%EB%9E%80-%ED%85%8C%EC%9D%B4%EB%B8%94-%EC%9C%84%EC%97%90-%EC%95%89%EC%95%84-%EC%9E%88%EB%8A%94-%EB%82%A8%EC%9E%90-bC59jJXIC5I")
+file = URI.open("https://images.unsplash.com/photo-1639650538792-ee5fad574d6f?auto=format&fit=crop&q=80&w=2942&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
 ping_pong_table_6.photo.attach(io: file, filename: "ping6.jpg", content_type: "image/jpg")
 ping_pong_table_6.save!
 
@@ -168,7 +210,7 @@ ping_pong_table_7 = PingpongTable.new({
   availability: true
 })
 
-file = URI.open("https://unsplash.com/ko/%EC%82%AC%EC%A7%84/%EB%9D%BC%EC%BC%93%EC%9D%84-%EB%93%A0-%EB%91%90-%EB%AA%85%EC%9D%98-%ED%99%9C%EB%8F%99%EC%A0%81%EC%9D%B8-%EB%85%B8%EC%9D%B8%EC%9D%B4-%ED%99%80%EC%9D%98-%ED%81%B0-%ED%85%8C%EC%9D%B4%EB%B8%94-%EC%98%86%EC%97%90%EC%84%9C-%ED%83%81%EA%B5%AC%EB%A5%BC-%EC%B9%98%EA%B3%A0-%EC%9E%88%EC%8A%B5%EB%8B%88%EB%8B%A4-3D18bJTKLzg")
+file = URI.open("https://plus.unsplash.com/premium_photo-1664298217898-c62231a2e47b?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
 ping_pong_table_7.photo.attach(io: file, filename: "ping7.jpg", content_type: "image/jpg")
 ping_pong_table_7.save!
 
@@ -180,9 +222,34 @@ ping_pong_table_8 = PingpongTable.new({
   availability: true
 })
 
-file = URI.open("https://unsplash.com/ko/%EC%82%AC%EC%A7%84/%ED%9D%B0%EC%83%89-%ED%8B%B0%EC%85%94%EC%B8%A0%EC%99%80-%ED%8C%8C%EB%9E%80%EC%83%89-%EB%8D%B0%EB%8B%98-%EC%B2%AD%EB%B0%94%EC%A7%80%EB%A5%BC-%EC%9E%85%EC%9D%80-%EB%82%A8%EC%9E%90%EA%B0%80-%EB%82%AE-%EB%8F%99%EC%95%88-%ED%91%B8%EB%A5%B8-%EC%9E%94%EB%94%94%EB%B0%AD%EC%97%90-%EC%95%89%EC%95%84-%EC%9E%88%EB%8B%A4-4P5SOGfnAOY")
+file = URI.open("https://images.unsplash.com/photo-1630610280030-da8fbc7ca25a?auto=format&fit=crop&q=80&w=2874&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
 ping_pong_table_8.photo.attach(io: file, filename: "ping8.jpg", content_type: "image/jpg")
 ping_pong_table_8.save!
+
+
+ping_pong_table_9 = PingpongTable.new({
+  name: "Clean Indoor Table",
+  address: "Hobrechtstraße 57, 12047 Berlin",
+  description: "There is a baverage vending machine next to the table",
+  category: "Indoor",
+  availability: true
+})
+
+file = URI.open("https://images.unsplash.com/photo-1461748659110-16121c049d52?auto=format&fit=crop&q=80&w=2938&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+ping_pong_table_9.photo.attach(io: file, filename: "ping9.jpg", content_type: "image/jpg")
+ping_pong_table_9.save!
+
+ping_pong_table_10 = PingpongTable.new({
+  name: "Hip table",
+  address: "Heinrich-Heine-Straße 29, 10179 Berlin",
+  description: "You can use equipment for free there",
+  category: "Indoor",
+  availability: true
+})
+
+file = URI.open("https://images.unsplash.com/photo-1511067007398-7e4b90cfa4bc?auto=format&fit=crop&q=80&w=2938&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+ping_pong_table_10.photo.attach(io: file, filename: "ping10.jpg", content_type: "image/jpg")
+ping_pong_table_10.save!
 
 p "Created #{PingpongTable.count} PingpongTables"
 
