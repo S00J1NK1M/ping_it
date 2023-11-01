@@ -1,10 +1,10 @@
 <div>
-  <h2><%= pingpong_table.name %></h2>
+  <h5><%= pingpong_table.name %></h5>
 
-  <% if pingpong_table.availability == true %>
-    AVAILABLE <%= image_tag "icons8-green-dot-48.png", {height: 20} %>
+  <% if pingpong_table.availability %>
+    <%= image_tag "icons8-green-dot-48.png", {height: 20} %> AVAILABLE
   <% else %>
-    NOT AVAILABLE <%= image_tag "icons8-red-dot-48.png", {height: 20} %>
+    <%= image_tag "icons8-red-dot-48.png", {height: 20} %> OCCUPIED
   <% end %>
   <br>
   <br>
