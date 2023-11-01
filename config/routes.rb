@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     member do
       get "play"
       get "read"
+      patch "cancel"
     end
 
     resources :favorites, only: %i[create]

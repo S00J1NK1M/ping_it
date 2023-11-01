@@ -39,6 +39,17 @@ class PingpongTablesController < ApplicationController
     @reservation = Reservation.find(params[:res])
   end
 
+  def cancel
+    @ping_pong_table = PingpongTable.find(params[:id])
+    @reservation = Reservation.find(params[:res])
+    @pingpong_table = @pingpong_table.reservation
+    @pingpong_table.update(availability: true)
+
+    @pingpong_table.reservation.destroy
+
+    redirect_to root_path
+  end
+
   def create
   end
 end
