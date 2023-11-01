@@ -1,20 +1,16 @@
 <div data-controller="match">
-  <div class="container d-flex justify-content-between">
-    <p>My organized Games</p>
-  </div>
 
-  <% if @my_matches.nil? %>
-    <div class="container">
-      <h5 style="color:gray">No matches yet</h5>
+
+  <% if @my_matches.any? %>
+    <div class="container d-flex justify-content-between">
+      <p>My organized Games</p>
     </div>
-  <% else %>
     <% @my_matches.each do |match| %>
       <div class="matches-organised m-2">
         <div class="container d-flex justify-content-space-around">
           <div class="user--photo img">
             <%= image_tag "profile.png" , style: 'height:70px;width:70px;border-radius:50%;'%>
           </div>
-
           <div class="title ms-3">
             <h5><%= match.name %></h5>
             <div>
@@ -27,15 +23,13 @@
     <% end %>
   <% end %>
 
-  <div class="container d-flex justify-content-between mt-2">
-    <p>My joined Games</p>
-  </div>
 
-  <% if @my_games.nil? %>
-    <div class="container">
-      <h5 style="color:gray">No joined games yet</h5>
+
+
+  <% if @my_games.any? %>
+    <div class="container d-flex justify-content-between mt-2">
+      <p>My joined Games</p>
     </div>
-  <% else %>
     <% @my_games.each do |match| %>
       <div class="matches-joined m-2">
         <div class="container d-flex justify-content-space-around">
