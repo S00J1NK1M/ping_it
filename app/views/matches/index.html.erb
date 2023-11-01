@@ -1,16 +1,21 @@
-<h3 style="color: black">Ping it Matches </h3>
-
-<% @matches.each do |match| %>
-  <div class="card text-center m-2">
-    <div class="card-header">
-      Match: <%= match.name %>
-    </div>
-    <div class="card-body d-flex ms-auto me-auto">
-      <%= link_to "see more", match, type: "button", class: "button--seemore center" %>
-    </div>
+<div class="container">
+  <div class="d-flex text-center m-2">
+    <h3>Ping it Matches </h3>
+    <%= link_to "Add", new_match_path, class: "button--seemore"%>
   </div>
-<% end %>
 
-<div class="d-flex" style="color: black">
-  Create a match:  <%= link_to new_match_path, type: "button", class: "button--seemore center" do %><i class="fa-solid fa-plus"></i> <%end%>
+  <% @matches.each do |match| %>
+    <div class="card text-center m-2">
+      <div class="card-header">
+        <h5><%= match.name %> </h5>
+      </div>
+      <div class="details--last ms-3 me-3">
+
+          <%= match.match_time.strftime("%b %d %Y, %H:%M %P")%>
+
+          <%= link_to "See more", match, class: "button--seemore" %>
+
+      </div>
+    </div>
+  <% end %>
 </div>
