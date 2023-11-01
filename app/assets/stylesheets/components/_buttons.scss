@@ -79,6 +79,7 @@
   border-style: none;
 }
 
+@media (max-width:600px) {
 .button--qrconfirm {
   border-radius: 5px;
   background-color: $pink;
@@ -87,9 +88,11 @@
   width: 100px !important;
   border-style: none;
   display: flex;
-  align-content: center;
   align-items: center;
   justify-content: center;
+  flex-direction: column
+
+}
 }
 
 .button--category {

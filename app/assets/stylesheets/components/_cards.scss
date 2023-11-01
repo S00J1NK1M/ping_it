@@ -25,12 +25,25 @@
   height: 60vh;
 }
 
-.card-camera {
-  align-items: center;
-  justify-content: center;
-  width: 100vh;
-  // height:
+@media (max-width:600px) {
+  .card-camera {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    // height:
+  }
+
+  .camera {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 55%;
+  }
+
 }
+
+
 
 .camera {
   align-items: center;
