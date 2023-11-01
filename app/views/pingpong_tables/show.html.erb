@@ -6,22 +6,21 @@
       </div>
 
       <div class="availability mx-4">
-        <% if @pingpong_table.availability == true %>
-        <p>    🟢 available 😀 </p>
+        <% if @pingpong_table.availability %>
+          <%= image_tag "icons8-green-dot-48.png", {height: 20} %> AVAILABLE 😃
         <% else %>
-        <p>   🔴  unavailable 😭  </p>
-          <% end %>
+          <%= image_tag "icons8-red-dot-48.png", {height: 20} %> NOT AVAILABLE 😵‍💫
+        <% end %>
       </div>
     </div>
 
 
-      <div class="x--btn">
-        <%= link_to pingpong_tables_path do %>
+    <div class="x--btn">
+      <%= link_to pingpong_tables_path do %>
         <p class="center" style="position:relative;top: -2px;">X</p>
-        <% end %>
-      </div>
+      <% end %>
+    </div>
   </div>
-
 
 
   <div class="photo-table center">

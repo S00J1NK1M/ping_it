@@ -1,0 +1,25 @@
+.timerbar {
+  position: relative;
+  height: 20px;
+  width: 100%;
+  border: 1px solid $neongreen;
+  // border-radius: 25px;
+  overflow: hidden;
+}
+
+.bar {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: $neongreen;
+  animation: countdown linear infinite;
+}
+
+@keyframes countdown {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 0%;
+  }
+}
