@@ -6,6 +6,7 @@
       </div>
 
       <div class="availability mx-4">
+
         <% if @pingpong_table.availability %>
           <%= image_tag "icons8-green-dot-48.png", {height: 20} %> AVAILABLE 😃
         <% else %>
@@ -60,11 +61,14 @@
           <%# <i class="far fa-heart"></i> %>
         <%# end %>
       <%# end %>
+      <% if @pingpong_table.availability %>
+        <button class="button--select" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Select
+        </button>
+      <% else %>
+        <%= "" %>
+      <% end %>
 
-
-    <button class="button--select" data-bs-toggle="modal" data-bs-target="#exampleModal">
-      Select
-    </button>
   </div>
 </div>
 
@@ -77,7 +81,7 @@
         <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmation</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body text-center">
         <h3>Do you want to reserve the table now?</h3>
       </div>
       <div class="modal-footer">
