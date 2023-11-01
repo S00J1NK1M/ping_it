@@ -4,6 +4,10 @@
   color: $white;
 }
 
+.card-video {
+  background-color: none;
+}
+
 .card-pingpongtable-detail {
   width: 330px;
   height: 100%;
@@ -30,7 +34,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-  
+
     // height:
   }
 
