@@ -155,7 +155,7 @@ ping_pong_table_6 = PingpongTable.new({
   availability: true
 })
 
-file = URI.open("https://unsplash.com/ko/%EC%82%AC%EC%A7%84/%ED%8C%8C%EB%9E%80-%ED%85%8C%EC%9D%B4%EB%B8%94-%EC%9C%84%EC%97%90-%EC%95%89%EC%95%84-%EC%9E%88%EB%8A%94-%EB%82%A8%EC%9E%90-bC59jJXIC5I")
+file = URI.open("https://images.unsplash.com/photo-1639650538792-ee5fad574d6f?auto=format&fit=crop&q=80&w=2942&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
 ping_pong_table_6.photo.attach(io: file, filename: "ping6.jpg", content_type: "image/jpg")
 ping_pong_table_6.save!
 
@@ -180,7 +180,7 @@ ping_pong_table_8 = PingpongTable.new({
   availability: true
 })
 
-file = URI.open("https://unsplash.com/ko/%EC%82%AC%EC%A7%84/%ED%9D%B0%EC%83%89-%ED%8B%B0%EC%85%94%EC%B8%A0%EC%99%80-%ED%8C%8C%EB%9E%80%EC%83%89-%EB%8D%B0%EB%8B%98-%EC%B2%AD%EB%B0%94%EC%A7%80%EB%A5%BC-%EC%9E%85%EC%9D%80-%EB%82%A8%EC%9E%90%EA%B0%80-%EB%82%AE-%EB%8F%99%EC%95%88-%ED%91%B8%EB%A5%B8-%EC%9E%94%EB%94%94%EB%B0%AD%EC%97%90-%EC%95%89%EC%95%84-%EC%9E%88%EB%8B%A4-4P5SOGfnAOY")
+file = URI.open("https://images.unsplash.com/photo-1630610280030-da8fbc7ca25a?auto=format&fit=crop&q=80&w=2874&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
 ping_pong_table_8.photo.attach(io: file, filename: "ping8.jpg", content_type: "image/jpg")
 ping_pong_table_8.save!
 
