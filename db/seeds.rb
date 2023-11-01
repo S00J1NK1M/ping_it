@@ -1,21 +1,7 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
-# urls = ["https://images.unsplash.com/photo-1519871195344-9d1a2379cea0?auto=format&fit=crop&q=60&w=900&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHBpbmclMjBwb25nJTIwdGFibGV8ZW58MHx8MHx8fDA%3D", "https://images.unsplash.com/photo-1615177981645-51107b202210?auto=format&fit=crop&q=80&w=2827&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"]
-# file = URI.open()
-# LeWagon_Pingpong_Table = PingpongTable.new(name: "LeWagon Pingpong Table", address: "Kochstraße 12, 10969 Berlin", description: "Challenge a LeWagon student to see if they are good enough :D", category: "outdoor", availability: true)
-# LeWagon_Pingpong_Table.photo.attach(io: file, filename: "ping.jpg", content_type: "image/jpg")
-# LeWagon_Pingpong_Table.save
-
 require "open-uri"
 
 # Destroy old DB
 PingpongTable.destroy_all
-
 
 # Create users
 user1 = User.new({
@@ -61,7 +47,7 @@ user3 = User.new({
 user3.save!
 
 user4 = User.new({
-  email: "erica@sunza.com",
+  email: "eric@sunza.com",
   password: "111111",
   password_confirmation: "111111",
   reset_password_token: nil,
@@ -73,6 +59,62 @@ user4 = User.new({
 })
 
 user4.save!
+
+user5 = User.new({
+  email: "ardian@lw.com",
+  password: "111111",
+  password_confirmation: "111111",
+  reset_password_token: nil,
+  reset_password_sent_at: nil,
+  remember_created_at: nil,
+  nickname: "Ardianino",
+  address: "ardianstr. 1",
+  score: nil
+})
+
+user5.save!
+
+user6 = User.new({
+  email: "akane@lw.com",
+  password: "111111",
+  password_confirmation: "111111",
+  reset_password_token: nil,
+  reset_password_sent_at: nil,
+  remember_created_at: nil,
+  nickname: "Akanechen",
+  address: "aknstr. 1",
+  score: nil
+})
+
+user6.save!
+
+user7 = User.new({
+  email: "shakar@lw.com",
+  password: "111111",
+  password_confirmation: "111111",
+  reset_password_token: nil,
+  reset_password_sent_at: nil,
+  remember_created_at: nil,
+  nickname: "Shakira",
+  address: "shakarstr. 1",
+  score: nil
+})
+
+user7.save!
+
+user8 = User.new({
+  email: "cuilu@lw.com",
+  password: "111111",
+  password_confirmation: "111111",
+  reset_password_token: nil,
+  reset_password_sent_at: nil,
+  remember_created_at: nil,
+  nickname: "FanCuilu",
+  address: "fanstr. 1",
+  score: nil
+})
+
+user8.save!
 
 p "Created #{User.count} users"
 
@@ -183,6 +225,31 @@ ping_pong_table_8 = PingpongTable.new({
 file = URI.open("https://images.unsplash.com/photo-1630610280030-da8fbc7ca25a?auto=format&fit=crop&q=80&w=2874&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
 ping_pong_table_8.photo.attach(io: file, filename: "ping8.jpg", content_type: "image/jpg")
 ping_pong_table_8.save!
+
+
+ping_pong_table_9 = PingpongTable.new({
+  name: "Clean Indoor Table",
+  address: "Hobrechtstraße 57, 12047 Berlin",
+  description: "There is a baverage vending machine next to the table",
+  category: "Indoor",
+  availability: true
+})
+
+file = URI.open("https://images.unsplash.com/photo-1461748659110-16121c049d52?auto=format&fit=crop&q=80&w=2938&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+ping_pong_table_9.photo.attach(io: file, filename: "ping9.jpg", content_type: "image/jpg")
+ping_pong_table_9.save!
+
+ping_pong_table_10 = PingpongTable.new({
+  name: "Hip table",
+  address: "Heinrich-Heine-Straße 29, 10179 Berlin",
+  description: "You can use equipment for free there",
+  category: "Indoor",
+  availability: true
+})
+
+file = URI.open("https://images.unsplash.com/photo-1511067007398-7e4b90cfa4bc?auto=format&fit=crop&q=80&w=2938&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+ping_pong_table_10.photo.attach(io: file, filename: "ping10.jpg", content_type: "image/jpg")
+ping_pong_table_10.save!
 
 p "Created #{PingpongTable.count} PingpongTables"
 
