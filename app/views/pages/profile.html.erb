@@ -59,7 +59,7 @@
   <div class="grid mb-1">
     <% @my_favorite_tables[0..2].each do |favorite| %>
       <div>
-        <%= cl_image_tag favorite.pingpong_table.photo.key, height: 90, width: 90, crop: :fill, :radius => 50  %>
+        <%= cl_image_tag favorite.pingpong_table.photo.key, :class => 'favoritetable'  %>
         <p class="fs8 d-none center" data-favorites-target="firstText"><%= favorite.pingpong_table.name %> </p>
       </div>
     <% end %>
@@ -68,14 +68,14 @@
     <% if @my_favorite_tables.length > 3 %>
       <% @my_favorite_tables[3..@my_favorite_tables.length].each do |favorite| %>
         <div>
-          <%= cl_image_tag favorite.pingpong_table.photo.key, height: 90, width: 90, crop: :fill, :radius => 50  %>
+          <%= cl_image_tag favorite.pingpong_table.photo.key, :class => 'favoritetable' %>
           <p class="fs8 center"><%= favorite.pingpong_table.name %> </p>
         </div>
       <% end %>
       <% else %>
        <% @my_favorite_tables.each do |favorite| %>
         <div>
-          <%= cl_image_tag favorite.pingpong_table.photo.key, height: 90, width: 90, crop: :fill, :radius => 50  %>
+          <%= cl_image_tag favorite.pingpong_table.photo.key, :class => 'favoritetable' %>
           <p class="fs8 center"><%= favorite.pingpong_table.name %> </p>
         </div>
       <% end %>
