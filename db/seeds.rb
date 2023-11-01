@@ -5,10 +5,19 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+# urls = ["https://images.unsplash.com/photo-1519871195344-9d1a2379cea0?auto=format&fit=crop&q=60&w=900&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHBpbmclMjBwb25nJTIwdGFibGV8ZW58MHx8MHx8fDA%3D", "https://images.unsplash.com/photo-1615177981645-51107b202210?auto=format&fit=crop&q=80&w=2827&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"]
+# file = URI.open()
+# LeWagon_Pingpong_Table = PingpongTable.new(name: "LeWagon Pingpong Table", address: "Kochstraße 12, 10969 Berlin", description: "Challenge a LeWagon student to see if they are good enough :D", category: "outdoor", availability: true)
+# LeWagon_Pingpong_Table.photo.attach(io: file, filename: "ping.jpg", content_type: "image/jpg")
+# LeWagon_Pingpong_Table.save
+
 require "open-uri"
 
+# Destroy old DB
 PingpongTable.destroy_all
 
+
+# Create users
 user1 = User.new({
   email: "soojin@kim.com",
   password: "111111",
@@ -65,30 +74,25 @@ user4 = User.new({
 
 user4.save!
 
+p "Created #{User.count} users"
 
-p "Created users"
 
-# urls = ["https://images.unsplash.com/photo-1519871195344-9d1a2379cea0?auto=format&fit=crop&q=60&w=900&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHBpbmclMjBwb25nJTIwdGFibGV8ZW58MHx8MHx8fDA%3D", "https://images.unsplash.com/photo-1615177981645-51107b202210?auto=format&fit=crop&q=80&w=2827&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"]
+# Create pingpong tables
 
-# file = URI.open()
-# LeWagon_Pingpong_Table = PingpongTable.new(name: "LeWagon Pingpong Table", address: "Kochstraße 12, 10969 Berlin", description: "Challenge a LeWagon student to see if they are good enough :D", category: "outdoor", availability: true)
-# LeWagon_Pingpong_Table.photo.attach(io: file, filename: "ping.jpg", content_type: "image/jpg")
-# LeWagon_Pingpong_Table.save
+ping_pong_table_1 = PingpongTable.new({
+  name: "LeWagon Pingpong Table",
+  address: "Kochstraße 12, 10969 Berlin",
+  description: "Challenge a LeWagon student to see if they are good enough :D",
+  category: "Outdoor",
+  availability: true
+})
 
-  ping_pong_table_one = PingpongTable.new({
-    name: "LeWagon Pingpong Table",
-    address: "Kochstraße 12, 10969 Berlin",
-    description: "Challenge a LeWagon student to see if they are good enough :D",
-    category: "Outdoor",
-    availability: true
-  })
+file = URI.open("https://images.unsplash.com/photo-1593442808948-b1df0a8f8047?auto=format&fit=crop&q=80&w=2906&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+ping_pong_table_1.photo.attach(io: file, filename: "ping.jpg", content_type: "image/jpg")
+ping_pong_table_1.save!
 
-  file = URI.open("https://images.unsplash.com/photo-1593442808948-b1df0a8f8047?auto=format&fit=crop&q=80&w=2906&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
-  ping_pong_table_one.photo.attach(io: file, filename: "ping.jpg", content_type: "image/jpg")
 
-  ping_pong_table_one.save!
-
-ping_pong_table_two = PingpongTable.new({
+ping_pong_table_2 = PingpongTable.new({
   name: "Hi-Flyer Table",
   address: "Zimmerstraße 8, 10969 Berlin",
   description: "Play close to the Berlin's baloon flyer!",
@@ -97,11 +101,11 @@ ping_pong_table_two = PingpongTable.new({
 })
 
 file = URI.open("https://i.guim.co.uk/img/static/sys-images/Guardian/Pix/pictures/2010/4/30/1272637424146/Outdoor-table-tennis-007.jpg?width=465&dpr=1&s=none")
-ping_pong_table_two.photo.attach(io: file, filename: "pong.jpg", content_type: "image/jpg")
+ping_pong_table_2.photo.attach(io: file, filename: "pong.jpg", content_type: "image/jpg")
+ping_pong_table_2.save!
 
-ping_pong_table_two.save!
 
-ping_pong_table_three = PingpongTable.new({
+ping_pong_table_3 = PingpongTable.new({
   name: "Tischtennis im Bohnengold",
   address: "Reichenberger Str. 153, 10999 Berlin",
   description: "When it's freezing out. Brrrr.",
@@ -109,12 +113,13 @@ ping_pong_table_three = PingpongTable.new({
   availability: true
 
 })
+
 file = URI.open("https://images.unsplash.com/photo-1519871195344-9d1a2379cea0?auto=format&fit=crop&q=60&w=900&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHBpbmclMjBwb25nJTIwdGFibGV8ZW58MHx8MHx8fDA%3D")
-ping_pong_table_three.photo.attach(io: file, filename: "ping1.jpg", content_type: "image/jpg")
+ping_pong_table_3.photo.attach(io: file, filename: "ping3.jpg", content_type: "image/jpg")
+ping_pong_table_3.save!
 
-ping_pong_table_three.save!
 
-ping_pong_table_four = PingpongTable.new({
+ping_pong_table_4 = PingpongTable.new({
 
   name: "Mauerpark's Pingpong",
   address: "Bernauer Straße 63, 13355 Berlin",
@@ -125,11 +130,11 @@ ping_pong_table_four = PingpongTable.new({
  })
 
  file = URI.open("https://c2.staticflickr.com/6/5078/29313044693_e45059c6c7_b.jpg")
- ping_pong_table_four.photo.attach(io: file, filename: "ping2.jpg", content_type: "image/jpg")
+ ping_pong_table_4.photo.attach(io: file, filename: "ping4.jpg", content_type: "image/jpg")
+ ping_pong_table_4.save!
 
- ping_pong_table_four.save!
 
-ping_pong_table_five = PingpongTable.new({
+ping_pong_table_5 = PingpongTable.new({
   name: "Volkspark Friedrichsahain Pingpong",
   address: "Höchste Straße 17, 10249 Berlin",
   description: "Play before joining your friends in the park!",
@@ -138,10 +143,51 @@ ping_pong_table_five = PingpongTable.new({
 })
 
 file = URI.open("https://www.exberliner.com/wp-content/uploads/2022/01/Park-am-Landvehr-Canal.jpg")
-ping_pong_table_five.photo.attach(io: file, filename: "ping3.jpg", content_type: "image/jpg")
-ping_pong_table_five.save!
+ping_pong_table_5.photo.attach(io: file, filename: "ping5.jpg", content_type: "image/jpg")
+ping_pong_table_5.save!
+
+
+ping_pong_table_6 = PingpongTable.new({
+  name: "Table for Elite Players",
+  address: "Inge-Beisheim-Platz 1, 10785 Berlin",
+  description: "Play in the center of the city!",
+  category: "Outdoor",
+  availability: true
+})
+
+file = URI.open("https://unsplash.com/ko/%EC%82%AC%EC%A7%84/%ED%8C%8C%EB%9E%80-%ED%85%8C%EC%9D%B4%EB%B8%94-%EC%9C%84%EC%97%90-%EC%95%89%EC%95%84-%EC%9E%88%EB%8A%94-%EB%82%A8%EC%9E%90-bC59jJXIC5I")
+ping_pong_table_6.photo.attach(io: file, filename: "ping6.jpg", content_type: "image/jpg")
+ping_pong_table_6.save!
+
+
+ping_pong_table_7 = PingpongTable.new({
+  name: "Warm and Nice",
+  address: "Zimmerstraße 54, 10117 Berlin",
+  description: "Play in the center of the city!",
+  category: "Indoor",
+  availability: true
+})
+
+file = URI.open("https://unsplash.com/ko/%EC%82%AC%EC%A7%84/%EB%9D%BC%EC%BC%93%EC%9D%84-%EB%93%A0-%EB%91%90-%EB%AA%85%EC%9D%98-%ED%99%9C%EB%8F%99%EC%A0%81%EC%9D%B8-%EB%85%B8%EC%9D%B8%EC%9D%B4-%ED%99%80%EC%9D%98-%ED%81%B0-%ED%85%8C%EC%9D%B4%EB%B8%94-%EC%98%86%EC%97%90%EC%84%9C-%ED%83%81%EA%B5%AC%EB%A5%BC-%EC%B9%98%EA%B3%A0-%EC%9E%88%EC%8A%B5%EB%8B%88%EB%8B%A4-3D18bJTKLzg")
+ping_pong_table_7.photo.attach(io: file, filename: "ping7.jpg", content_type: "image/jpg")
+ping_pong_table_7.save!
+
+ping_pong_table_8 = PingpongTable.new({
+  name: "brand New Table",
+  address: "Stresemannstraße 67, 10963 Berlin",
+  description: "Play in the center of the city!",
+  category: "Outdoor",
+  availability: true
+})
+
+file = URI.open("https://unsplash.com/ko/%EC%82%AC%EC%A7%84/%ED%9D%B0%EC%83%89-%ED%8B%B0%EC%85%94%EC%B8%A0%EC%99%80-%ED%8C%8C%EB%9E%80%EC%83%89-%EB%8D%B0%EB%8B%98-%EC%B2%AD%EB%B0%94%EC%A7%80%EB%A5%BC-%EC%9E%85%EC%9D%80-%EB%82%A8%EC%9E%90%EA%B0%80-%EB%82%AE-%EB%8F%99%EC%95%88-%ED%91%B8%EB%A5%B8-%EC%9E%94%EB%94%94%EB%B0%AD%EC%97%90-%EC%95%89%EC%95%84-%EC%9E%88%EB%8B%A4-4P5SOGfnAOY")
+ping_pong_table_8.photo.attach(io: file, filename: "ping8.jpg", content_type: "image/jpg")
+ping_pong_table_8.save!
 
 p "Created #{PingpongTable.count} PingpongTables"
+
+
+# Create matches
 
 match1_time = DateTime.now + (rand * 21)
 match2_time = DateTime.now + (rand * 21)
@@ -228,4 +274,4 @@ match6 = Match.new({
 
 match6.save!
 
-p "Created matches"
+p "Created #{Match.count} matches"
