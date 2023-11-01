@@ -1,22 +1,28 @@
-<div class="container card mt-2">
-  <h3><%= @match.name %></h3>
-  <hr>
+<div class="card text-center m-2">
+  <div class="card-header">
+      <h2><%= @match.name %></h2>
+  </div>
+  <div class="card-body">
+      <h5>Place:</h5> <%= @match.location %>
+      <h5>Time:</h5> <%= @match.match_time %>
 
-  Place: <%= @match.location %>
-  <br>
-  Time: <%= @match.match_time %>
+      <div class="d-flex ms-auto me-auto">
+        <% if current_user == @match.organiser %>
+        <%= link_to "Edit", edit_match_path(@match), class: "button--select center"  %>
+        <% elsif @match.organiser != current_user %>
+        <%= link_to "Join", join_match_path(@match), class: "button--select center", data: { turbo_method: :patch}%>
+        <% end %>
 
-  <%= link_to "Edit", edit_match_path(@match), class: "button--select center"  %>
-  <% if @match.organiser != current_user %>
-  <%= link_to "Join", join_match_path(@match), class: "button--select center", data: { turbo_method: :patch}%>
-<% end %>
-  <div class="d-flex align-items space-around">
-    <button class="button--cancel center" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Cancel
-      </button>
-    <%= link_to "Back", matches_path, class:"button--back center"  %>
+
+        <button class="button--cancel center" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Cancel
+        </button>
+        <%= link_to "Back", matches_path, class:"button--back center" %>
+      </div>
   </div>
 </div>
+
+<!--Modal-->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
