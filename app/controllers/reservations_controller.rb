@@ -49,7 +49,6 @@ class ReservationsController < ApplicationController
     )
 
 
-
     @marker = [@pingpong_table].map do |pingpong_table|
       {
         latitude: pingpong_table.latitude,
