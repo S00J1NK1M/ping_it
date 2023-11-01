@@ -17,6 +17,7 @@
   flex: 1;
 }
 
+
 // icon styling
 
 .fa-house {
@@ -60,10 +61,10 @@
   }
 }
 
-// ranking icon styling (pending)
-.fa-ranking-star {
-  color: $black;
 
+// Menu text styling
+.menutext {
+  color: $black;
   &:hover {
     color: $blue;
   }
