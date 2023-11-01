@@ -1,15 +1,15 @@
 <div class="card m-4 card-pingpongtable-detail container">
   <div class="details1 mt-3">
-    <div class="details1_1">
-      <div class="gray--btn center">
+    <div class="details1_1 mb-2">
+      <div class="button--category center">
         <%= @pingpong_table.category %>
       </div>
 
-      <div class="availability mx-4">
+      <div class="availability mx-2">
         <% if @pingpong_table.availability %>
           <%= image_tag "icons8-green-dot-48.png", {height: 20} %> AVAILABLE 😃
         <% else %>
-          <%= image_tag "icons8-red-dot-48.png", {height: 20} %> NOT AVAILABLE 😵‍💫
+          <%= image_tag "icons8-red-dot-48.png", {height: 20} %> OCCUPIED 😵‍💫
         <% end %>
       </div>
     </div>
@@ -27,12 +27,12 @@
     <%= cl_image_tag @pingpong_table.photo.key, height: 150, width: 300, crop: :fill %>
   </div
   >
-  <div class="name--table mt-2">
-    <h2> <%= @pingpong_table.name %> </h2>
+  <div class="name--table mt-3">
+    <h5> <%= @pingpong_table.name %> </h5>
   </div>
 
   <div class="address--table">
-    <p> <%= @pingpong_table.address %> </p>
+    <p><%= @pingpong_table.address %></p>
   </div>
 
   <div class="description">
@@ -51,16 +51,7 @@
           <%= link_to favorite_path(@my_favorite), data: {turbo_method: :delete}  do %>
                       <i class="fa-solid fa-heart fa-2x" style="color:red"></i>
             <% end %>
-
-
         <% end %>
-
-
-        <%# else %>
-          <%# <i class="far fa-heart"></i> %>
-        <%# end %>
-      <%# end %>
-
 
     <button class="button--select" data-bs-toggle="modal" data-bs-target="#exampleModal">
       Select
