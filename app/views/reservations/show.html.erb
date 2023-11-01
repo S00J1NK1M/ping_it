@@ -12,10 +12,8 @@
 
 <div class="container card">
   <div class="card-reservation">
-    <div class="mt-2">
-      <p class="mb-0"> Reach to the reserved table!
-      <br>
-      Remaining time</p>
+    <div class="mt-3">
+      <p class="mb-0"> Remaining time to reach to the table!</p>
     </div>
 
     <!-- countdown 10min reservation timer -->
@@ -23,7 +21,12 @@
     10:00
     </div>
 
-    <!-- countdown progress bar TO BE ADDED! -->
+    <!-- countdown bar -->
+    <div>
+      <div class="timerbar mb-2">
+        <div id="bar" class="bar" data-controller="timerbar" data-timer-target="timerbar"></div>
+      </div>
+    </div>
 
     <!-- navigation map -->
     <div id="map"
@@ -39,6 +42,7 @@
       <%= link_to "Read QR Code", read_pingpong_table_path(params[:pingpong_table_id], res:params[:id]), class: "button--qrcode center"%>
     </div>
   </div>
+
 
 <!-- Modal popup for cancelling the reservation -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -58,6 +62,7 @@
     </div>
   </div>
 </div>
+
 
 <!-- Our hidden QR code :) -->
   <div data-controller="accordionqr">

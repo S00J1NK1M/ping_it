@@ -7,10 +7,17 @@
 .card-pingpongtable-detail {
   width: 330px;
   height: 100%;
-
 }
 
 .card-reservation {
+  color: white;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  height: 60vh;
+}
+
+.card-playtime {
   color: white;
   align-items: center;
   text-align: center;
@@ -92,9 +99,6 @@
   color: black;
 }
 
-.modal-content{
-  border-radius: 15px;
-}
 
 .match--card--title{
   font-size: 15px;
@@ -143,5 +147,4 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  
 }

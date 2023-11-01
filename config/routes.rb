@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pingpong_tables#index"
   get "my_profile", to: "pages#profile"
+  get "splash", to: "pages#splash"
   get "my_profile/more", to: "pages#more"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -11,6 +12,7 @@ Rails.application.routes.draw do
     member do
       get "play"
       get "read"
+      patch "cancel"
     end
 
     resources :favorites, only: %i[create]
