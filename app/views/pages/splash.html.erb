@@ -1,18 +1,27 @@
 <style>
-  body { background-color:#396BEE !important;
-        color:white!important;
+  body { background-color: #396BEE !important;
+      color: white !important;
        }
+  .navbar {
+     visibility: hidden;
+      }
+  .menu {
+     visibility: hidden;
+    }
 </style>
 
 <div class="container content">
   <div class="container center mb-3">
-    <%= image_tag "marker_ava.png" , style: 'height:70px;width:70px;'%>
+    <%= link_to root_path do %>
+      <%= image_tag "marker_ava.png" , style: 'height:70px;width:70px;'%>
+    <% end %>
   </div>
 
   <div class="container center">
-    <h1>Ping it</h1>
+    <h1 style="color:white">Ping it</h1>
   </div>
+  
   <div class="container center">
-    <p>Find PingPong Tables Nearby</p>
+    <p style="color:white">Find PingPong Tables Nearby</p>
   </div>
 </div>
