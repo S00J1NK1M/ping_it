@@ -12,7 +12,7 @@
 
     <div class="details--last ms-3 me-3">
       <%= reservation.created_at.strftime("%b %d %Y, %H:%M %P") %>
-      <%= link_to "See more", reservations_path, class: "button--seemore center" %>
+      <%= link_to "See more", reservation_path(reservation), class: "button--seemore center" %>
     </div>
   </div>
 <% end %>

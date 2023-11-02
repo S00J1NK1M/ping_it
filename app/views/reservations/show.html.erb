@@ -39,7 +39,7 @@
       <button class="button--back center" data-bs-toggle="modal" data-bs-target="#exampleModal">
         Cancel
       </button>
-      <%= link_to "Read QR Code", read_pingpong_table_path(params[:pingpong_table_id], res:params[:id]), class: "button--qrcode center"%>
+      <%= link_to "Read QR Code", read_pingpong_table_path(@pingpong_table.id, res:params[:id]), class: "button--qrcode center"%>
     </div>
   </div>
 
@@ -68,7 +68,7 @@
   <div data-controller="accordionqr">
     <button data-accordionqr-target="accordion" class="accordion" style="color:#396BEE">QR</button>
     <div class="panel">
-      <%= link_to "Start Game", play_pingpong_table_path(params[:pingpong_table_id], res:params[:id]), style: "color:black" %>
+      <%= link_to "Start Game", play_pingpong_table_path(@pingpong_table.id, res:params[:id]), style: "color:black" %>
       <div class="qrcode">
         <%= @svg.html_safe %>
       </div>
