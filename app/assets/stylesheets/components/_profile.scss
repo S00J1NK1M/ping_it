@@ -1,0 +1,79 @@
+// Texts Styling
+.text-mymatches {
+  font-size: 15px;
+  font-weight: bold;
+  color: black;
+}
+
+.text-favtables {
+  font-size: 15px;
+  font-weight: bold;
+  color: black;
+}
+
+.text-organized {
+  color: $black;
+  font-size: 16px;
+}
+
+.text-joined {
+  color: $black;
+  font-size: 16px;
+}
+
+.text-nothingyet {
+  color: $grey;
+}
+
+.text-nothingyet2 {
+  color: $grey;
+  font-size: 12px;
+}
+
+.text-more {
+  color: $pink;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.match-title {
+  color: white;
+}
+
+.match-matchtime {
+  color: white;
+  font-size: 16px;
+}
+
+.match-joined-title {
+  color: $blue;
+}
+
+.match-joined-matchtime {
+  color: $blue;
+  font-size: 16px;
+}
+
+.favtables-name{
+  font-size: 10px;
+  color: $blue;
+}
+
+
+// Cards Styling
+.match-card {
+ height: 100px;
+}
+
+.matches-organised {
+  background-color: $blue;
+  border-radius: 20px;
+  color: $white;
+
+}
+
+.matches-joined {
+  background-color: $lightgreen;
+  border-radius: 20px;
+  color: $blue;
+}

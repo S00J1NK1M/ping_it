@@ -13,7 +13,6 @@
 
 
 /* Accordion CSS for hidden QR Code */
-
  /* Style the buttons that are used to open and close the accordion panel */
  .accordion {
   background-color: transparent;
@@ -51,11 +50,6 @@
 .active:after {
   content: "\2796"; /* Unicode character for "minus" sign (-) */
   color: #396BEE;
-}
-
-body {
-  // background-color: #396BEE; /* Blue background color */
-  // color: #FFFFFF; /* White text color on blue background */
 }
 
 
