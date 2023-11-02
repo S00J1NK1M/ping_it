@@ -16,11 +16,12 @@
   color: $white;
   border-radius: 20px !important;
   text-align: center;
-  font-family: Helvetica;
-  
-  height: fit-content;
   align-content: center;
+  height: fit-content;
+  width: fit-content;
+  font-family: Helvetica;
 }
+
 
 .mapboxgl-ctrl-geocoder {
   max-width: 200px !important;

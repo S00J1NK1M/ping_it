@@ -148,7 +148,7 @@ ping_pong_table_2.save!
 
 
 ping_pong_table_3 = PingpongTable.new({
-  name: "Tischtennis im Bohnengold",
+  name: "Tischtennis in NK",
   address: "Reichenberger Str. 153, 10999 Berlin",
   description: "When it's freezing out. Brrrr.",
   category: "Indoor",
@@ -177,7 +177,7 @@ ping_pong_table_4 = PingpongTable.new({
 
 
 ping_pong_table_5 = PingpongTable.new({
-  name: "Volkspark Friedrichsahain Pingpong",
+  name: "Volkspark Pingpong",
   address: "Höchste Straße 17, 10249 Berlin",
   description: "Play before joining your friends in the park!",
   category: "Outdoor",
@@ -190,7 +190,7 @@ ping_pong_table_5.save!
 
 
 ping_pong_table_6 = PingpongTable.new({
-  name: "Table for Elite Players",
+  name: "Table for Elites",
   address: "Inge-Beisheim-Platz 1, 10785 Berlin",
   description: "Play in the center of the city!",
   category: "Outdoor",
@@ -215,7 +215,7 @@ ping_pong_table_7.photo.attach(io: file, filename: "ping7.jpg", content_type: "i
 ping_pong_table_7.save!
 
 ping_pong_table_8 = PingpongTable.new({
-  name: "brand New Table",
+  name: "Brand New Table",
   address: "Stresemannstraße 67, 10963 Berlin",
   description: "Play in the center of the city!",
   category: "Outdoor",

@@ -1,15 +1,16 @@
-<div class="card m-4card-pingpongtable-detail container">
-  <div class="details--seemore mt-2">
+<div class="card-pingpongtable-detail">
 
-      <div class="x--btn">
-        <%= link_to root_path do %>
-          <p class="center" >X</p>
-        <% end %>
-      </div>
-
+  <!-- Close button-->
+  <div class="details--seemore mt-2 d-flex justify-content-end">
+    <div class="x--btn">
+      <%= link_to root_path do %>
+        <p class="center" >X</p>
+      <% end %>
+    </div>
   </div>
-  <div class="match-title">
 
+  <!-- TTT content -->
+  <div class="match-title">
     <h5><%= pingpong_table.name %></h5>
 
     <% if pingpong_table.availability %>
@@ -17,11 +18,10 @@
     <% else %>
       <%= image_tag "icons8-red-dot-48.png", {height: 20, width: 20} %> OCCUPIED  😵‍💫
     <% end %>
-
   </div>
 
+  <!-- "See More" button -->
   <div class="details-select center mt-2">
     <%= link_to "See more", pingpong_table_path(pingpong_table), class: "button--seemore center" %>
   </div>
-  
 </div>
