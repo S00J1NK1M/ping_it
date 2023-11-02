@@ -37,7 +37,7 @@
     <!-- 2 buttons -->
     <div class="d-flex justify-content-between mt-3 mb-3">
       <button class="button--cancel center" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Delete
+        Cancel
       </button>
       <%= link_to "Read QR Code", read_pingpong_table_path(@pingpong_table.id, res:params[:id]), class: "button--qrcode center"%>
     </div>
@@ -57,7 +57,7 @@
       </div>
       <div class="details--select center mb-3">
 
-        <%= link_to "Delete", cancel_reservation_path(params[:id]), class: "button--cancel center", data: {turbo_method: :patch}  %>
+        <%= link_to "Cancel", cancel_reservation_path(params[:id]), class: "button--cancel center", data: {turbo_method: :patch}  %>
       </div>
     </div>
   </div>
