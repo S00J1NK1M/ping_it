@@ -1,28 +1,41 @@
-<div class="card text-center m-2">
-  <div class="card-header">
-      <h2><%= @match.name %></h2>
-  </div>
-  <div class="card-body">
-      <%= @match.location %>
-      <br>
-      <%= @match.match_time.strftime("%b %d %Y, %I:%M %P") %>
+<div class="card m-4 card-pingpongtable-detail container">
+  <div class="details--seemore mt-3">
 
-      <div class="details--last ms-5 me-5">
-
-
-        <%= link_to "Back", matches_path, class:"button--back center" %>
-
-        <% if current_user == @match.organiser %>
-          <%= link_to "Edit", edit_match_path(@match), type:"button", class: "button--select" %>
-          <button class="button--cancel center" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Cancel
-          </button>
-        <% else @match.organiser != current_user %>
-          <%= link_to "Join", join_match_path(@match), class: "button--seemore center", data: { turbo_method: :patch}%>
+      <div class="x--btn">
+        <%= link_to matches_path do %>
+          <p class="center">X</p>
         <% end %>
+      </div>
 
+  </div>
+
+  <div class="card-header text-center">
+      <h2><%= @match.name %></h2>
+      <div class="user--photo img">
+        <% if current_user != @match.organiser %>
+          <%= cl_image_tag @match.photo.key, style: 'height:70px;width:70px;border-radius:50%;' %>
+        <% else %>
+          <%= image_tag "profile.png" , style: 'height:70px;width:70px;border-radius:50%;'%>
+        <% end %>
       </div>
   </div>
+
+  <div class="details--last">
+    <%= @match.location %>
+    <br>
+    <%= @match.match_time.strftime("%b %d %Y, %I:%M %P") %>
+
+      <% if current_user == @match.organiser %>
+        <%= link_to "Edit", edit_match_path(@match), type:"button", class: "button--select" %>
+        <button class="button--cancel center" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Cancel
+        </button>
+      <% else @match.organiser != current_user %>
+        <%= link_to "Join", join_match_path(@match), class: "button--seemore center", data: { turbo_method: :patch}%>
+      <% end %>
+
+  </div>
+
 </div>
 
 <!--Modal-->
@@ -36,8 +49,7 @@
       <div class="modal-body text-center">
         <h3>Do you want to cancel this match?</h3>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="button--back center" data-bs-dismiss="modal">Back</button>
+      <div class="details--seemore me-5">
         <%= link_to "Cancel", match_path(@match), class: "button--cancel center", data: {turbo_method: :delete}  %>
       </div>
     </div>

@@ -40,6 +40,7 @@
   justify-content: center;
   align-content: center;
   align-items: center;
+  font-weight: bolder;
 }
 
 .button--back {
@@ -66,6 +67,7 @@
   border-style: none;
   display: flex;
   width: fit-content;
+  vertical-align:middle;
 }
 
 
@@ -106,12 +108,11 @@
   vertical-align:middle;
   display: flex;
   align-content: center;
-
 }
 
 .x--btn {
- color:  $blue;
- background-color: $pink;
+  color:  $blue;
+  background-color: $pink;
   border-radius: 50%;
   width: 20px;
   height: 20px;
