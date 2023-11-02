@@ -1,13 +1,19 @@
-<div class="container">
-  <div class="d-flex text-center ms-auto me-auto m-2">
-    <h3>New match</h3>
-  </div>
+<div class="container d-flex text-center mt-2">
+  <h3>New match</h3>
 </div>
 
-  <div class="container card details--last">
+
+<div class="card m-4 card-pingpongtable-detail container p-2">
+  <div class="details--seemore mt-2">
+
+      <div class="x--btn ">
+        <%= link_to matches_path do %>
+          <p class="center" >X</p>
+        <% end %>
+      </div>
+
+  </div>
 
     <%= render 'form' %>
 
-    <%= link_to 'Back', matches_path, type: "button", class: "button--back center" %>
-  </div>
 </div>

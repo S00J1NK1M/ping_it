@@ -274,6 +274,8 @@ match1 = Match.new({
   match_status: nil
 })
 
+file = URI.open("https://americantabletennisplayer.weebly.com/uploads/1/2/0/5/120592416/erica-wu_orig.jpg")
+match1.photo.attach(io: file, filename: "match1.jpg", content_type: "image/jpg")
 match1.save!
 
 match2 = Match.new({
@@ -287,6 +289,8 @@ match2 = Match.new({
   match_status: nil
 })
 
+file = URI.open("https://americantabletennisplayer.weebly.com/uploads/1/2/0/5/120592416/kanak-jha_orig.jpg")
+match2.photo.attach(io: file, filename: "match2.jpg", content_type: "image/jpg")
 match2.save!
 
 match3 = Match.new({
@@ -300,6 +304,8 @@ match3 = Match.new({
   match_status: nil
 })
 
+file = URI.open("https://americantabletennisplayer.weebly.com/uploads/1/2/0/5/120592416/tim-boggan_orig.jpg")
+match3.photo.attach(io: file, filename: "match3.jpg", content_type: "image/jpg")
 match3.save!
 
 match4 = Match.new({
@@ -313,6 +319,8 @@ match4 = Match.new({
   match_status: nil
 })
 
+file = URI.open("https://i.pinimg.com/564x/eb/6d/87/eb6d870f2881d65fb78466b82467e894.jpg")
+match4.photo.attach(io: file, filename: "match4.jpg", content_type: "image/jpg")
 match4.save!
 
 match5 = Match.new({
@@ -326,6 +334,8 @@ match5 = Match.new({
   match_status: nil
 })
 
+file = URI.open("https://www.killerspin.com/cdn/shop/articles/competition_one_18_3008x.progressive.jpg?v=1642502239")
+match5.photo.attach(io: file, filename: "match5.jpg", content_type: "image/jpg")
 match5.save!
 
 match6 = Match.new({
@@ -339,6 +349,8 @@ match6 = Match.new({
   match_status: nil
 })
 
+file = URI.open("https://i.insider.com/57a0ec284321f1f5018bc9a2?width=1000&format=jpeg&auto=webp")
+match6.photo.attach(io: file, filename: "match6.jpg", content_type: "image/jpg")
 match6.save!
 
 p "Created #{Match.count} matches"

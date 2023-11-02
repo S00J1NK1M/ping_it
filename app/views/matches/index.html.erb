@@ -1,21 +1,28 @@
-<div class="container">
+
   <div class="d-flex text-center m-2">
     <h3>Ping it Matches </h3>
-    <%= link_to "Add", new_match_path, class: "button--seemore"%>
+    <%= link_to "Add", new_match_path, class: "button--seemore me-4 mt-3"%>
   </div>
 
   <% @matches.each do |match| %>
-    <div class="card text-center m-2">
-      <div class="card-header">
-        <h5><%= match.name %> </h5>
-      </div>
-      <div class="details--last ms-3 me-3">
-
-          <%= match.match_time.strftime("%b %d %Y, %H:%M %P")%>
-
-          <%= link_to "See more", match, class: "button--seemore" %>
-
-      </div>
+    <div class="matches-organised m-2">
+        <div class="container d-flex justify-content-space-around">
+          <div class="user--photo img">
+            <% if current_user != match.organiser %>
+              <%= cl_image_tag match.photo.key, style: 'height:70px;width:70px;border-radius:50%;' %>
+            <% else %>
+              <%= image_tag "profile.png" , style: 'height:70px;width:70px;border-radius:50%;'%>
+            <% end %>
+          </div>
+          <div class="title" style="color: white">
+              <h4><%= match.name %></h4>
+              <div class="details--last ms-3 me-3">
+                <p><%= match.match_time.strftime("%b %d %Y, %H:%M %P") %></p>
+                <%= link_to "See more", match, class: "button--seemore" %>
+              </div>
+          </div>
+        </div>
     </div>
+
   <% end %>
 </div>

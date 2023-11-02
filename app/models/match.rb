@@ -3,6 +3,7 @@ class Match < ApplicationRecord
   belongs_to :buddy, class_name: 'User', foreign_key:"buddy_id", optional: true
   belongs_to :winner, class_name: 'User', foreign_key:"winner_id", optional: true
 
+  has_one_attached :photo
   validates :name, presence: true, length: { minimum: 6 }
   validates :location, presence: true, length: { minimum: 6 }
   validates :match_time, presence: true
