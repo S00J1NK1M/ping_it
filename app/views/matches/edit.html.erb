@@ -1,9 +1,20 @@
-<div class="container card">
-  <h1>Edit match</h1>
+<div class="container">
+<div class="d-flex center mt-2">
+  <h3>Edit match</h3>
+</div>
 
-  <%= render 'form' %>
-  <div class="d-flex">
-    <%= link_to 'Show', @match, class: "button--cancel center" %>
-    <%= link_to 'Back', matches_path, class: "button--back center" %>
+<div class="card m-4 card-pingpongtable-detail_1 container p-2">
+  <div class="details--seemore mt-2">
+
+      <div class="x--btn">
+        <%= link_to matches_path do %>
+          <p class="center" >X</p>
+        <% end %>
+      </div>
+
   </div>
+
+    <%= render 'form' %>
+
+</div>
 </div>
