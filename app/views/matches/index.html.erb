@@ -7,7 +7,7 @@
   <% @matches.each do |match| %>
   <div class="card m-4 card-pingpongtable-detail container">
     <div class="matches-organised m-2">
-      <div class="match-card d-flex center">
+      <div class="match-card d-flex justify-content-between center">
         <div>
           <% if current_user != match.organiser %>
             <%= cl_image_tag match.photo.key, style: 'height:50px;width:50px;border-radius:50%;' %>
@@ -19,7 +19,6 @@
         <div class="match-title mt-3">
           <h5><%= match.name %></h5>
         </div>
-
       </div>
 
       <div class="details--last">

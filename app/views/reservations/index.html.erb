@@ -1,18 +1,26 @@
 <div class="container">
-  <div class="d-flex text-center m-2">
-    <h3>Ping it Reservations</h3>
+  <div class="d-flex center m-2">
+    <h3>Ping it Reservations </h3>
+
   </div>
+
+  <% @reservations.each do |reservation| %>
+  <div class="card m-4 card-pingpongtable-detail container">
+    <div class="matches-organised m-2">
+      <div class="match-card d-flex justify-content-between center">
+        <div>
+          <%= cl_image_tag reservation.pingpong_table.photo.key, style: 'height:50px;width:50px;border-radius:50%;' %>
+        </div>
+        <div class="match-title mt-3">
+          <h5><%= reservation.pingpong_table.name %></h5>
+        </div>
+      </div>
+
+      <div class="details--last">
+        <%= reservation.created_at.strftime("%b %d %Y, %H:%M %P") %>
+        <%= link_to "See more", reservations_path, class: "button--seemore center" %>
+      </div>
+    </div>
+  </div>
+  <% end %>
 </div>
-
-<% @reservations.each do |reservation| %>
-  <div class="card text-center m-2">
-    <div class="card-header">
-      <h5><%= reservation.pingpong_table.name %></h5>
-    </div>
-
-    <div class="details--last ms-3 me-3">
-      <%= reservation.created_at.strftime("%b %d %Y, %H:%M %P") %>
-      <%= link_to "See more", reservations_path, class: "button--seemore center" %>
-    </div>
-  </div>
-<% end %>
