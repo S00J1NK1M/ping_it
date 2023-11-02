@@ -9,8 +9,15 @@
 }
 
 .card-pingpongtable-detail {
-  width: 330px;
+  width: 90%;
   height: 100%;
+}
+
+.card-pingpongtable-detail_1 {
+  width: 90%;
+  height: 100%;
+  overflow-x: scroll;
+  overflow-y: scroll;
 }
 
 .card-reservation {

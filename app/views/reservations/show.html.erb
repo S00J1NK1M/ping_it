@@ -36,7 +36,7 @@
 
     <!-- 2 buttons -->
     <div class="d-flex justify-content-between mt-3 mb-3">
-      <button class="button--back center" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <button class="button--cancel center" data-bs-toggle="modal" data-bs-target="#exampleModal">
         Cancel
       </button>
       <%= link_to "Read QR Code", read_pingpong_table_path(@pingpong_table.id, res:params[:id]), class: "button--qrcode center"%>
@@ -53,11 +53,11 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Back"></button>
       </div>
       <div class="modal-body text-center">
-        <h3>Do you want to cancel this table?</h3>
+        <h3>Do you want to cancel this reservation?</h3>
       </div>
-      <div class="details--seemore me-5">
+      <div class="details--select center mb-3">
 
-        <%= link_to "Cancel", cancel_reservation_path(params[:id]), class: "button--back center", data: {turbo_method: :patch}  %>
+        <%= link_to "Cancel", cancel_reservation_path(params[:id]), class: "button--cancel center", data: {turbo_method: :patch}  %>
       </div>
     </div>
   </div>
