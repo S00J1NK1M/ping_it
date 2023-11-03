@@ -18,5 +18,6 @@ class PagesController < ApplicationController
   def more
     @my_matches = Match.where(organiser: current_user)
     @my_games = Match.where(buddy: current_user)
+
   end
 end
