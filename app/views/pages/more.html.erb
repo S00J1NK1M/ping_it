@@ -1,34 +1,45 @@
-<div data-controller="match">
-  <div class="container d-flex justify-content-between">
-    <p>My organized Games</p>
+<div data-controller="match container">
+  <div class="container d-flex justify-content-between mt-3">
+    <h5 class="button--category--match">My matches</h5>
   </div>
 
   <% if @my_matches.nil? %>
-    <div class="container">
+    <div class="container ">
       <h5 style="color:gray">No matches yet</h5>
     </div>
   <% else %>
-    <% @my_matches.each do |match| %>
-      <div class="matches-organised m-2">
-        <div class="container d-flex justify-content-space-around">
-          <div class="user--photo img">
-            <%= image_tag "profile.png" , style: 'height:70px;width:70px;border-radius:50%;'%>
-          </div>
 
-          <div class="title ms-3">
-            <h5><%= match.name %></h5>
-            <div>
-              <p><%= match.location %></p>
-              <p><%= match.match_time.strftime("at %H:%M, %e-%m-%Y ") %></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    <% end %>
+    <section class="slider-wrapper">
+      <ul class="slides-container" id="slides-container">
+        <%# <% each_slice(2) do |match_pair| %>
+          <li class="slide flex-row justify-content-space-around">
+            <% @my_matches.each do |match| %>
+              <div class="matches--organised">
+                <div class="m-1">
+                  <div class="user--photo img d-flex align-items-center m-1 justify-content-space-around ">
+                    <%= image_tag "profile.png" , style: 'height:50px;width:50px;border-radius:50%;margin:5px;'%>
+                    <p><%= current_user.nickname %></p>
+                  </div>
+                  <div class="title ms-3">
+                    <p class="title--match"><%= match.name %></p>
+                    <div>
+                      <p class="mb-0">🗓️ <%= match.match_time.strftime("at %H:%M, %A,")%></p>
+                      <p class="mt-0"><%= match.match_time.strftime("%e %B %Y ") %></p>
+                      <p class="mb-2">📍<%= match.location %></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </li>
+        <%# <% end %>
+      </ul>
+    </section>
+
   <% end %>
 
   <div class="container d-flex justify-content-between mt-2">
-    <p>My joined Games</p>
+    <h1 class="button--category--match">Joined Matches</h1>
   </div>
 
   <% if @my_games.nil? %>
@@ -36,22 +47,32 @@
       <h5 style="color:gray">No joined games yet</h5>
     </div>
   <% else %>
-    <% @my_games.each do |match| %>
-      <div class="matches-joined m-2">
-        <div class="container d-flex justify-content-space-around">
-          <div class="user--photo img">
-            <%= image_tag "profile.png" , style: 'height:70px;width:70px;border-radius:50%;'%>
-          </div>
 
-          <div class="title ms-3">
-            <h5><%= match.name %></h5>
-            <div>
-              <p><%= match.location %></p>
-              <p><%= match.match_time.strftime("at %H:%M, %e-%m-%Y ") %></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  <% end %>
+    <section class="slider-wrapper">
+      <ul class="slides-container" id="slides-container">
+        <%# <% @my_matches.each_slice(2) do |match_pair| %>
+          <li class="slide d-flex flex-row justify-content-space-around">
+            <% @my_games.each do |match| %>
+              <div class="matches--joined">
+                <div class="m-1">
+                  <div class="user--photo img d-flex align-items-center m-1 justify-content-space-around">
+                    <%= image_tag "profile.png" , style: 'height:70px;width:70px;border-radius:50%;margin:5px;'%>
+                      <p><%= current_user.nickname %></p>
+                  </div>
+                  <div class="title ms-3">
+                    <p class="title--match"><%= match.name %></p>
+                    <div>
+                      <p class="mb-0">🗓️ <%= match.match_time.strftime("at %H:%M, %A,")%></p>
+                      <p class="mt-0"><%= match.match_time.strftime("%e %B %Y ") %></p>
+                      <p class="mb-2">📍<%= match.location %></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+            </li>
+          <%# <% end %>
+      </ul>
+    </section>
+          <% end %>
 </div>
