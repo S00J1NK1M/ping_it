@@ -1,6 +1,9 @@
-<%= simple_form_for(@match) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :location %>
-  <%= f.input :match_time %>
-  <%= f.submit class: "button--select"%>
-<% end %>
+
+  <%= simple_form_for(@match) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :location %>
+    <%= f.input :match_time%>
+    <div class="details--seemore mt-2">
+      <%= f.submit class: "button--select center"%>
+    </div>
+  <% end %>

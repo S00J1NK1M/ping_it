@@ -37,8 +37,9 @@ class ReservationsController < ApplicationController
   end
 
   def show
-    @pingpong_table = Reservation.find(params[:id]).pingpong_table
-    url = "#{request.base_url}#{play_pingpong_table_path(params[:pingpong_table_id], res:params[:id])}"
+    @reservation = Reservation.find(params[:id])
+    @pingpong_table = @reservation.pingpong_table
+    url = "#{request.base_url}#{play_pingpong_table_path(@pingpong_table.id, res: params[:id])}"
     @qr = RQRCode::QRCode.new(url)
     @svg = @qr.as_svg(
       color: :black,
@@ -49,12 +50,11 @@ class ReservationsController < ApplicationController
     )
 
 
-
     @marker = [@pingpong_table].map do |pingpong_table|
       {
         latitude: pingpong_table.latitude,
         longitude: pingpong_table.longitude,
-        marker_html: render_to_string(partial: "marker", locals: {pingpong_table: pingpong_table })
+        marker_html: render_to_string(partial: "marker", locals: { pingpong_table: })
       }
     end
   end

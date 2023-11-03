@@ -4,7 +4,7 @@
   // height: 300px;
   margin-left: auto;
   margin-right: auto;
-  width: fit-content !important;
+
   transform:none !important;
   position: relative !important;
   top: 30% !important;
@@ -16,11 +16,12 @@
   color: $white;
   border-radius: 20px !important;
   text-align: center;
-  font-family: Helvetica;
-  width: fit-content;
-  height: fit-content;
   align-content: center;
+  height: fit-content;
+  width: fit-content;
+  font-family: Helvetica;
 }
+
 
 .mapboxgl-ctrl-geocoder {
   max-width: 200px !important;

@@ -4,9 +4,20 @@
   color: $white;
 }
 
+.card-video {
+  background-color: none;
+}
+
 .card-pingpongtable-detail {
-  width: 330px;
+  width: 90%;
   height: 100%;
+}
+
+.card-pingpongtable-detail_1 {
+  width: 90%;
+  height: 100%;
+  overflow-x: scroll;
+  overflow-y: scroll;
 }
 
 .card-reservation {
@@ -25,12 +36,25 @@
   height: 60vh;
 }
 
-.card-camera {
-  align-items: center;
-  justify-content: center;
-  width: 100vh;
-  // height:
+@media (max-width:600px) {
+  .card-camera {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    // height:
+  }
+
+  .camera {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 55%;
+  }
+
 }
+
+
 
 .camera {
   align-items: center;
@@ -54,7 +78,6 @@
   width: 250px;
 }
 
-
 .availability {
   color: white;
 }
@@ -75,7 +98,6 @@
   color: red;
 }
 
-
 .white{
   color: white;
 }
@@ -84,6 +106,13 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
+}
+
+.details--seemore{
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+  border: none;
 }
 
 .wellcome{
@@ -113,44 +142,12 @@
   margin: 5px;
 }
 
-.matches-organised {
-  background-color: $blue;
-  border-radius: 20px;
-  color: $white;
-  height: 100%;
-  width: 100%;
-  margin: 5px;
-}
-
-.matches-joined {
-  background-color: $lightgreen;
-  border-radius: 20px;
-  color: $blue;
-}
-
 .grid{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   margin-top: 15px;
 }
 
-.pink{
-  color: $pink;
-  font-size: 14px;
-  font-weight: semi-bold;
-}
-
-.fs18{
-  font-size: 18px;
-  font-weight: bold;
-  color: black;
-}
-.fs8{
-  font-size: 10px;
-  color: black;
-  margin: 0;
-  color: #3A64CE;
-}
 
 .center{
   display: flex;

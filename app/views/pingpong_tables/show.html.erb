@@ -17,7 +17,7 @@
 
     <div class="x--btn">
       <%= link_to pingpong_tables_path do %>
-        <p class="center" style="position:relative;top: -2px;">X</p>
+        <p class="center">X</p>
       <% end %>
     </div>
   </div>
@@ -25,8 +25,8 @@
 
   <div class="photo-table center">
     <%= cl_image_tag @pingpong_table.photo.key, height: 150, width: 300, crop: :fill %>
-  </div
-  >
+  </div>
+
   <div class="name--table mt-3">
     <h5> <%= @pingpong_table.name %> </h5>
   </div>
@@ -53,9 +53,13 @@
             <% end %>
         <% end %>
 
-    <button class="button--select" data-bs-toggle="modal" data-bs-target="#exampleModal">
-      Select
-    </button>
+      <% if @pingpong_table.availability %>
+        <button class="button--select" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Select
+        </button>
+      <% else %>
+        <%= "" %>
+      <% end %>
   </div>
 </div>
 
@@ -68,13 +72,13 @@
         <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmation</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body text-center">
         <h3>Do you want to reserve the table now?</h3>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="button--back center" data-bs-dismiss="modal">Close</button>
+      <div class="details--select center mb-3">
 
         <%=link_to "Reserve", pingpong_table_reservations_path(@pingpong_table), data: { turbo_method: "post"}, class: "button--seemore center" %>
+
       </div>
     </div>
   </div>

@@ -1,8 +1,20 @@
-<div class="container card">
-  <h1>New match</h1>
+<div class="container">
+<div class="d-flex center mt-2">
+  <h3>New match</h3>
+</div>
 
-  <%= render 'form' %>
+<div class="card m-4 card-pingpongtable-detail container p-2">
+  <div class="details--seemore mt-2">
 
+      <div class="x--btn">
+        <%= link_to matches_path do %>
+          <p class="center" >X</p>
+        <% end %>
+      </div>
 
-  <%= link_to 'Back', matches_path, type: "button", class: "button--back center" %>
+  </div>
+
+    <%= render 'form' %>
+
+</div>
 </div>
