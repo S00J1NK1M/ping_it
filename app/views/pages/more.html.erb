@@ -3,9 +3,9 @@
     <h5 class="button--category--match">My matches</h5>
   </div>
 
-  <% if @my_matches.nil? %>
+  <% if @my_matches.empty? %>
     <div class="container ">
-      <h5 style="color:gray">No matches yet</h5>
+      <h5 class="gray--text">No matches yet</h5>
     </div>
   <% else %>
 
@@ -42,9 +42,9 @@
     <h1 class="button--category--match">Joined Matches</h1>
   </div>
 
-  <% if @my_games.nil? %>
+  <% if @my_games.empty? %>
     <div class="container">
-      <h5 style="color:gray">No joined games yet</h5>
+      <h5 class="gray--text">No joined games yet</h5>
     </div>
   <% else %>
     <section class="slider-wrapper">
