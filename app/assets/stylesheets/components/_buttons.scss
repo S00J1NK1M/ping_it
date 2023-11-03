@@ -76,7 +76,7 @@
   background-color: $pink;
   color: $white;
   height: 30px;
-  width: 150px;
+  width: 110px;
   align-content: center;
   border-style: none;
 }
@@ -107,6 +107,10 @@
   vertical-align:middle;
   display: flex;
   align-content: center;
+}
+
+.button-ended {
+  color: black;
 }
 
 .x--btn {

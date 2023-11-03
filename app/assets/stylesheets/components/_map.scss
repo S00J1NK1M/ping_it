@@ -11,6 +11,12 @@
   bottom: 70% !important;
 }
 
+.mapboxgl-canvas{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
 .mapboxgl-popup-content{
   background-color: $blue !important;
   color: $white;

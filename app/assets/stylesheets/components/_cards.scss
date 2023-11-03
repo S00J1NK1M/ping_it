@@ -4,6 +4,22 @@
   color: $white;
 }
 
+.card-old {
+  background-color: rgb(194, 194, 194);
+  border-radius: 20px;
+  color: $white;
+}
+
+.match-card-old{
+  background-color: rgb(194, 194, 194);
+}
+
+.card-pingpongtable-detail-old {
+  width: 90%;
+  height: 100%;
+  background-color: rgb(194, 194, 194);
+}
+
 .card-video {
   background-color: none;
 }
@@ -12,6 +28,7 @@
   width: 90%;
   height: 100%;
 }
+
 
 .card-pingpongtable-detail_1 {
   width: 90%;

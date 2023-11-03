@@ -1,26 +1,43 @@
 <div class="container">
-  <div class="d-flex center m-2">
+  <div class="d-flex center mt-3">
     <h3>Ping it Reservations </h3>
-
   </div>
 
-  <% @reservations.each do |reservation| %>
-  <div class="card m-4 card-pingpongtable-detail container">
-    <div class="matches-organised m-2">
-      <div class="match-card d-flex justify-content-between center">
-        <div>
-          <%= cl_image_tag reservation.pingpong_table.photo.key, style: 'height:50px;width:50px;border-radius:50%;' %>
-        </div>
-        <div class="match-title mt-3">
-          <h5><%= reservation.pingpong_table.name %></h5>
+  <% @reservations[0..0].each do |reservation| %>
+    <div class="card m-4 card-pingpongtable-detail container">
+      <div class="matches-organised m-2">
+        <div class="match-card d-flex justify-content-between center">
+          <div>
+            <%= cl_image_tag reservation.pingpong_table.photo.key, style: 'height:50px;width:50px;border-radius:50%;' %>
+          </div>
+          <div class="match-title mt-3">
+            <h5><%= reservation.pingpong_table.name %></h5>
+          </div>
         </div>
       </div>
-
-
-    <div class="details--last ms-3 me-3">
-      <%= reservation.created_at.strftime("%b %d %Y, %H:%M %P") %>
-      <%= link_to "See more", reservation_path(reservation), class: "button--seemore center" %>
+      <div class="details--last">
+        <p class="mt-2"><%= reservation.created_at.strftime("%b %d %Y, %H:%M %P") %></p>
+        <%= link_to "See more", reservation_path(reservation), class: "button--seemore me-2" %>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+
+  <% @reservations[1..@reservations.length].each do |reservation| %>
+    <div class="card-old m-4 card-pingpongtable-detail-old container">
+      <div class="matches-organised m-2">
+        <div class="match-card-old d-flex justify-content-between center">
+          <div>
+            <%= cl_image_tag reservation.pingpong_table.photo.key, style: 'height:50px;width:50px;border-radius:50%;' %>
+          </div>
+          <div class="match-title mt-3">
+            <h5><%= reservation.pingpong_table.name %></h5>
+          </div>
+        </div>
+      </div>
+      <div class="details--last">
+        <p class="mt-2"><%= reservation.created_at.strftime("%b %d %Y, %H:%M %P") %></p>
+        <%= link_to "Ended", reservation_path(reservation), class: "button-ended mt-2 me-2" %>
+      </div>
+    </div>
+  <% end %>
 </div>
