@@ -21,7 +21,7 @@
 // icon styling
 
 .fa-house {
-  color: $black;
+  color: $grey;
   &:hover {
     color: $blue;
   }
@@ -29,33 +29,21 @@
 
 
 .fa-calendar-check {
-  color: $black;
-
+  color: $grey;
   &:hover {
     color: $blue;
   }
 }
 
-
-.fa-qrcode {
-  color: $black;
-
-  &:hover {
-    color: $neongreen;
-  }
-}
-
 .fa-table-tennis-paddle-ball {
-  color: $black;
-
+  color: $grey;
   &:hover {
     color: $blue;
   }
 }
 
 .fa-user {
-  color: $black;
-
+  color: $grey;
   &:hover {
     color: $blue;
   }
@@ -64,8 +52,12 @@
 
 // Menu text styling
 .menutext {
-  color: $black;
+  color: $grey;
   &:hover {
     color: $blue;
   }
+}
+
+.menutext-current {
+  color: $blue;
 }
