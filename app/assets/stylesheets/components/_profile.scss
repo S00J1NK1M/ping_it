@@ -52,6 +52,10 @@
   color: $blue;
 }
 
+.match-joined-title-white {
+  color: $white
+}
+
 .match-joined-matchtime {
   color: $blue;
   font-size: 16px;
@@ -66,6 +70,7 @@
 // Cards Styling
 .match-card {
  height: 100px;
+ width: fit-content;
 }
 
 .matches-organised {
