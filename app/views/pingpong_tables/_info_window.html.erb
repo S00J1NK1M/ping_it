@@ -1,13 +1,10 @@
 
 
   <!-- Close button-->
-  <div class="details--seemore mt-2 d-flex justify-content-end">
-    <div class="x--btn">
-      <%= link_to root_path do %>
-        <p class="center" >X</p>
-      <% end %>
+    <div class="button--x-infowindow container d-flex justify-content-end mt-2 mb-3 me-0 p-0">
+      <%= link_to "", root_path, class: "fa-solid fa-circle-xmark fa-xl", style: "color: #ff00f5;float:right;" %>
     </div>
-  </div>
+
 
   <!-- TTT content -->
   <div class="match-title">
@@ -24,4 +21,3 @@
   <div class="details-select center mt-2">
     <%= link_to "See more", pingpong_table_path(pingpong_table), class: "button--seemore center" %>
   </div>
-
