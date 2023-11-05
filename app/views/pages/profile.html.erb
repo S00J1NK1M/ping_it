@@ -6,19 +6,17 @@
   </div>
 
   <div data-controller="match">
-    <div class="container d-flex justify-content-between">
-      <p class="text-organized mb-1">My organized Games</p>
-    </div>
     <% if @my_most_recent_match.nil? %>
       <div class="container center">
         <h5 class="text-nothingyet">No matches yet</h5>
       </div>
     <% else %>
-      <div class="matches-organised">
+      <div class="matches-organised m-2">
         <div class="match-card container d-flex center">
           <div>
             <%= image_tag "profile.png" , style: 'height:70px;width:70px;border-radius:50%;'%>
           </div>
+
           <div>
             <div class="match-title mt-3">
               <h5><%= @my_most_recent_match.name %></h5>
@@ -32,19 +30,15 @@
     <% end %>
   </div>
 
-  <div class="container d-flex justify-content-between mt-2">
-    <p class="text-joined mb-1">My joined Games</p>
-  </div>
-
   <% if @my_most_recent_game.nil? %>
     <div class="container center">
       <h5 class="text-nothingyet">No joined matches yet</h5>
     </div>
   <% else %>
-    <div class="matches-joined">
+    <div class="matches-joined m-2">
       <div class="match-card container d-flex center">
         <div>
-          <%= image_tag "joined.png" , style: 'height:70px;width:70px;border-radius:50%;'%>
+          <%= cl_image_tag @my_most_recent_game.photo.key, style: 'height:60px;width:60px;border-radius:50%;'%>
         </div>
 
         <div>
@@ -63,7 +57,7 @@
 
   <!-- My Profile: My Favorite Tables -->
   <div class="container" data-controller="favorites">
-    <div class="mt-3 d-flex justify-content-between">
+    <div class="d-flex justify-content-between">
       <% if !@my_favorite_tables.any? %>
         <div class="container p-0">
           <div class="container p-0 d-flex justify-content-space-between">

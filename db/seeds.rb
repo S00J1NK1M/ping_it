@@ -257,7 +257,7 @@ p "Created #{PingpongTable.count} PingpongTables"
 # Create matches
 
 match1_time = DateTime.now + (rand * 21)
-match2_time = DateTime.now + (rand * 21)
+# match2_time = DateTime.now + (rand * 21)
 match3_time = DateTime.now + (rand * 21)
 match4_time = DateTime.now + (rand * 21)
 match5_time = DateTime.now + (rand * 21)
@@ -278,20 +278,20 @@ file = URI.open("https://americantabletennisplayer.weebly.com/uploads/1/2/0/5/12
 match1.photo.attach(io: file, filename: "match1.jpg", content_type: "image/jpg")
 match1.save!
 
-match2 = Match.new({
-  name: "TikiTaka match",
-  match_time: match2_time,
-  location: "Lindenstraße 74, 10969 Berlin",
-  equipment: true,
-  organiser_id: User.all.sample.id,
-  buddy_id: nil,
-  winner_id: nil,
-  match_status: nil
-})
+# match2 = Match.new({
+#   name: "TikiTaka ㅡatch",
+#   match_time: match2_time,
+#   location: "Lindenstraße 74, 10969 Berlin",
+#   equipment: true,
+#   organiser_id: User.all.sample.id,
+#   buddy_id: nil,
+#   winner_id: nil,
+#   match_status: nil
+# })
 
-file = URI.open("https://americantabletennisplayer.weebly.com/uploads/1/2/0/5/120592416/kanak-jha_orig.jpg")
-match2.photo.attach(io: file, filename: "match2.jpg", content_type: "image/jpg")
-match2.save!
+# file = URI.open("https://americantabletennisplayer.weebly.com/uploads/1/2/0/5/120592416/kanak-jha_orig.jpg")
+# match2.photo.attach(io: file, filename: "match2.jpg", content_type: "image/jpg")
+# match2.save!
 
 match3 = Match.new({
   name: "Let's burn calories",

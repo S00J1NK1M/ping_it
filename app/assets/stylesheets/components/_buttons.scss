@@ -2,13 +2,27 @@
   background-color: $pink;
   color: $white;
   height: 30px;
-  width:80px;
-  text-decoration: none;
-  border-style: none;
+  width: 80px;
   border-radius: 5px;
   border-style: none !important;
   align-content: center !important;
-  font-weight: bolder;
+  text-decoration: none;
+  vertical-align: middle;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button--selectmatch {
+  background-color: $pink;
+  color: $white;
+  height: 30px;
+  width: 70px;
+  border-radius: 5px;
+  border-style: none !important;
+  align-content: center !important;
+  text-decoration: none;
+  vertical-align: middle;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -70,6 +84,25 @@
   vertical-align:middle;
 }
 
+.button--edit {
+    background-color: $pink;
+    color: $white;
+    height: 30px;
+    width: 50px;
+    border-radius: 5px;
+    border-style: none !important;
+    align-content: center !important;
+    text-decoration: none;
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button--x {
+  height: 20px;
+  align-items: flex-end;
+}
 
 .button--qrcode {
   border-radius: 5px;
@@ -109,12 +142,14 @@
   align-content: center;
 }
 
+
+
 .button-ended {
   color: black;
 }
 
 .x--btn {
-  color: $blue;
+  color: $white !important;
   background-color: $pink;
   border-radius: 50%;
   width: 20px;

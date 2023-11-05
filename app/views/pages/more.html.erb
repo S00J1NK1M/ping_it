@@ -1,6 +1,6 @@
 <div data-controller="match container">
   <div class="container d-flex justify-content-between mt-3">
-    <h5 class="button--category--match">My matches</h5>
+    <h5 class="more--mymatches">My organized matches</h5>
   </div>
 
   <% if @my_matches.empty? %>
@@ -16,18 +16,17 @@
             <% @my_matches.each do |match| %>
               <div class="matches--organised">
                 <div class="m-1">
-                  <div class="user--photo img d-flex align-items-center m-1 justify-content-space-around ">
+                  <div class="user--photo center m-2">
                     <%= image_tag "profile.png" , style: 'height:50px;width:50px;border-radius:50%;margin:5px;'%>
-                    <p><%= current_user.nickname %></p>
+                    <!-- <p><%= current_user.nickname %></p> -->
                   </div>
-                  <div class="title ms-3">
-                    <p class="title--match"><%= match.name %></p>
-                    <div>
-                      <p class="mb-0">🗓️ <%= match.match_time.strftime("at %H:%M, %A,")%></p>
-                      <p class="mt-0"><%= match.match_time.strftime("%e %B %Y ") %></p>
-                      <p class="mb-2">📍<%= match.location %></p>
-                    </div>
+
+                  <div class="more-matches-content center">
+                    <p class="mb-2"><%= match.name %></p>
+                    <p class="mb-2">🗓️ <%= match.match_time.strftime("%b %d %Y, %I:%M %P")%></p>
+                    <p class="mb-2">📍 <%= match.location %></p>
                   </div>
+
                 </div>
               </div>
             <% end %>
@@ -38,8 +37,8 @@
 
   <% end %>
 
-  <div class="container d-flex justify-content-between mt-2">
-    <h1 class="button--category--match">Joined Matches</h1>
+  <div class="container d-flex justify-content-between mt-1">
+    <h1 class="more--joinedmatches">Joined Matches</h1>
   </div>
 
   <% if @my_games.empty? %>
@@ -54,17 +53,15 @@
             <% @my_games.each do |match| %>
               <div class="matches--joined">
                 <div class="m-1">
-                  <div class="user--photo img d-flex align-items-center m-1 justify-content-space-around">
-                    <%= image_tag "profile.png" , style: 'height:70px;width:70px;border-radius:50%;margin:5px;'%>
-                      <p><%= current_user.nickname %></p>
+                  <div class="user--photo center m-2">
+                    <%= cl_image_tag match.photo.key, style: 'height:60px;width:60px;border-radius:50%;'%>
+                    <!-- <p><%= current_user.nickname %></p> -->
                   </div>
-                  <div class="title ms-3">
-                    <p class="title--match"><%= match.name %></p>
-                    <div>
-                      <p class="mb-0">🗓️ <%= match.match_time.strftime("at %H:%M, %A,")%></p>
-                      <p class="mt-0"><%= match.match_time.strftime("%e %B %Y ") %></p>
-                      <p class="mb-2">📍<%= match.location %></p>
-                    </div>
+
+                  <div class="more-matches-content center">
+                    <p class="mb-2"><%= match.name %></p>
+                    <p class="mb-2">🗓️ <%= match.match_time.strftime("%b %d %Y, %I:%M %P")%></p>
+                    <p class="mb-2">📍 <%= match.location %></p>
                   </div>
                 </div>
               </div>
