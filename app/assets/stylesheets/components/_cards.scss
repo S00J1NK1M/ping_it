@@ -4,6 +4,13 @@
   color: $white;
 }
 
+.card--joined {
+  background-color: $lightgreen;
+  border-radius: 20px;
+  color: $white;
+  height: 250px;
+}
+
 .card-old {
   background-color: rgb(194, 194, 194);
   border-radius: 20px;
@@ -13,6 +20,15 @@
 .match-card-old{
   background-color: rgb(194, 194, 194);
 }
+
+.match-card-detail {
+ height: 220px;
+}
+
+.match-joined-card-detail {
+  height: 220px;
+  color: $blue;
+ }
 
 .card-pingpongtable-detail-old {
   width: 90%;

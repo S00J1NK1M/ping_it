@@ -1,40 +1,54 @@
-<div class="d-flex container justify-content-between mb-2">
-  <h5 class="text-mymatches mt-3">Ping it Matches</h5>
+<style>
+  p { Font-size: 12px !important; }
+  h5 { Font-size: 17px !important; }
+</style>
+
+
+<div class="container d-flex justify-content-between mb-2">
+  <h5 class="text-pingitmatches mt-3">Ping it Matches</h5>
   <%= link_to "Add", new_match_path, class: "text-more mt-3"%>
 </div>
 
 
 <% @matches.each do |match| %>
-<div class="container">
-  <% if current_user != match.organiser %>
-    <div class="matches-joined">
-  <% else %>
-    <div class="matches-organised">
-  <% end %>
-  <div>
-    <div class="match-card container d-flex center">
-      <div>
-        <% if current_user != match.organiser %>
-          <%= cl_image_tag match.photo.key, style: 'height:60px;width:60px;border-radius:50%;'%>
-        <% else %>
+  <% if current_user == match.organiser %>
+    <div class="matches-organised mb-3">
+      <div class="match-card container d-flex center">
+        <div>
           <%= image_tag "profile.png" , style: 'height:60px;width:60px;border-radius:50%;'%>
-        <% end %>
-      </div>
+        </div>
 
-        <% if current_user != match.organiser %>
-          <div class="match-joined-title">
-        <%else%>
-          <div class="match-joined-title-white">
-        <%end%>
-        <h5><%= match.name %></h5>
+        <div class="container">
+          <div class="match-title mt-3">
+            <h5><%= match.name %></h5>
           </div>
-      </div>
-      </div>
-      <div class="details--last">
-        <p class="mt-2"><%= match.match_time.strftime("%b %d %Y, %I:%M %P")%></p>
-        <%= link_to "See more", match, class: "button--seemore"%>
+          <div class="container d-flex justify-content-between">
+            <p class="mt-2"><%= match.match_time.strftime("%b %d %Y, %I:%M %P")%></p>
+            <%= link_to "Select", match, class: "button--selectmatch"%>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
+
+  <% else %>
+    <div class="matches-joined mb-3">
+      <div class="match-card container d-flex center">
+        <div>
+          <%= cl_image_tag match.photo.key, style: 'height:60px;width:60px;border-radius:50%;'%>
+        </div>
+
+        <div class="container">
+          <div class="match-joined-title mt-3">
+            <h5><%= match.name %></h5>
+          </div>
+
+          <div class="container d-flex justify-content-between">
+            <p class="mt-2"><%= match.match_time.strftime("%b %d %Y, %I:%M %P")%></p>
+            <%= link_to "Select", match, class: "button--selectmatch"%>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <% end %>
 <% end %>
