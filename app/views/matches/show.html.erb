@@ -1,13 +1,17 @@
-<div class="container">
-<div class="d-flex center mt-2">
+<div class="container d-flex justify-content-between">
   <% if current_user == @match.organiser%>
-    <h3>Your match</h3>
+    <h5 class="text-mymatches mt-3">Your match</h5>
   <% else %>
-    <h3><%= User.all.sample.nickname %>'s match </h3>
+    <h5 class="text-mymatches mt-3"><%= User.all.sample.nickname %>'s match </h5>
   <% end %>
 </div>
 
-<div class="card m-4card-pingpongtable-detail container">
+
+  <% if current_user != @match.organiser %>
+    <div class="card matches-joined container">
+  <% else %>
+    <div class="card matches-organised container">
+  <% end %>
   <div class="details--seemore mt-2">
 
       <div class="x--btn">
@@ -17,21 +21,19 @@
       </div>
   </div>
 
-  <div class="matches-organised">
+
    <div class="d-flex justify-content-around center mb-2">
-
-        <% if current_user != @match.organiser %>
-          <%= cl_image_tag @match.photo.key, style: 'height:50px;width:50px;border-radius:50%;' %>
-        <% else %>
-          <%= image_tag "profile.png", style: 'height:50px;width:50px;border-radius:50%;'%>
-        <% end %>
-
-
-      <div class="match-title">
+      <% if current_user != @match.organiser %>
+        <%= cl_image_tag @match.photo.key, style: 'height:60px;width:60px;border-radius:50%;' %>
+        <div class="match-joined-title mt-3">
+      <% else %>
+        <%= image_tag "profile.png", style: 'height:60px;width:60px;border-radius:50%;'%>
+        <div class="match-joined-title-white mt-3">
+      <% end %>
         <h5><%= @match.name %></h5>
       </div>
     </div>
-  </div>
+
 
   <div class="details--last">
     <%= @match.location %>
@@ -46,9 +48,7 @@
       <% else @match.organiser != current_user %>
         <%= link_to "Join", join_match_path(@match), class: "button--seemore center", data: { turbo_method: :patch}%>
       <% end %>
-
   </div>
-
 </div>
 </div>
 
