@@ -1,3 +1,7 @@
+<style>
+  p { font-size: 18px !important; }
+</style>
+
 <div class="card m-4 card-pingpongtable-detail container">
   <div class="details1 mt-3">
     <div class="details1_1 mb-2">
@@ -7,18 +11,16 @@
 
       <div class="availability mx-2">
         <% if @pingpong_table.availability %>
-          <%= image_tag "icons8-green-dot-48.png", {height: 20} %> AVAILABLE 😃
+          <%= image_tag "greenface.png", {height: 20} %> AVAILABLE
         <% else %>
-          <%= image_tag "icons8-red-dot-48.png", {height: 20} %> OCCUPIED 😵‍💫
+          <%= image_tag "redface.png", {height: 20} %> OCCUPIED
         <% end %>
       </div>
     </div>
 
 
-    <div class="x--btn">
-      <%= link_to pingpong_tables_path do %>
-        <p class="center">X</p>
-      <% end %>
+    <div class="mt-2">
+      <%= link_to "", root_path, class: "fa-solid fa-circle-xmark fa-xl", style: "color: #ff00f5;float:right;" %>
     </div>
   </div>
 
@@ -32,34 +34,33 @@
   </div>
 
   <div class="address--table">
-    <p><%= @pingpong_table.address %></p>
+    <p><%= image_tag "location.png", {height: 20} %> <%= @pingpong_table.address %></p>
   </div>
 
   <div class="description">
-    <p> <%= @pingpong_table.description %> </p>
+    <p><%= image_tag "note.png", {height: 20} %> <%= @pingpong_table.description %> </p>
   </div>
 
-  <div class="details--last">
+  <div class="details--last d-flex justify-content-between">
+  <%# <% if @pingpong_table.liked_by current_user %>
+  <% if  @my_favorite.nil? %>
+    <%= link_to pingpong_table_favorites_path(@pingpong_table), data: {turbo_method: :post}  do %>
+      <i class="fa-regular fa-heart fa-2x" style="color:red"></i>
+    <% end %>
 
-        <%# <% if @pingpong_table.liked_by current_user %>
-        <% if  @my_favorite.nil? %>
-            <%= link_to pingpong_table_favorites_path(@pingpong_table), data: {turbo_method: :post}  do %>
-                  <i class="fa-regular fa-heart fa-2x" style="color:red"></i>
-            <% end %>
-          <% else %>
+  <% else %>
+    <%= link_to favorite_path(@my_favorite), data: {turbo_method: :delete}  do %>
+      <i class="fa-solid fa-heart fa-2x" style="color:red"></i>
+    <% end %>
+  <% end %>
 
-          <%= link_to favorite_path(@my_favorite), data: {turbo_method: :delete}  do %>
-                      <i class="fa-solid fa-heart fa-2x" style="color:red"></i>
-            <% end %>
-        <% end %>
-
-      <% if @pingpong_table.availability %>
-        <button class="button--select" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Select
-        </button>
-      <% else %>
-        <%= "" %>
-      <% end %>
+  <% if @pingpong_table.availability %>
+    <button class="button--select" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Select
+    </button>
+  <% else %>
+    <%= "" %>
+  <% end %>
   </div>
 </div>
 

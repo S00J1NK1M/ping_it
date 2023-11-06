@@ -3,25 +3,20 @@
     <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "profile.png", class: "avatar", alt: "dropdown menu" %>
       <% if user_signed_in? %>
-        <%= "Hey, #{current_user.nickname}!" %>
+        <%= "Hi, #{current_user.nickname}!" %>
       <% else %>
         <%= "Let's Ping it" %>
       <% end %>
     <% end %>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <% if user_signed_in? %>
-        <div class="navbar-nav">
-            <%= link_to "My Profile", my_profile_path, class: "nav-link" %>
-            <%= link_to "Logout", destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link" %>
-        </div>
-        <% else %>
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        <% end %>
-    </div>
+    <% if user_signed_in? %>
+      <div class="navbar-nav">
+          <%= link_to "Logout", destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link" %>
+      </div>
+    <% else %>
+      <div class="navbar-nav">
+        <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+      </div>
+    <% end %>
   </div>
 </div>
