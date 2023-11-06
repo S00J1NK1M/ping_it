@@ -13,10 +13,31 @@
           <div class="match-title mt-3">
             <h5><%= reservation.pingpong_table.name %></h5>
           </div>
+
         </div>
       </div>
       <div class="details--last">
         <p class="mt-2"><%= reservation.created_at.strftime("%b %d %Y, %H:%M %P") %></p>
+        <%= link_to "See more", reservation_path(reservation), class: "button--seemore me-2" %>
+      </div>
+    </div>
+  <% end %>
+  <% @reservations[1..@reservations.length].each do |reservation| %>
+    <div class="card-old m-4 card-pingpongtable-detail-old container">
+      <div class="matches-organised m-2">
+        <div class="match-card-old d-flex justify-content-between center">
+          <div>
+            <%= cl_image_tag reservation.pingpong_table.photo.key, style: 'height:50px;width:50px;border-radius:50%;' %>
+          </div>
+          <div class="match-title mt-3">
+            <h5><%= reservation.pingpong_table.name %></h5>
+          </div>
+
+        </div>
+      </div>
+      <div class="details--last">
+        <p class="mt-2"><%= reservation.created_at.strftime("%b %d %Y, %H:%M %P") %></p>
+
         <%= link_to "See more", reservation_path(reservation), class: "button--seemore me-2" %>
       </div>
     </div>
@@ -36,6 +57,7 @@
       </div>
       <div class="details--last">
         <p class="mt-2"><%= reservation.created_at.strftime("%b %d %Y, %H:%M %P") %></p>
+
         <%= link_to "Ended", reservation_path(reservation), class: "button-ended mt-2 me-2" %>
       </div>
     </div>
