@@ -1,8 +1,8 @@
 <div>
   <!-- My Profile: My Matches -->
-  <div class="container d-flex justify-content-between">
-    <h5 class="text-mymatches mt-3">My Matches</h5>
-    <%= link_to "More", my_profile_more_path, class: "text-more mt-3" %>
+  <div class="d-flex justify-content-between mt-3">
+    <h5 class="text-mymatches">My Matches</h5>
+    <h5><%= link_to "MORE", my_profile_more_path, class: "text-more mt-3 me-3" %></h5>
   </div>
 
   <div data-controller="match">
@@ -14,14 +14,14 @@
       <div class="matches-organised m-2">
         <div class="match-card container d-flex center">
           <div>
-            <%= image_tag "profile.png" , style: 'height:70px;width:70px;border-radius:50%;'%>
+            <%= image_tag "profile.png" , style: 'height:60px;width:60px;border-radius:50%;'%>
           </div>
 
           <div>
-            <div class="match-title mt-3">
-              <h5><%= @my_most_recent_match.name %></h5>
+            <div class="match-title center mt-3">
+              <h5 class="match-title-text"><%= @my_most_recent_match.name %></h5>
             </div>
-            <div class="match-matchtime">
+            <div class="match-matchtime center">
               <p><%= @my_most_recent_match.match_time.strftime("%b %d %Y, %H:%M %P") %></p>
             </div>
           </div>
@@ -43,7 +43,7 @@
 
         <div>
           <div class="match-joined-title mt-3">
-            <h5><%= @my_most_recent_game.name %></h5>
+            <h5 class="match-title-text"><%= @my_most_recent_game.name %></h5>
           </div>
           <div class="match-joined-matchtime">
             <p><%= @my_most_recent_game.match_time.strftime("%b %d %Y, %H:%M %P") %></p>
@@ -91,7 +91,7 @@
         <div class="container p-0">
           <div class="container p-0 d-flex justify-content-between">
             <h5 class="text-favtables mt-5">My Favorite Tables</h5>
-            <p class="text-more mt-5 justify-content-end" data-action="click->favorites#fire">More</p>
+            <h5 class="text-more mt-5 justify-content-end" data-action="click->favorites#fire">MORE</h5>
           </div>
 
           <div>
@@ -119,5 +119,17 @@
         </div>
       <% end %>
     </div>
+  </div>
+
+  <div>
+    <% if user_signed_in? %>
+      <div class="navbar-nav">
+          <%= link_to "👋🏼 Logout", destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link" %>
+      </div>
+    <% else %>
+      <div class="navbar-nav">
+        <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+      </div>
+    <% end %>
   </div>
 </div>

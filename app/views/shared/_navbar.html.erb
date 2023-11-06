@@ -1,5 +1,5 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon sticky-top">
-  <div class="container-fluid">
+  <div class="container-fluid ms-2">
     <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "profile.png", class: "avatar", alt: "dropdown menu" %>
       <% if user_signed_in? %>
@@ -7,16 +7,6 @@
       <% else %>
         <%= "Let's Ping it" %>
       <% end %>
-    <% end %>
-
-    <% if user_signed_in? %>
-      <div class="navbar-nav">
-          <%= link_to "Logout", destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link" %>
-      </div>
-    <% else %>
-      <div class="navbar-nav">
-        <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-      </div>
     <% end %>
   </div>
 </div>
