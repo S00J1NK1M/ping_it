@@ -1,12 +1,14 @@
 // Texts Styling
 .text-mymatches {
   color: black;
-  font-size: 14px;
-  width: 160px;
+  font-size: 13px;
+  width: 150px;
   height: 100%;
-  background-color: #D9D9D9;
-  border-radius: 30px;
-  border-style: none;
+  // background-color: #D9D9D9;
+  // border-radius: 20px;
+  // border-style: solid;
+  // border-width: 1px;
+  // border-color: rgb(0, 0, 0);
   display: flex;
   justify-content: center;
   vertical-align: middle;
@@ -17,18 +19,30 @@
 
 .text-favtables {
   color: black;
-  font-size: 14px;
-  width: 280px;
+  font-size: 12px;
+  width: 240px;
   height: 100%;
-  background-color: #D9D9D9;
-  border-radius: 30px;
-  border-style: none;
+  // background-color: #D9D9D9;
+  // border-radius: 30px;
+  // border-style: solid;
+  // border-width: 1px;
+  // border-color: rgb(0, 0, 0);
   display: flex;
   justify-content: center;
   vertical-align: middle;
   align-content: center;
   text-align: center;
   padding: 7px;
+}
+
+.text-more {
+  color: $pink !important;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.match-title-text {
+  font-size: 17px;
 }
 
 .text-organized {
@@ -53,11 +67,7 @@
   font-size: 12px;
 }
 
-.text-more {
-  color: $pink !important;
-  font-size: 14px;
-  font-weight: bold;
-}
+
 
 .match-title {
   color: white;

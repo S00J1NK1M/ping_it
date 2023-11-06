@@ -16,4 +16,9 @@ $headers-font: "Press Start 2P", "Helvetica", "sans-serif";
 //        font-url('FontFile.ttf') format('truetype')
 // }
 
-// $my-font: "Font Name";
+// @font-face {
+//   font-family: "apple";
+//   src: font-url('fonts/apple.ttf') format('truetype');
+// }
+
+// $headers-font: "apple";
