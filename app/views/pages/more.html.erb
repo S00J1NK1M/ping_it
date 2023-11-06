@@ -23,8 +23,8 @@
 
                   <div class="more-matches-content center">
                     <p class="mb-2"><%= match.name %></p>
-                    <p class="mb-2">🗓️ <%= match.match_time.strftime("%b %d %Y, %I:%M %P")%></p>
-                    <p class="mb-2">📍 <%= match.location %></p>
+                    <p class="mb-2"><%= image_tag "calendar.png", {height: 20} %> <%= match.match_time.strftime("%b %d %Y, %I:%M %P")%></p>
+                    <p class="mb-2"><%= image_tag "location.png", {height: 20} %> <%= match.location %></p>
                   </div>
 
                 </div>
@@ -60,8 +60,8 @@
 
                   <div class="more-matches-content center">
                     <p class="mb-2"><%= match.name %></p>
-                    <p class="mb-2">🗓️ <%= match.match_time.strftime("%b %d %Y, %I:%M %P")%></p>
-                    <p class="mb-2">📍 <%= match.location %></p>
+                    <p class="mb-2"><%= image_tag "calendar.png", {height: 20} %> <%= match.match_time.strftime("%b %d %Y, %I:%M %P")%></p>
+                    <p class="mb-2"><%= image_tag "location.png", {height: 20} %> <%= match.location %></p>
                   </div>
                 </div>
               </div>

@@ -17,6 +17,10 @@
   width: 100%;
 }
 
+.mapboxgl-user-location-dot {
+  // background-color: red !important;
+}
+
 .mapboxgl-popup-content{
   background-color: $blue !important;
   color: $white;
