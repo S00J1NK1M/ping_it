@@ -21,6 +21,11 @@
     10:00
     </div>
 
+    <div data-controller="showmap"
+    data-showmap-avatar-value="<%= image_path "profile.png"  %>"
+    data-showmap-markers-value="<%= @marker.to_json %>">
+     <div data-showmap-target= "time"></div>
+
     <!-- countdown bar -->
     <div>
       <div class="timerbar mb-2">
@@ -29,10 +34,11 @@
     </div>
 
     <!-- navigation map -->
-    <div id="map"
-      data-controller="showmap"
-      data-showmap-markers-value="<%= @marker.to_json %>"
-      style="width: 100%; height: 230px; position: relative"></div>
+
+      <div id="map"
+        style="width: 100%; height: 230px; position: relative"></div>
+
+    </div>
 
     <!-- 2 buttons -->
     <div class="d-flex justify-content-between mt-3 mb-3">

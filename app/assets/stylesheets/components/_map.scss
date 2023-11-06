@@ -62,3 +62,8 @@ h2 {
 a {
   text-decoration: none;
 }
+
+.mapboxgl-user-location-dot::after {
+  display: none;
+  content: none;
+}
