@@ -36,10 +36,10 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Back"></button>
       </div>
       <div class="modal-body">
-        <h3>Are you sure you want to stop?</h3>
+        <p>Are you sure you want to stop playing?</h\p>
       </div>
       <div class="details--seemore center">
-        <%= link_to "Stop Playing", cancel_reservation_path(params[:res]), class: "button--stopplaying center", data: {turbo_method: :patch} %>
+        <%= link_to "Yes, stop", cancel_reservation_path(params[:res]), class: "button--stopplaying center", data: {turbo_method: :patch} %>
       </div>
     </div>
   </div>

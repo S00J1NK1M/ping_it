@@ -4,6 +4,11 @@
   border-color: black;
 }
 
+// Navi map Mapbox text logo
+.mapboxgl-ctrl-attrib-inner {
+  display: none;
+}
+
 .mapboxgl-popup{
   // left: 0;
   // right: 0;

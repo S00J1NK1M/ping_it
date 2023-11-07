@@ -50,7 +50,7 @@
 
 .button--stopplaying {
   background-color: $grey;
-  color: $white;
+  color: $black;
   height: 35px;
   width: 120px !important;
   border-radius: 5px;
@@ -82,7 +82,7 @@
 .button--cancel {
   border-radius: 5px;
   background-color:$grey;
-  color:$white;
+  color:$black;
   height: 30px;
   width:90px;
   align-content: center;
@@ -100,7 +100,9 @@
     height: 30px;
     width: 50px;
     border-radius: 5px;
-    border-style: none !important;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
     align-content: center !important;
     text-decoration: none;
     vertical-align: middle;

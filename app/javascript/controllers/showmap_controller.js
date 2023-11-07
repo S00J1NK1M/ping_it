@@ -53,7 +53,7 @@ export default class extends Controller {
         .then((data) => {
           const duration = (data.routes[0].duration / 60).toFixed(0);
 
-          this.timeTarget.innerText = `Approximate time to table by walk ${duration} ${duration < 2 ? "minute." : "minutes."}`;
+          this.timeTarget.innerText = `It takes approximately ${duration} ${duration < 2 ? "minute" : "minutes"} by walk.`;
 
           const geometry = data.routes[0].geometry;
           if (this.map.getLayer('route')) {
@@ -72,7 +72,8 @@ export default class extends Controller {
               }
             },
             paint: {
-              'line-width': 2
+              'line-width': 5,
+              'line-color': '#FF00F5'
             }
           });
         })

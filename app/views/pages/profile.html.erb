@@ -5,8 +5,8 @@
 
   <!-- My Profile: My Matches -->
 <div class="container d-flex justify-content-between mb-2 mt-3">
-  <h5 class="mt-3">My Matches</h5>
-  <h5 class="mt-2"><%= link_to "MORE", my_profile_more_path, class: "text-more me-3" %></h5>
+  <h5 class="m-3">My Matches</h5>
+  <h5 class="m-3"><%= link_to "MORE", my_profile_more_path, class: "text-more me-3" %></h5>
 </div>
 
 <div data-controller="match">
@@ -27,7 +27,7 @@
             </div>
 
             <div class="match-matchtime center mt-2 me-2">
-              <p><%= @my_most_recent_match.match_time.strftime("%b %d %Y, %H:%M %P") %></p>
+              <p><%= image_tag "calendar.png", {height: 20} %> <%= @my_most_recent_match.match_time.strftime("%b %d %Y, %H:%M %P") %></p>
             </div>
 
         </div>
@@ -52,7 +52,7 @@
 
             </div>
             <div class="match-joined-matchtime center mt-2 me-2">
-              <p><%= @my_most_recent_game.match_time.strftime("%b %d %Y, %H:%M %P") %></p>
+              <p><%= image_tag "calendar.png", {height: 20} %> <%= @my_most_recent_game.match_time.strftime("%b %d %Y, %H:%M %P") %></p>
             </div>
           </div>
         </div>
@@ -68,7 +68,7 @@
 
       <div class="container p-0">
         <div class="container p-0 d-flex justify-content-space-evenly">
-          <h5 class="mt-5">My Favorite Tables<</h5>
+          <h5 class="mt-5">My Favorite Tables</h5>
         </div>
 
         <div class="container center mt-3">
