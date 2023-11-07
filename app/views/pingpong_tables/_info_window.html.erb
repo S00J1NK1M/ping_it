@@ -1,23 +1,21 @@
+<!-- Close button-->
+<div class="button--x-infowindow container d-flex justify-content-end mt-2 mb-3 me-0 p-0">
+  <%= link_to "", root_path, class: "fa-solid fa-circle-xmark fa-xl", style: "color: #ff00f5;float:right;" %>
+</div>
 
 
-  <!-- Close button-->
-    <div class="button--x-infowindow container d-flex justify-content-end mt-2 mb-3 me-0 p-0">
-      <%= link_to "", root_path, class: "fa-solid fa-circle-xmark fa-xl", style: "color: #ff00f5;float:right;" %>
-    </div>
+<!-- TTT content -->
+<div class="match-title">
+  <h5><%= pingpong_table.name %></h5>
 
+  <% if pingpong_table.availability %>
+    <%= image_tag "greenface.png", {height: 20} %> AVAILABLE
+  <% else %>
+    <%= image_tag "redface.png", {height: 20} %> OCCUPIED
+  <% end %>
+</div>
 
-  <!-- TTT content -->
-  <div class="match-title">
-    <h5><%= pingpong_table.name %></h5>
-
-    <% if pingpong_table.availability %>
-      <%= image_tag "greenface.png", {height: 20} %> AVAILABLE
-    <% else %>
-      <%= image_tag "redface.png", {height: 20} %> OCCUPIED
-    <% end %>
-  </div>
-
-  <!-- "See More" button -->
-  <div class="details-select center mt-2">
-    <%= link_to "See more", pingpong_table_path(pingpong_table), class: "button--seemore center" %>
-  </div>
+<!-- "See More" button -->
+<div class="details-select center mt-2">
+  <%= link_to "See more", pingpong_table_path(pingpong_table), class: "button--seemore center" %>
+</div>
