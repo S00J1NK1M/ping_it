@@ -3,54 +3,60 @@
   h5 { Font-size: 17px !important; }
 </style>
 
-
 <div class="container d-flex justify-content-between mb-2 mt-3">
   <h5 class="text-pingitmatches mt-3">Ping it Matches</h5>
-  <%= link_to "Add",  new_match_path, class: "text-more mt-3" %>
-
-  </div>
+  <h5 class="mt-3"><%= link_to "ADD",  new_match_path, class: "text-more mt-3 me-3" %></h5>
 </div>
 
-
+<div class="container">
 <% @matches.each do |match| %>
   <% if current_user == match.organiser %>
-    <div class="matches-organised mb-3">
-      <div class="match-card container d-flex center">
-        <div>
-          <%= image_tag "profile.png" , style: 'height:60px;width:60px;border-radius:50%;'%>
+    <div class="matches-organised d-flex justify-content-evenly m-2">
+      <div class="mt-2 flex-shrink-0">
+        <div class ="ms-4 mt-4">
+          <%= image_tag "profile.png" , style: 'height:70px;width:70px;border-radius:50%;'%>
+        </div>
+      </div>
+
+      <div class="flex-grow-1 mt-3">
+        <div class="match-title center mt-2 me-2">
+          <h5><%= match.name %></h5>
         </div>
 
-        <div class="container">
-          <div class="match-title mt-3">
-            <h5><%= match.name %></h5>
-          </div>
-          <div class="container d-flex justify-content-between">
-            <p class="mt-2"><%= match.match_time.strftime("%b %d %Y, %I:%M %P")%></p>
-            <%= link_to "Select", match, class: "button--selectmatch"%>
-          </div>
+        <div class="match-matchtime center">
+          <p><%= match.match_time.strftime("%b %d %Y, %I:%M %P")%></p>
         </div>
+
+        <div class="match-matchtime center">
+          <p><%= link_to "Select", match, class: "button--selectmatch"%></p>
+        </div>
+
       </div>
     </div>
 
   <% else %>
-    <div class="matches-joined mb-3">
-      <div class="match-card container d-flex center">
-        <div>
-          <%= cl_image_tag match.photo.key, style: 'height:60px;width:60px;border-radius:50%;'%>
+    <div class="matches-joined d-flex justify-content-evenly m-2">
+      <div class="mt-2 flex-shrink-0">
+        <div class ="ms-4 mt-4">
+          <%= cl_image_tag match.photo.key, style: 'height:70px;width:70px;border-radius:50%;'%>
+        </div>
+      </div>
+
+      <div class="flex-grow-1 mt-3">
+        <div class="match-joined-title center mt-2">
+          <h5><%= match.name %></h5>
         </div>
 
-        <div class="container">
-          <div class="match-joined-title mt-3">
-            <h5><%= match.name %></h5>
-          </div>
+        <div class="match-matchtime center">
+          <p style="color:#396BEE;" ><%= match.match_time.strftime("%b %d %Y, %I:%M %P")%></p>
+        </div>
 
-          <div class="container d-flex justify-content-between">
-            <p class="mt-2"><%= match.match_time.strftime("%b %d %Y, %I:%M %P")%></p>
-            <%= link_to "Select", match, class: "button--selectmatch"%>
-          </div>
+        <div class="match-matchtime center">
+          <p><%= link_to "Select", match, class: "button--selectmatch"%></p>
         </div>
       </div>
     </div>
 
   <% end %>
 <% end %>
+</div>
