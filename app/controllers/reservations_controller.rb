@@ -44,11 +44,10 @@ class ReservationsController < ApplicationController
     @svg = @qr.as_svg(
       color: :black,
       shape_rendering: "crispEdges",
-      module_size: 11,
+      module_size: 3,
       standalone: true,
       use_path: true
     )
-
 
     @marker = [@pingpong_table].map do |pingpong_table|
       {
