@@ -125,6 +125,31 @@
   justify-content: space-around;
 }
 
+.matches-more-organised {
+  background-color: $blue;
+  border-radius: 20px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  color: $white;
+  width: 150px;
+  height: 90%;
+  margin: 5px;
+}
+
+.matches-more-joined {
+  background-color: $lightgreen;
+  border-radius: 20px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  color: $blue;
+  width: 150px;
+  height: 90%;
+  margin: 5px;
+}
+
+
 // Favorite Table Images
 .favoritetable{
   height: 90px;

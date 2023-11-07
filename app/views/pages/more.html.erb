@@ -4,7 +4,7 @@
   </div>
 
   <% if @my_matches.empty? %>
-    <div class="container ">
+    <div class="container">
       <h5 class="gray--text">No matches yet</h5>
     </div>
   <% else %>
@@ -14,7 +14,7 @@
         <%# <% each_slice(2) do |match_pair| %>
           <li class="slide flex-row justify-content-space-around">
             <% @my_matches.each do |match| %>
-              <div class="matches--organised">
+              <div class="matches-more-organised">
                 <div class="m-1">
                   <div class="user--photo center m-2">
                     <%= image_tag "profile.png" , style: 'height:50px;width:50px;border-radius:50%;margin:5px;'%>
@@ -51,7 +51,7 @@
         <%# <% @my_matches.each_slice(2) do |match_pair| %>
           <li class="slide d-flex flex-row justify-content-space-around">
             <% @my_games.each do |match| %>
-              <div class="matches--joined">
+              <div class="matches-more-joined">
                 <div class="m-1">
                   <div class="user--photo center m-3">
                     <%= cl_image_tag match.photo.key, style: 'height:60px;width:60px;border-radius:50%;'%>
