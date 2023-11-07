@@ -1,65 +1,68 @@
+<style>
+  p { Font-size: 12px !important; }
+  h5 { Font-size: 17px !important; }
+</style>
+
+<div class="container d-flex justify-content-between mb-2 mt-3">
+  <h5 class="text-pingitmatches mt-3">Ping it Reservations</h5>
+</div>
+
 <div class="container">
-  <div class="d-flex center mt-3">
-    <h5>Ping it Reservations </h5>
-  </div>
-
   <% @reservations[0..0].each do |reservation| %>
-    <div class="card m-4 card-pingpongtable-detail container">
-      <div class="matches-organised m-2">
-        <div class="match-card d-flex justify-content-between center">
-          <div>
-            <%= cl_image_tag reservation.pingpong_table.photo.key, style: 'height:50px;width:50px;border-radius:50%;' %>
-          </div>
-          <div class="match-title mt-3">
-            <h5><%= reservation.pingpong_table.name %></h5>
-          </div>
-
+    <div class="matches-organised d-flex justify-content-evenly">
+      <div class="mt-2 flex-shrink-0">
+        <div class ="ms-4 mt-4">
+          <%= cl_image_tag reservation.pingpong_table.photo.key, style: 'height:70px;width:70px;border-radius:50%;' %>
         </div>
       </div>
-      <div class="details--last">
-        <p class="mt-2"><%= reservation.created_at.strftime("%b %d %Y, %H:%M %P") %></p>
-        <%= link_to "See more", reservation_path(reservation), class: "button--seemore me-2" %>
-      </div>
-    </div>
-  <% end %>
-  <% @reservations[1..@reservations.length].each do |reservation| %>
-    <div class="card-old m-4 card-pingpongtable-detail-old container">
-      <div class="matches-organised m-2">
-        <div class="match-card-old d-flex justify-content-between center">
-          <div>
-            <%= cl_image_tag reservation.pingpong_table.photo.key, style: 'height:50px;width:50px;border-radius:50%;' %>
-          </div>
-          <div class="match-title mt-3">
-            <h5><%= reservation.pingpong_table.name %></h5>
-          </div>
 
+      <div class="flex-grow-1 mt-3 me-2">
+        <div class="match-title center mt-2">
+          <h5><%= reservation.pingpong_table.name %></h5>
         </div>
-      </div>
-      <div class="details--last">
-        <p class="mt-2"><%= reservation.created_at.strftime("%b %d %Y, %H:%M %P") %></p>
 
-        <%= link_to "Ended", reservation_path(reservation), class: "button-ended mt-2 me-2" %>
-      </div>
-    </div>
-  <% end %>
-
-  <% @reservations[1..@reservations.length].each do |reservation| %>
-    <div class="card-old m-4 card-pingpongtable-detail-old container">
-      <div class="matches-organised m-2">
-        <div class="match-card-old d-flex justify-content-between center">
-          <div class="mt-4">
-            <%= cl_image_tag reservation.pingpong_table.photo.key, style: 'height:50px;width:50px;border-radius:50%;' %>
-          </div>
-          <div class="match-title mt-3">
-            <h5><%= reservation.pingpong_table.name %></h5>
-          </div>
+        <div class="match-matchtime center">
+          <p class="mt-2"><%= reservation.created_at.strftime("%b %d %Y, %H:%M %P") %></p>
         </div>
-      </div>
-      <div class="details--last">
-        <p class="mt-2"><%= reservation.created_at.strftime("%b %d %Y, %H:%M %P") %></p>
 
-        <%= link_to "Ended", reservation_path(reservation), class: "button-ended mt-2 me-2" %>
+        <div class="match-matchtime center">
+          <p><%= link_to "See more", reservation_path(reservation), class: "button--selectmatch" %></p>
+        </div>
+
       </div>
     </div>
+  </div>
   <% end %>
 </div>
+
+<div class="container d-flex justify-content-between mb-2 mt-3">
+  <h5 class="text-pingitmatches mt-3 p-2">Old Reservations</h5>
+</div>
+
+  <% @reservations[1..@reservations.length].each do |reservation| %>
+  <div class="container">
+    <div class="matches-organised-old d-flex justify-content-evenly m-2">
+      <div class="mt-2 flex-shrink-0">
+        <div class="ms-4 mt-4">
+          <%= cl_image_tag reservation.pingpong_table.photo.key, style: 'height:70px;width:70px;border-radius:50%;' %>
+        </div>
+      </div>
+
+      <div class="flex-grow-1 mt-3">
+        <div class="match-title center mt-2 me-2">
+          <h5 style="color:black;"><%= reservation.pingpong_table.name %></h5>
+        </div>
+
+        <div class="match-matchtime center">
+          <p style="color:black;"><%= reservation.created_at.strftime("%b %d %Y, %H:%M %P") %></p>
+        </div>
+
+        <div class="match-matchtime center">
+          <p><%= link_to "Ended", reservation_path(reservation), class: "button-ended" %></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<% end %>

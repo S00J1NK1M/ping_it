@@ -1,28 +1,32 @@
-<div>
-  <!-- My Profile: My Matches -->
-  <div class="d-flex justify-content-between mt-3">
-    <h5 class="text-mymatches">My Matches</h5>
-    <h5><%= link_to "MORE", my_profile_more_path, class: "text-more mt-3 me-3" %></h5>
-  </div>
+<style>
+  p { Font-size: 12px !important; }
+  h5 { Font-size: 17px !important; }
+</style>
 
-  <div data-controller="match">
+  <!-- My Profile: My Matches -->
+<div class="container d-flex justify-content-between mb-2 mt-3">
+  <h5 class="text-pingitmatches mt-3">My Matches</h5>
+  <h5 class="mt-3"><%= link_to "MORE", my_profile_more_path, class: "text-more mt-3 me-3" %></h5>
+</div>
+
+<div data-controller="match">
+  <div class="container">
     <% if @my_most_recent_match.nil? %>
-      <div class="container center">
-        <h5 class="text-nothingyet">No matches yet</h5>
-      </div>
+      <h5 class="text-nothingyet center">No matches yet</h5>
     <% else %>
       <div class="matches-organised d-flex justify-content-evenly m-2">
         <div class="match-card mt-2 flex-shrink-0">
-          <div class ="ms-4">
+          <div class ="ms-4 mt-4">
             <%= image_tag "profile.png" , style: 'height:70px;width:70px;border-radius:50%;'%>
           </div>
         </div>
-        <div class="flex-grow-1 mt-3">
-            <div class="match-title center">
+
+        <div class="flex-grow-1">
+            <div class="match-title center mt-4 me-2">
               <h5><%= @my_most_recent_match.name %></h5>
             </div>
 
-            <div class="match-matchtime center">
+            <div class="match-matchtime center mt-2 me-2">
               <p><%= @my_most_recent_match.match_time.strftime("%b %d %Y, %H:%M %P") %></p>
             </div>
 
@@ -30,110 +34,109 @@
       </div>
     <% end %>
   </div>
-
-  <% if @my_most_recent_game.nil? %>
-    <div class="container center">
-      <h5 class="text-nothingyet">No joined matches yet</h5>
-    </div>
-  <% else %>
-    <div class="matches-joined d-flex justify-content-evenly m-2">
-      <div class="match-card mt-2 flex-shrink-0">
-        <div class ="ms-4">
-          <%= cl_image_tag @my_most_recent_game.photo.key, style: 'height:60px;width:60px;border-radius:50%;'%>
-        </div>
-      </div>
-
-
-      <div class="flex-grow-1 mt-3">
-          <div class="match-joined-title center">
-            <h5><%= @my_most_recent_game.name %></h5>
-
-          </div>
-          <div class="match-joined-matchtime center">
-            <p><%= @my_most_recent_game.match_time.strftime("%b %d %Y, %H:%M %P") %></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  <% end %>
-  </div>
-
-
-  <!-- My Profile: My Favorite Tables -->
-  <div class="container" data-controller="favorites">
-    <div class="d-flex justify-content-between">
-      <% if !@my_favorite_tables.any? %>
-        <div class="container p-0">
-          <div class="container p-0 d-flex justify-content-space-evenly">
-            <h5 class="text-favtables mt-5">My Favorite Tables</h5>
-          </div>
-
-          <div class="container center mt-3">
-            <h5 class="text-nothingyet2">No favorite tables yet</h5>
-          </div>
-        </div>
-
-      <% elsif @my_favorite_tables.length <= 3 %>
-        <div class="container p-0">
-          <div class="container p-0 d-flex justify-content-space-between">
-            <h5 class="text-favtables mt-5">My Favorite Tables</h5>
-          </div>
-
-          <div class="container d-flex center">
-            <% @my_favorite_tables.each do |favorite| %>
-              <div class="container d-flex center mt-2">
-                <%= link_to pingpong_table_path(favorite.pingpong_table) do %>
-                  <%= cl_image_tag favorite.pingpong_table.photo.key, :class => 'favoritetable' %>
-                  <p class="favtables-name center mt-1"><%= favorite.pingpong_table.name %> </p>
-                <% end %>
-              </div>
-            <% end %>
-          </div>
-        </div>
-
-      <% else %>
-        <div class="container p-0">
-          <div class="container p-0 d-flex justify-content-between">
-            <h5 class="text-favtables mt-5">My Favorite Tables</h5>
-            <h5 class="text-more mt-5 justify-content-end" data-action="click->favorites#fire">MORE</h5>
-          </div>
-
-          <div>
-            <div class="grid center justify-content-between">
-              <% @my_favorite_tables[0..2].each do |favorite| %>
-                <div class="center">
-                  <%= link_to pingpong_table_path(favorite.pingpong_table) do %>
-                    <%= cl_image_tag favorite.pingpong_table.photo.key, :class => 'favoritetable' %>
-                    <p class='favtables-name d-none center mt-1' data-favorites-target='firstText'><%= favorite.pingpong_table.name %> </p>
-                  <% end %>
-                </div>
-              <% end %>
-            </div>
-
-            <div class="grid mb-2 d-none center justify-content-between" data-favorites-target="togglableElement">
-            <% @my_favorite_tables[3..@my_favorite_tables.length].each do |favorite| %>
-              <div>
-                <%= link_to pingpong_table_path(favorite.pingpong_table) do %>
-                <%= cl_image_tag favorite.pingpong_table.photo.key, :class => 'favoritetable' %>
-                <p class="favtables-name center mt-1"><%= favorite.pingpong_table.name %> </p>
-                <% end %>
-              </div>
-            <% end %>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
-
-  <div>
-    <% if user_signed_in? %>
-      <div class="navbar-nav">
-          <%= link_to "👋🏼 Logout", destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link" %>
-      </div>
+  <div class="container">
+    <% if @my_most_recent_game.nil? %>
+      <h5 class="text-nothingyet center">No joined matches yet</h5>
     <% else %>
-      <div class="navbar-nav">
-        <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+      <div class="matches-joined d-flex justify-content-evenly m-2">
+        <div class="match-card mt-2 flex-shrink-0">
+          <div class ="ms-4 mt-4">
+            <%= cl_image_tag @my_most_recent_game.photo.key, style: 'height:70px;width:70px;border-radius:50%;'%>
+          </div>
+        </div>
+
+
+        <div class="flex-grow-1">
+            <div class="match-joined-title center mt-4 me-2">
+              <h5><%= @my_most_recent_game.name %></h5>
+
+            </div>
+            <div class="match-joined-matchtime center mt-2 me-2">
+              <p><%= @my_most_recent_game.match_time.strftime("%b %d %Y, %H:%M %P") %></p>
+            </div>
+          </div>
+        </div>
       </div>
     <% end %>
   </div>
+
+
+<!-- My Profile: My Favorite Tables -->
+<div class="container" data-controller="favorites">
+  <div class="d-flex justify-content-between">
+    <% if !@my_favorite_tables.any? %>
+    
+      <div class="container p-0">
+        <div class="container p-0 d-flex justify-content-space-evenly">
+          <h5 class="text-favtables mt-5">My Favorite Tables</h5>
+        </div>
+
+        <div class="container center mt-3">
+          <h5 class="text-nothingyet2">No favorite tables yet</h5>
+        </div>
+      </div>
+
+    <% elsif @my_favorite_tables.length <= 3 %>
+      <div class="container p-0">
+        <div class="container p-0 d-flex justify-content-space-between">
+          <h5 class="text-favtables mt-5">My Favorite Tables</h5>
+        </div>
+
+        <div class="container d-flex center">
+          <% @my_favorite_tables.each do |favorite| %>
+            <div class="container d-flex center mt-2">
+              <%= link_to pingpong_table_path(favorite.pingpong_table) do %>
+                <%= cl_image_tag favorite.pingpong_table.photo.key, :class => 'favoritetable' %>
+                <p class="favtables-name center mt-1"><%= favorite.pingpong_table.name %> </p>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+    <% else %>
+      <div class="container p-0">
+        <div class="container p-0 d-flex justify-content-between">
+          <h5 class="text-favtables mt-5">My Favorite Tables</h5>
+          <h5 class="text-more mt-5 justify-content-end" data-action="click->favorites#fire">MORE</h5>
+        </div>
+
+        <div>
+          <div class="grid center justify-content-between">
+            <% @my_favorite_tables[0..2].each do |favorite| %>
+              <div class="center">
+                <%= link_to pingpong_table_path(favorite.pingpong_table) do %>
+                  <%= cl_image_tag favorite.pingpong_table.photo.key, :class => 'favoritetable' %>
+                  <p class='favtables-name d-none center mt-1' data-favorites-target='firstText'><%= favorite.pingpong_table.name %> </p>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+
+          <div class="grid mb-2 d-none center justify-content-between" data-favorites-target="togglableElement">
+          <% @my_favorite_tables[3..@my_favorite_tables.length].each do |favorite| %>
+            <div>
+              <%= link_to pingpong_table_path(favorite.pingpong_table) do %>
+              <%= cl_image_tag favorite.pingpong_table.photo.key, :class => 'favoritetable' %>
+              <p class="favtables-name center mt-1"><%= favorite.pingpong_table.name %> </p>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div>
+  <% if user_signed_in? %>
+    <div class="navbar-nav">
+        <%= link_to "👋🏼 Logout", destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link" %>
+    </div>
+  <% else %>
+    <div class="navbar-nav">
+      <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+    </div>
+  <% end %>
+</div>
 </div>

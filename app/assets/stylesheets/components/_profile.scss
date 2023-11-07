@@ -137,22 +137,25 @@
 
 
 // Cards Styling
-.match-card {
- height: 100px;
- width: fit-content;
-}
-
 .matches-organised {
   background-color: $blue;
   border-radius: 20px;
   color: $white;
+  height: 150px;
+}
 
+.matches-organised-old {
+  background-color: $grey;
+  border-radius: 20px;
+  color:black;
+  height: 140px;
 }
 
 .matches-joined {
   background-color: $lightgreen;
   border-radius: 20px;
   color: $blue;
+  height: 150px;
 }
 
 .grid-more {
