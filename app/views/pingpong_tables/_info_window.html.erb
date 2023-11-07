@@ -1,6 +1,8 @@
 <!-- Close button-->
-<div class="button--x-infowindow container d-flex justify-content-end mt-2 mb-3 me-0 p-0">
-  <%= link_to "", root_path, class: "fa-solid fa-circle-xmark fa-xl", style: "color: #ff00f5;float:right;" %>
+<div class="button--x-infowindow container d-flex justify-content-end mb-3 me-0 p-0">
+  <%= link_to root_path do %>
+    <%= image_tag "close.png", {height: 20} %>
+  <% end %>
 </div>
 
 

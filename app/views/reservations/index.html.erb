@@ -3,13 +3,13 @@
   h5 { Font-size: 17px !important; }
 </style>
 
-<div class="container d-flex justify-content-between mb-2 mt-3">
-  <h5 class="text-pingitmatches mt-3">Ping it Reservations</h5>
+<div class="center m-2">
+  <h5 class="mt-3">Current Reservation</h5>
 </div>
 
 <div class="container">
   <% @reservations[0..0].each do |reservation| %>
-    <div class="matches-organised d-flex justify-content-evenly">
+    <div class="card-currentreservation d-flex justify-content-evenly">
       <div class="mt-2 flex-shrink-0">
         <div class ="ms-4 mt-4">
           <%= cl_image_tag reservation.pingpong_table.photo.key, style: 'height:70px;width:70px;border-radius:50%;' %>
@@ -22,7 +22,7 @@
         </div>
 
         <div class="match-matchtime center">
-          <p class="mt-2"><%= reservation.created_at.strftime("%b %d %Y, %H:%M %P") %></p>
+          <p class="mt-2"><%= image_tag "calendar.png", {height: 20} %> <%= reservation.created_at.strftime("%b %d %Y, %H:%M %P") %></p>
         </div>
 
         <div class="match-matchtime center">
@@ -35,8 +35,8 @@
   <% end %>
 </div>
 
-<div class="container d-flex justify-content-between mb-2 mt-3">
-  <h5 class="text-pingitmatches mt-3 p-2">Old Reservations</h5>
+<div class="center m-2">
+  <h5 class="mt-3">Old Reservations</h5>
 </div>
 
   <% @reservations[1..@reservations.length].each do |reservation| %>
@@ -54,7 +54,7 @@
         </div>
 
         <div class="match-matchtime center">
-          <p style="color:black;"><%= reservation.created_at.strftime("%b %d %Y, %H:%M %P") %></p>
+          <p style="color:black;"><%= image_tag "calendar_ended.png", {height: 20} %> <%= reservation.created_at.strftime("%b %d %Y, %H:%M %P") %></p>
         </div>
 
         <div class="match-matchtime center">

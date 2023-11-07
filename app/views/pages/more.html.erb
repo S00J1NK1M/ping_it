@@ -1,6 +1,6 @@
 <div data-controller="match container">
   <div class="container d-flex justify-content-between mt-3">
-    <h5 class="more--mymatches">My organized matches</h5>
+    <h5 class="more-title">My organized matches</h5>
   </div>
 
   <% if @my_matches.empty? %>
@@ -22,7 +22,7 @@
                   </div>
 
                   <div class="more-matches-content center">
-                    <p class="mb-2"><%= match.name %></p>
+                    <h5 class="more-matchname mb-2"><%= match.name %></h5>
                     <p class="mb-2"><%= image_tag "calendar.png", {height: 20} %> <%= match.match_time.strftime("%b %d %Y, %I:%M %P")%></p>
                     <p class="mb-2"><%= image_tag "location.png", {height: 20} %> <%= match.location %></p>
                   </div>
@@ -38,7 +38,7 @@
   <% end %>
 
   <div class="container d-flex justify-content-between mt-1">
-    <h1 class="more--joinedmatches">Joined Matches</h1>
+    <h1 class="more-title">Joined Matches</h1>
   </div>
 
   <% if @my_games.empty? %>
@@ -53,13 +53,13 @@
             <% @my_games.each do |match| %>
               <div class="matches--joined">
                 <div class="m-1">
-                  <div class="user--photo center m-2">
+                  <div class="user--photo center m-3">
                     <%= cl_image_tag match.photo.key, style: 'height:60px;width:60px;border-radius:50%;'%>
                     <!-- <p><%= current_user.nickname %></p> -->
                   </div>
 
                   <div class="more-matches-content center">
-                    <p class="mb-2"><%= match.name %></p>
+                    <h5 class="more-matchname mb-2"><%= match.name %></h5>
                     <p class="mb-2"><%= image_tag "calendar.png", {height: 20} %> <%= match.match_time.strftime("%b %d %Y, %I:%M %P")%></p>
                     <p class="mb-2"><%= image_tag "location.png", {height: 20} %> <%= match.location %></p>
                   </div>
