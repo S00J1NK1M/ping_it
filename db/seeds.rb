@@ -240,7 +240,7 @@ ping_pong_table_9.photo.attach(io: file, filename: "ping9.jpg", content_type: "i
 ping_pong_table_9.save!
 
 ping_pong_table_10 = PingpongTable.new({
-  name: "Hip table",
+  name: "Hip and cool table",
   address: "Heinrich-Heine-Straße 29, 10179 Berlin",
   description: "You can use equipment for free there",
   category: "Indoor",

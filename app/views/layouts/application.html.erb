@@ -3,30 +3,33 @@
   <head>
     <title>PingIt</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <%= favicon_link_tag "marker_ava.png", rel: "icon", type: "image/png" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.2/css/all.css">
     <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
 
-    <!-- Soojin  added code for mapbox current location -->
+    <!-- Soojin added code for mapbox current location -->
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
     <style>
     body { margin: 0; padding: 0; }
     #map { position: absolute; top: 0; bottom: 0; width: 100%; }
     </style>
-
   </head>
 
   <body>
     <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
     <div class="container mb-5">
-     <%= yield %>
-    <%= render "shared/footbar" %>
+      <%= yield %>
+      <%= render "shared/footbar" %>
     </div>
   </body>
 </html>

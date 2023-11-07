@@ -1,4 +1,4 @@
-<div class="card m-4 card-pingpongtable-detail container">
+<div class="container card">
   <div class="details1 mt-3">
     <div class="details1_1 mb-2">
       <div class="button--category center">
@@ -42,13 +42,13 @@
   <% if  @my_favorite.nil? %>
     <%= link_to pingpong_table_favorites_path(@pingpong_table), data: {turbo_method: :post}  do %>
       <%# <i class="fa-regular fa-heart fa-2x" style="color:red"></i> %>
-      <%= image_tag "heart_pixel_white.png", {height: 30} %>
+      <%= image_tag "heart_pixel_white.png", {height: 25} %>
     <% end %>
 
   <% else %>
     <%= link_to favorite_path(@my_favorite), data: {turbo_method: :delete}  do %>
       <%# <i class="fa-solid fa-heart fa-2x" style="color:red"></i> %>
-      <%= image_tag "heart_pixel.png", {height: 30} %>
+      <%= image_tag "heart_pixel.png", {height: 25} %>
     <% end %>
   <% end %>
 
@@ -72,7 +72,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body text-center">
-        <h3>Do you want to reserve the table now?</h3>
+        <p>Do you want to reserve the table now?</p>
       </div>
       <div class="details--select center mb-3">
 
