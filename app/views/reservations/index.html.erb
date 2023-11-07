@@ -1,6 +1,6 @@
 <div class="container">
   <div class="d-flex center mt-3">
-    <h3>Ping it Reservations </h3>
+    <h5>Ping it Reservations </h5>
   </div>
 
   <% @reservations[0..0].each do |reservation| %>
@@ -38,7 +38,7 @@
       <div class="details--last">
         <p class="mt-2"><%= reservation.created_at.strftime("%b %d %Y, %H:%M %P") %></p>
 
-        <%= link_to "See more", reservation_path(reservation), class: "button--seemore me-2" %>
+        <%= link_to "Ended", reservation_path(reservation), class: "button-ended mt-2 me-2" %>
       </div>
     </div>
   <% end %>
