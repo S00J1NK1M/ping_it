@@ -39,7 +39,12 @@
     <div class="matches-joined d-flex justify-content-evenly m-2">
       <div class="mt-2 flex-shrink-0">
         <div class ="ms-4 mt-4">
-          <%= cl_image_tag match.photo.key, style: 'height:70px;width:70px;border-radius:50%;'%>
+        <% if match.photo.attached? %>
+         <%= cl_image_tag match.photo.key, style: 'height:70px;width:70px;border-radius:50%;'%>
+          <% else %>
+          <%= image_tag "profile.png", style: 'height:70px;width:70px;border-radius:50%;' %>
+        <% end %>
+
         </div>
       </div>
 
