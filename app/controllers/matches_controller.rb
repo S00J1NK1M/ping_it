@@ -17,7 +17,7 @@ class MatchesController < ApplicationController
     @match = Match.new(match_params)
     @match.organiser = current_user
     if @match.save
-      redirect_to @match
+      redirect_to match_path(@match)
     else
       render :new
     end
