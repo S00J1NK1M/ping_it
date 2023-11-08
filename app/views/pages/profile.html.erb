@@ -5,8 +5,8 @@
 
   <!-- My Profile: My Matches -->
 <div class="container d-flex justify-content-between mb-2 mt-3">
-  <h5 class="m-3">My Matches</h5>
-  <h5 class="m-3"><%= link_to "MORE", my_profile_more_path, class: "text-more me-1" %></h5>
+  <h5 class="mt-1">My Matches</h5>
+  <h5 class="m-3 mt-0"><%= link_to "MORE", my_profile_more_path, class: "text-more me-1" %></h5>
 </div>
 
 <div data-controller="match">
@@ -79,7 +79,7 @@
     <% elsif @my_favorite_tables.length <= 3 %>
       <div class="container p-0">
         <div class="container p-0 d-flex justify-content-space-between">
-          <h5 class="mt-5">My Favorite Tables<</h5>
+          <h5 class="mt-5">My Favorite Tables</h5>
         </div>
 
         <div class="container d-flex center">
@@ -87,7 +87,7 @@
             <div class="container d-flex center mt-2">
               <%= link_to pingpong_table_path(favorite.pingpong_table) do %>
                 <%= cl_image_tag favorite.pingpong_table.photo.key, :class => 'favoritetable' %>
-                <p class="favtables-name center mt-1"><%= favorite.pingpong_table.name %> </p>
+                <p class="favtables-name center mt-1"><%= favorite.pingpong_table.name %></p>
               <% end %>
             </div>
           <% end %>
@@ -107,7 +107,7 @@
               <div class="center">
                 <%= link_to pingpong_table_path(favorite.pingpong_table) do %>
                   <%= cl_image_tag favorite.pingpong_table.photo.key, :class => 'favoritetable' %>
-                  <p class='favtables-name d-none center mt-1' data-favorites-target='firstText'><%= favorite.pingpong_table.name %> </p>
+                  <p class='favtables-name d-none center mt-1' data-favorites-target='firstText'><%= favorite.pingpong_table.name %></p>
                 <% end %>
               </div>
             <% end %>
@@ -118,7 +118,7 @@
             <div>
               <%= link_to pingpong_table_path(favorite.pingpong_table) do %>
               <%= cl_image_tag favorite.pingpong_table.photo.key, :class => 'favoritetable' %>
-              <p class="favtables-name center mt-1"><%= favorite.pingpong_table.name %> </p>
+              <p class="favtables-name center mt-1"><%= favorite.pingpong_table.name %></p>
               <% end %>
             </div>
           <% end %>
