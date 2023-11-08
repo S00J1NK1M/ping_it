@@ -54,8 +54,11 @@
               <div class="matches-more-joined">
                 <div class="m-1">
                   <div class="user--photo center m-3">
-                    <%= cl_image_tag match.photo.key, style: 'height:60px;width:60px;border-radius:50%;'%>
-                    <!-- <p><%= current_user.nickname %></p> -->
+                    <% if match.photo.attached? %>
+                      <%= cl_image_tag match.photo.key, style: 'height:70px;width:70px;border-radius:50%;'%>
+                    <% else %>
+                      <%= image_tag "profile.png", style: 'height:70px;width:70px;border-radius:50%;' %>
+                    <% end %>
                   </div>
 
                   <div class="more-matches-content center">
