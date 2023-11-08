@@ -20,7 +20,12 @@
       <!-- avatar img and match title -->
       <div class="container d-flex mt-3">
         <div class="mt-3">
-          <%= cl_image_tag @match.photo.key, style: 'height:70px;width:70px;border-radius:50%;' %>
+        <% if @match.photo.attached? %>
+            <%= cl_image_tag @match.photo.key, style: 'height:70px;width:70px;border-radius:50%;' %>
+            <% else %>
+            <%= image_tag "profile.png", style: 'height:70px;width:70px;border-radius:50%;' %>
+        <% end %>
+
         </div>
 
         <div class="container ms-2">
