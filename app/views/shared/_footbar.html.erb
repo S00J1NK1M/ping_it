@@ -8,60 +8,60 @@
      <!-- Home button -->
      <div class="container menutext">
       <% if current_page?(pingpong_tables_path) %>
-        <%= link_to "", pingpong_tables_path, class: "fa-solid fa-house", style: "color: #396BEE" %>
+        <%= link_to "", pingpong_tables_path, class: "fa-solid fa-house fa-xl", style: "color: #396BEE" %>
       <% else %>
-        <%= link_to "", pingpong_tables_path, class: "fa-solid fa-house" %>
+        <%= link_to "", pingpong_tables_path, class: "fa-solid fa-house fa-xl" %>
       <% end %>
 
       <% if current_page?(pingpong_tables_path) %>
-        <p class="menutext-current">Home</p>
+        <p class="menutext-current mt-1">Home</p>
       <% else %>
-        <p>Home</p>
+        <p class="mt-1">Home</p>
       <% end %>
     </div>
 
     <!-- Reservation button -->
     <div class="container menutext">
       <% if current_page?(reservations_path) %>
-        <%= link_to "", reservations_path, class: "fa-regular fa-calendar-check", style: "color: #396BEE" %>
+        <%= link_to "", reservations_path, class: "fa-regular fa-calendar-check fa-xl", style: "color: #396BEE" %>
       <% else %>
-        <%= link_to "", reservations_path, class: "fa-regular fa-calendar-check" %>
+        <%= link_to "", reservations_path, class: "fa-regular fa-calendar-check fa-xl" %>
       <% end %>
 
       <% if current_page?(reservations_path) %>
-        <p class="menutext-current">Reservation</p>
+        <p class="menutext-current mt-1">Reservation</p>
       <% else %>
-        <p>Reservation</p>
+        <p class="mt-1">Reservation</p>
       <% end %>
     </div>
 
     <!-- Match button -->
     <div class="container menutext">
       <% if current_page?(matches_path) %>
-        <%= link_to "", matches_path, class: "fa-solid fa-table-tennis-paddle-ball", style: "color: #396BEE" %>
+        <%= link_to "", matches_path, class: "fa-solid fa-table-tennis-paddle-ball fa-xl", style: "color: #396BEE" %>
       <% else %>
-        <%= link_to "", matches_path, class: "fa-solid fa-table-tennis-paddle-ball" %>
+        <%= link_to "", matches_path, class: "fa-solid fa-table-tennis-paddle-ball fa-xl" %>
       <% end %>
 
       <% if current_page?(matches_path) %>
-        <p class="menutext-current">Match</p>
+        <p class="menutext-current mt-1">Match</p>
       <% else %>
-        <p>Match</p>
+        <p class="mt-1">Match</p>
       <% end %>
     </div>
 
     <!-- Profile button -->
     <div class="container menutext">
       <% if current_page?(my_profile_path) %>
-        <%= link_to "", my_profile_path, class: "fa-solid fa-user", style: "color: #396BEE" %>
+        <%= link_to "", my_profile_path, class: "fa-solid fa-user fa-xl", style: "color: #396BEE" %>
       <% else %>
-        <%= link_to "", my_profile_path, class: "fa-solid fa-user" %>
+        <%= link_to "", my_profile_path, class: "fa-solid fa-user fa-xl" %>
       <% end %>
 
       <% if current_page?(my_profile_path) %>
-        <p class="menutext-current">Profile</p>
+        <p class="menutext-current mt-1">Profile</p>
       <% else %>
-        <p>Profile</p>
+        <p class="mt-1">Profile</p>
       <% end %>
     </div>
   </div>
