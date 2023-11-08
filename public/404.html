@@ -1,11 +1,63 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Oops, 404!</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <title>What you were looking for was not found (404)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    .rails-default-error-page {
+      background-color: #FFFFFF;
+      color: #396BEE;
+      text-align: center;
+      font-family: "Press Start 2P", "Helvetica", "sans-serif";
+      margin: 0;
+    }
+
+    .rails-default-error-page div.dialog {
+      width: 95%;
+      max-width: 33em;
+      padding: 10px;
+    }
+
+    .rails-default-error-page div.dialog > div {
+      border-radius: 20px;
+      background-color: #396BEE;
+    }
+
+    .rails-default-error-page h1 {
+      font-size: 100%;
+      color: #ffffff;
+      padding:20px;
+
+    }
+
+    .rails-default-error-page div.dialog > p {
+
+      background-color: #FFFFFF;
+
+    }
+    .rails-default-error-page div img {
+      max-width: 80%;
+      max-height: 80%;
+      margin-bottom: 20px;
+    }
+
+
+    </style>
+
 </head>
 
-<body>
-  <img src="images/404.jpg" alt="404 error">
+<body class="rails-default-error-page">
+  <!-- This file lives in public/500.html -->
+  <div class="dialog">
+    <div>
+      <h1>404 page</h1>
+      <div class="image-container">
+        <img src="/error404pingit.jpg" alt="404 error">
+      </div>
+        <h1>Go back to <a href="https://www.pingit.games">Ping it</a></h1>
+    </div>
+
+  </div>
 </body>
 </html>
