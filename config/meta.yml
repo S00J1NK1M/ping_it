@@ -1,11 +1,7 @@
 # config/meta.yml
 
-meta_product_name: “Product Name”
-
-meta_title: “Product name – Product tagline”
-
-meta_description: “Relevant description”
-
-meta_image: “cover.png” # should exist in `app/assets/images/`
-
+meta_product_name: “Ping it”
+meta_title: “Ping it - Find a pingpong table and play a game with buddies”
+meta_description: “Find a pingpong table and play a game with buddies with Ping it”
+meta_image: “404.jpg” # should exist in `app/assets/images/`
 twitter_account: “@product_twitter_account” # required for Twitter Cards
