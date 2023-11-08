@@ -1,0 +1,7 @@
+# config/meta.yml
+
+meta_product_name: "Ping it"
+meta_title: "Ping it - Find a pingpong table and play a game with buddies"
+meta_description: “Find a pingpong table and play a game with buddies with Ping it"
+meta_image: "og_image.png" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account" # required for Twitter Cards
