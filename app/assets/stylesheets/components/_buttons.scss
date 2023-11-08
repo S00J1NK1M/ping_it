@@ -1,3 +1,15 @@
+.button--start{
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  width: 50px;
+  height: 25px;
+  vertical-align: middle;
+  background-color: $green;
+  color: black;
+}
+
 .button--seemore {
   background-color: $pink;
   color: $white;
