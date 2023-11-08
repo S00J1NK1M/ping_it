@@ -1,86 +1,88 @@
-<div class="container card">
-  <div class="details1 mt-3">
-    <div class="details1_1 mb-2">
-      <div class="button--category center">
-        <%= @pingpong_table.category %>
+<div class="center-card">
+  <div class="card container ">
+    <div class="details1 mt-3">
+      <div class="details1_1 mb-2">
+        <div class="button--category center">
+          <%= @pingpong_table.category %>
+        </div>
+
+        <div class="availability mx-2">
+          <% if @pingpong_table.availability %>
+            <%= image_tag "greenface.png", {height: 20} %> AVAILABLE
+          <% else %>
+            <%= image_tag "redface.png", {height: 20} %> OCCUPIED
+          <% end %>
+        </div>
       </div>
 
-      <div class="availability mx-2">
-        <% if @pingpong_table.availability %>
-          <%= image_tag "greenface.png", {height: 20} %> AVAILABLE
-        <% else %>
-          <%= image_tag "redface.png", {height: 20} %> OCCUPIED
+
+      <div>
+        <%# <%= link_to "", root_path, class: "fa-solid fa-circle-xmark fa-xl", style: "color: #ff00f5;float:right;" %>
+        <%= link_to root_path do %>
+          <%= image_tag "close.png", {height: 20} %>
         <% end %>
       </div>
     </div>
 
 
-    <div>
-      <%# <%= link_to "", root_path, class: "fa-solid fa-circle-xmark fa-xl", style: "color: #ff00f5;float:right;" %>
-      <%= link_to root_path do %>
-        <%= image_tag "close.png", {height: 20} %>
+    <div class="photo-table center">
+      <%= cl_image_tag @pingpong_table.photo.key, height: 150, width: 300, crop: :fill %>
+    </div>
+
+    <div class="name--table mt-3">
+      <h5> <%= @pingpong_table.name %> </h5>
+    </div>
+
+    <div class="address--table">
+      <p class="info-text"><%= image_tag "location.png", {height: 20} %> <%= @pingpong_table.address %></p>
+    </div>
+
+    <div class="description">
+      <p class="info-text"><%= image_tag "note.png", {height: 20} %> <%= @pingpong_table.description %> </p>
+    </div>
+
+    <div class="details--last d-flex justify-content-between">
+    <%# <% if @pingpong_table.liked_by current_user %>
+    <% if  @my_favorite.nil? %>
+      <%= link_to pingpong_table_favorites_path(@pingpong_table), data: {turbo_method: :post}  do %>
+        <%# <i class="fa-regular fa-heart fa-2x" style="color:red"></i> %>
+        <%= image_tag "heart_pixel_white.png", {height: 25} %>
       <% end %>
+
+    <% else %>
+      <%= link_to favorite_path(@my_favorite), data: {turbo_method: :delete}  do %>
+        <%# <i class="fa-solid fa-heart fa-2x" style="color:red"></i> %>
+        <%= image_tag "heart_pixel.png", {height: 25} %>
+      <% end %>
+    <% end %>
+
+    <% if @pingpong_table.availability %>
+      <button class="button--select" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Select
+      </button>
+    <% else %>
+      <%= "" %>
+    <% end %>
     </div>
   </div>
 
 
-  <div class="photo-table center">
-    <%= cl_image_tag @pingpong_table.photo.key, height: 150, width: 300, crop: :fill %>
-  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmation</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+          <p>Do you want to reserve the table now?</p>
+        </div>
+        <div class="details--select center mb-3">
 
-  <div class="name--table mt-3">
-    <h5> <%= @pingpong_table.name %> </h5>
-  </div>
+          <%=link_to "Reserve", pingpong_table_reservations_path(@pingpong_table), data: { turbo_method: "post"}, class: "button--seemore center" %>
 
-  <div class="address--table">
-    <p class="info-text"><%= image_tag "location.png", {height: 20} %> <%= @pingpong_table.address %></p>
-  </div>
-
-  <div class="description">
-    <p class="info-text"><%= image_tag "note.png", {height: 20} %> <%= @pingpong_table.description %> </p>
-  </div>
-
-  <div class="details--last d-flex justify-content-between">
-  <%# <% if @pingpong_table.liked_by current_user %>
-  <% if  @my_favorite.nil? %>
-    <%= link_to pingpong_table_favorites_path(@pingpong_table), data: {turbo_method: :post}  do %>
-      <%# <i class="fa-regular fa-heart fa-2x" style="color:red"></i> %>
-      <%= image_tag "heart_pixel_white.png", {height: 25} %>
-    <% end %>
-
-  <% else %>
-    <%= link_to favorite_path(@my_favorite), data: {turbo_method: :delete}  do %>
-      <%# <i class="fa-solid fa-heart fa-2x" style="color:red"></i> %>
-      <%= image_tag "heart_pixel.png", {height: 25} %>
-    <% end %>
-  <% end %>
-
-  <% if @pingpong_table.availability %>
-    <button class="button--select" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Select
-    </button>
-  <% else %>
-    <%= "" %>
-  <% end %>
-  </div>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmation</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body text-center">
-        <p>Do you want to reserve the table now?</p>
-      </div>
-      <div class="details--select center mb-3">
-
-        <%=link_to "Reserve", pingpong_table_reservations_path(@pingpong_table), data: { turbo_method: "post"}, class: "button--seemore center" %>
-
+        </div>
       </div>
     </div>
   </div>

@@ -86,4 +86,9 @@
   margin: 5px;
 }
 
-
+.center-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* This ensures the card is centered vertically on the screen. */
+}
