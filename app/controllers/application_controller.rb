@@ -12,6 +12,6 @@ class ApplicationController < ActionController::Base
 
   # app/controllers/application_controller.rb
   def default_url_options
-    { host: ENV["https://teampingit-e4eccaa7c967.herokuapp.com/"] || "localhost:3000" }
+    { host: ENV["www.pingit.games"] || "localhost:3000" }
   end
 end
