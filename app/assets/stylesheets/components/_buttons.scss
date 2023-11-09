@@ -3,9 +3,11 @@
   border-style: solid;
   border-width: 1px;
   border-color: black;
-  width: 50px;
-  height: 25px;
-  vertical-align: middle;
+  width: 55px;
+  height: 27px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: $neongreen;
   color: black;
 }
