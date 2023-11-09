@@ -203,7 +203,7 @@ ping_pong_table_6.save!
 
 
 ping_pong_table_7 = PingpongTable.new({
-  name: "Warm and Nice",
+  name: "Warm and nice table",
   address: "Zimmerstraße 54, 10117 Berlin",
   description: "Play in the center of the city!",
   category: "Indoor",
@@ -213,6 +213,7 @@ ping_pong_table_7 = PingpongTable.new({
 file = URI.open("https://plus.unsplash.com/premium_photo-1664298217898-c62231a2e47b?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
 ping_pong_table_7.photo.attach(io: file, filename: "ping7.jpg", content_type: "image/jpg")
 ping_pong_table_7.save!
+
 
 ping_pong_table_8 = PingpongTable.new({
   name: "Brand New Table",
@@ -238,6 +239,7 @@ ping_pong_table_9 = PingpongTable.new({
 file = URI.open("https://images.unsplash.com/photo-1461748659110-16121c049d52?auto=format&fit=crop&q=80&w=2938&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
 ping_pong_table_9.photo.attach(io: file, filename: "ping9.jpg", content_type: "image/jpg")
 ping_pong_table_9.save!
+
 
 ping_pong_table_10 = PingpongTable.new({
   name: "Hip and cool table",
