@@ -228,7 +228,7 @@ ping_pong_table_8.save!
 
 
 ping_pong_table_9 = PingpongTable.new({
-  name: "Clean Indoor Table",
+  name: "Cool and cozy",
   address: "Hobrechtstraße 57, 12047 Berlin",
   description: "There is a baverage vending machine next to the table",
   category: "Indoor",
