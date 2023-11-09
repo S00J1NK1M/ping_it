@@ -115,7 +115,7 @@
 
           <div class="grid mb-2 d-none center justify-content-between" data-favorites-target="togglableElement">
           <% @my_favorite_tables[3..@my_favorite_tables.length].each do |favorite| %>
-            <div>
+            <div class="ms-1">
               <%= link_to pingpong_table_path(favorite.pingpong_table) do %>
               <%= cl_image_tag favorite.pingpong_table.photo.key, :class => 'favoritetable' %>
               <p class="favtables-name center mt-1"><%= favorite.pingpong_table.name %></p>
