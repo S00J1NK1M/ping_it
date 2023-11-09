@@ -341,7 +341,7 @@ match5.photo.attach(io: file, filename: "match5.jpg", content_type: "image/jpg")
 match5.save!
 
 match6 = Match.new({
-  name: "Ultimate Berliner game",
+  name: "Ultimate match",
   match_time: match6_time,
   location: "Möckernstrasse 120, 10963 Berlin",
   equipment: true,
