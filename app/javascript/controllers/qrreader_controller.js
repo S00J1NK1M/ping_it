@@ -20,7 +20,8 @@ export default class extends Controller {
   }
 
   createTag(url){
-      const atag = `<a href=${url.data} class="button--qrconfirm"> Confirm </a>`
+    url = "https://www.pingit.games/playgame"
+    const atag = `<a href=${url} class="button--qrconfirm"> Confirm </a>`
       this.resultTarget.insertAdjacentHTML("beforeend", atag)
 
       this.qrScanner.stop();
