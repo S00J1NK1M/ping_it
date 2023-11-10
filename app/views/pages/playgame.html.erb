@@ -1,0 +1,46 @@
+<div class="card-playtime">
+  <!-- Title -->
+  <div class="container pt-4 pb-2">
+    <h5>Enjoy the game!</h5>
+  </div>
+
+  <!-- countdown timer -->
+  <div class="centered-text m-2 timer" data-controller="gametime" data-gametime-target="timer">60:00</div>
+
+  <!-- countdown bar -->
+  <div class="container">
+    <div class="timerbar">
+      <div id="bar" class="bar" data-controller="timerbar" data-timer-target="timerbar"></div>
+    </div>
+  </div>
+
+  <!-- Animation -->
+  <div class="container center">
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+    <dotlottie-player src="https://lottie.host/1b81ab93-8058-4e9e-8fbf-004a4fae7d26/LN6sTCqN6H.json" background="transparent" speed="1" style="width: 340px; height: 200px;" loop autoplay></dotlottie-player>
+  </div>
+
+  <!-- Stop Playing button -->
+  <div class="container">
+    <button class="button--stopplaying center ms-auto me-auto" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Stop playing
+    </button>
+  </div>
+
+  <!--Modal-->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header", style="background-color:#FF00F5">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmation</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Back"></button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to stop playing?</h\p>
+      </div>
+      <div class="details--seemore center">
+        <%= link_to "Yes, stop", root_path %>
+      </div>
+    </div>
+  </div>
+</div>
